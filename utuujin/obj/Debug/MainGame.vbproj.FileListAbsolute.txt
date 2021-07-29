@@ -1,0 +1,12 @@
+/home/sanakan/g/utuujin/main_game/obj/Debug/MainGame.vbproj.AssemblyReference.cache
+/home/sanakan/g/utuujin/main_game/obj/Debug/MainGame.Resources.resources
+/home/sanakan/g/utuujin/main_game/obj/Debug/MainGame.vbproj.GenerateResource.cache
+/home/sanakan/g/utuujin/main_game/obj/Debug/MainGame.vbproj.CoreCompileInputs.cache
+/home/sanakan/g/utuujin/main_game/bin/Debug/MainGame.exe.config
+/home/sanakan/g/utuujin/main_game/bin/Debug/MainGame.exe
+/home/sanakan/g/utuujin/main_game/bin/Debug/MainGame.pdb
+/home/sanakan/g/utuujin/main_game/bin/Debug/MainGame.xml
+/home/sanakan/g/utuujin/main_game/obj/Debug/MainGame.Form1.resources
+/home/sanakan/g/utuujin/main_game/obj/Debug/MainGame.exe
+/home/sanakan/g/utuujin/main_game/obj/Debug/MainGame.xml
+/home/sanakan/g/utuujin/main_game/obj/Debug/MainGame.pdb

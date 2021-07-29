@@ -1,0 +1,13 @@
+/home/sanakan/g/utuujin/main_game/obj/Debug/utuujin.vbproj.AssemblyReference.cache
+/home/sanakan/g/utuujin/main_game/obj/Debug/utuujin.vbproj.GenerateResource.cache
+/home/sanakan/g/utuujin/main_game/obj/Debug/utuujin.vbproj.CoreCompileInputs.cache
+/home/sanakan/g/utuujin/main_game/obj/Debug/utuujin.MainGame.resources
+/home/sanakan/g/utuujin/main_game/obj/Debug/utuujin.Resources.resources
+/home/sanakan/g/utuujin/main_game/bin/Debug/utuujin.exe.config
+/home/sanakan/g/utuujin/main_game/bin/Debug/utuujin.exe
+/home/sanakan/g/utuujin/main_game/bin/Debug/utuujin.pdb
+/home/sanakan/g/utuujin/main_game/bin/Debug/utuujin.xml
+/home/sanakan/g/utuujin/main_game/obj/Debug/utuujin.exe
+/home/sanakan/g/utuujin/main_game/obj/Debug/utuujin.xml
+/home/sanakan/g/utuujin/main_game/obj/Debug/utuujin.pdb
+/home/sanakan/g/utuujin/main_game/obj/Debug/utuujin.Form1.resources

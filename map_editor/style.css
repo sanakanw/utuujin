@@ -1,0 +1,43 @@
+body {
+	background-color: black;
+}
+
+canvas {
+	border: 1px solid white;
+}
+
+textarea {
+	resize: none;
+	overflow: wrap;
+}
+
+.column {
+	border: 1px solid white;
+	float: left;
+	text-align: center;
+	flex: 1;
+}
+
+.action {
+	width: 100%;
+}
+
+.fill {
+	width: 100%;
+	height: 100%;
+}
+
+.row { 
+	display: flex;
+}
+
+.main {
+	overflow: auto;
+	height: 100%;
+	flex: 1;
+}
+
+.tool {
+	flex: 1;
+};
+
