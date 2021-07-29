@@ -20,18 +20,18 @@ Public Class Video
 		End Get
 	End Property
 
-	Public ReadOnly Property Image_Buffer() As Bitmap
+	Public ReadOnly Property ImageBuffer() As Bitmap
 		Get
 			Return m_bmp
 		End Get
 	End Property
-	
-	Public ReadOnly Property Get_Pixel(x As Integer, y As Integer) As Integer
+
+	Public ReadOnly Property GetPixel(x As Integer, y As Integer) As Integer
 		Get
 			Return m_pixelBuffer(x + y * m_width)
 		End Get
 	End Property
-	
+
 	Public Sub New(width As Integer, height As Integer)
 		m_width = width
 		m_height = height
@@ -42,7 +42,7 @@ Public Class Video
 		ReDim m_pixelBuffer(width * height)
 	End Sub
 
-	Public Sub Put_Pixel(color As Integer, xPos As Integer, yPos As Integer)
+	Public Sub PutPixel(color As Integer, xPos As Integer, yPos As Integer)
 		m_pixelBuffer(xPos + yPos * m_width) = color
 	End Sub
 

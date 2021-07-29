@@ -45,43 +45,43 @@
 	Public Sub LoadLevel(level As GameLevel)
 		Dim levelLoader As LevelLoader = New LevelLoader(m_levelPathName(level))
 
-		Dim mapWidth As Integer = levelLoader.Read_Map_Width()
-		Dim mapHeight As Integer = levelLoader.Read_Map_Height()
+		Dim mapWidth As Integer = levelLoader.ReadMapWidth()
+		Dim mapHeight As Integer = levelLoader.ReadMapHeight()
 
 		m_map.Init(mapWidth, mapHeight)
 
 		For y As Integer = 0 To mapHeight - 1
 			For x As Integer = 0 To mapWidth - 1
-				m_map.Put_Tile(levelLoader.Read_Map_Tile(), x, y)
+				m_map.PutTile(levelLoader.Read_Map_Tile(), x, y)
 			Next
 		Next
 
 		m_entities = New List(Of Entity)
 
-		Dim entityCount As Integer = levelLoader.Read_Entity_Count()
+		Dim entityCount As Integer = levelLoader.ReadEntityCount()
 
 		For i As Integer = 0 To entityCount - 1
-			Dim entity As Entity = levelLoader.Read_Entity()
-			
+			Dim entity As Entity = levelLoader.ReadEntity()
+
 			Select Case entity.State
 				Case Entity.EntityState.ENTITY_PLAYER_FORWARD
-					m_player = New Player(entity, m_collision.Add_Dynamic_Object(entity, 0.8, 0.5))
+					m_player = New Player(entity, m_collision.AddDynamicObject(entity, 0.8, 0.5))
 				Case Entity.EntityState.ENTITY_SLIDE
-					m_collision.Add_Static_Object(entity, 4.2, 0.7)
+					m_collision.AddStaticObject(entity, 4.2, 0.7)
 				Case Entity.EntityState.ENTITY_BOARD
-					m_collision.Add_Static_Object(entity, 2, 0.5)
+					m_collision.AddStaticObject(entity, 2.0, 0.5)
 				Case Entity.EntityState.ENTITY_MAGIC_SQUARE
-					m_collision.Add_Static_Object(entity, 2, 0.5)
+					m_collision.AddStaticObject(entity, 2.0, 0.5)
 			End Select
 			
 			m_entities.Add(entity)
 		Next
 
-		Dim floatingTileCount As Integer = levelLoader.Read_Floating_Tile_Count()
-		
+		Dim floatingTileCount As Integer = levelLoader.ReadFloatingTileCount()
+
 		For i As Integer = 0 To floatingTileCount - 1
-			Dim floatingTile As FloatingTile = levelLoader.Read_Floating_Tile()
-			
+			Dim floatingTile As FloatingTile = levelLoader.ReadFloatingTile()
+
 			m_floatingTiles.Add(floatingTile)
 		Next
 	End Sub

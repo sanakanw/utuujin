@@ -24,7 +24,7 @@ Public Class MainGame
 	
 	Private Sub _ScreenSwap()
 		m_gameScreenGraphics.DrawImage(
-			m_video.Image_Buffer,
+			m_video.ImageBuffer,
 			0,
 			0,
 			m_gameScreen.Width,
@@ -45,9 +45,9 @@ Public Class MainGame
 			m_tickCount = m_tickCount + 1
 		End While
 
-		m_renderState.Render_Map(m_gameState.Map, m_gameState.xView, m_gameState.yView)
-		m_renderState.Render_Entities(m_gameState.Entities, m_gameState.xView, m_gameState.yView)
-		m_renderState.Render_Floating_Tiles(m_gameState.FloatingTiles, m_gameState.xView, m_gameState.yView)
+		m_renderState.RenderMap(m_gameState.Map, m_gameState.xView, m_gameState.yView)
+		m_renderState.RenderEntities(m_gameState.Entities, m_gameState.xView, m_gameState.yView)
+		m_renderState.RenderFloatingTiles(m_gameState.FloatingTiles, m_gameState.xView, m_gameState.yView)
 
 		m_video.Update()
 		_ScreenSwap()

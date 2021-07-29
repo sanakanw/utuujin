@@ -1,10 +1,4 @@
-﻿Public Structure SpriteDef
-	Public xTexCoord As Integer
-	Public yTexCoord As Integer
-	Public texWidth As Integer
-	Public texheight As Integer
-End Structure
-
+﻿
 Public Class SpriteTable
 	
 	Private m_spriteTable() As Sprite
@@ -35,10 +29,10 @@ Public Class SpriteTable
 		
 		m_spriteTable(key) = New Sprite(texWidth, texHeight, pixelBuffer)
 	End Sub
-	
-	Public ReadOnly Property Get_Sprite(key As Integer) As Sprite
+
+	Public ReadOnly Property GetSprite(key As Integer) As Sprite
 		Get
-			return m_spriteTable(key)
+			Return m_spriteTable(key)
 		End Get
 	End Property
 

@@ -2,7 +2,7 @@
 	Private m_levelData() As Integer
 	Private m_filePointer As Integer
 
-	Public ReadOnly Property Read_Map_Width As Integer
+	Public ReadOnly Property ReadMapWidth As Integer
 		Get
 			Dim width As Integer = m_levelData(m_filePointer)
 			m_filePointer = m_filePointer + 1
@@ -11,7 +11,7 @@
 		End Get
 	End Property
 
-	Public ReadOnly Property Read_Map_Height As Integer
+	Public ReadOnly Property ReadMapHeight As Integer
 		Get
 			Dim height As Integer = m_levelData(m_filePointer)
 			m_filePointer = m_filePointer + 1
@@ -29,7 +29,7 @@
 		End Get
 	End Property
 
-	Public ReadOnly Property Read_Entity_Count As Integer
+	Public ReadOnly Property ReadEntityCount As Integer
 		Get
 			Dim entityCount As Integer = m_levelData(m_filePointer)
 			m_filePointer = m_filePointer + 1
@@ -38,7 +38,7 @@
 		End Get
 	End Property
 
-	Public ReadOnly Property Read_Entity As Entity
+	Public ReadOnly Property ReadEntity As Entity
 		Get
 			Dim entityState As Entity.EntityState = m_levelData(m_filePointer)
 			Dim xPos As Single = m_levelData(m_filePointer + 1)
@@ -49,17 +49,17 @@
 			Return New Entity(entityState, xPos, yPos)
 		End Get
 	End Property
-	
-	Public ReadOnly Property Read_Floating_Tile_Count As Integer
+
+	Public ReadOnly Property ReadFloatingTileCount As Integer
 		Get
 			Dim floatingTileCount As Integer = m_levelData(m_filePointer)
 			m_filePointer = m_filePointer + 1
 
-			Return floatingTileCount 
+			Return floatingTileCount
 		End Get
 	End Property
 
-	Public ReadOnly Property Read_Floating_Tile As FloatingTile
+	Public ReadOnly Property ReadFloatingTile As FloatingTile
 		Get
 			Dim floatingTileType As FloatingTileType = m_levelData(m_filePointer)
 			Dim xPos As Single = m_levelData(m_filePointer + 1)
@@ -67,7 +67,7 @@
 
 			m_filePointer = m_filePointer + 3
 
-			Return New FloatingTile With { .tileType = floatingTileType, .xPos = xPos - 1, .yPos = yPos - 1 }
+			Return New FloatingTile With {.tileType = floatingTileType, .xPos = xPos - 1, .yPos = yPos - 1}
 		End Get
 	End Property
 

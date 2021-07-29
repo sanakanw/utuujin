@@ -11,3 +11,16 @@
 /home/sanakan/g/utuujin/main_game/obj/Debug/utuujin.xml
 /home/sanakan/g/utuujin/main_game/obj/Debug/utuujin.pdb
 /home/sanakan/g/utuujin/main_game/obj/Debug/utuujin.Form1.resources
+C:\Users\sanakan\Downloads\utuujin\utuujin\obj\Debug\utuujin.vbproj.AssemblyReference.cache
+C:\Users\sanakan\Downloads\utuujin\utuujin\obj\Debug\utuujin.MainGame.resources
+C:\Users\sanakan\Downloads\utuujin\utuujin\obj\Debug\utuujin.Form1.resources
+C:\Users\sanakan\Downloads\utuujin\utuujin\obj\Debug\utuujin.Resources.resources
+C:\Users\sanakan\Downloads\utuujin\utuujin\obj\Debug\utuujin.vbproj.GenerateResource.cache
+C:\Users\sanakan\Downloads\utuujin\utuujin\obj\Debug\utuujin.vbproj.CoreCompileInputs.cache
+C:\Users\sanakan\Downloads\utuujin\utuujin\obj\Debug\utuujin.exe
+C:\Users\sanakan\Downloads\utuujin\utuujin\obj\Debug\utuujin.xml
+C:\Users\sanakan\Downloads\utuujin\utuujin\obj\Debug\utuujin.pdb
+C:\Users\sanakan\Downloads\utuujin\utuujin\bin\Debug\utuujin.exe.config
+C:\Users\sanakan\Downloads\utuujin\utuujin\bin\Debug\utuujin.exe
+C:\Users\sanakan\Downloads\utuujin\utuujin\bin\Debug\utuujin.pdb
+C:\Users\sanakan\Downloads\utuujin\utuujin\bin\Debug\utuujin.xml

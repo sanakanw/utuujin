@@ -16,13 +16,13 @@
 		End Get
 	End Property
 
-	Public ReadOnly Property Get_Tile(xTileCoord As Integer, yTileCoord As Integer) As Tile
+	Public ReadOnly Property GetTile(xTileCoord As Integer, yTileCoord As Integer) As Tile
 		Get
 			Return m_mapData(xTileCoord + yTileCoord * m_width)
 		End Get
 	End Property
 
-	Public Sub Put_Tile(tile As Tile, xTileCoord As Integer, yTileCoord As Integer)
+	Public Sub PutTile(tile As Tile, xTileCoord As Integer, yTileCoord As Integer)
 		m_mapData(xTileCoord + yTileCoord * m_width) = tile
 	End Sub
 

@@ -3,7 +3,7 @@
 
 	Private m_baseEntity As Entity
 	Private m_baseState As Entity.EntityState
-	Private m_collisionState As Collision.ICollisionState
+	Private m_collisionState As ICollisionState
 
 	Public ReadOnly Property baseEntity
 		Get
@@ -11,7 +11,7 @@
 		End Get
 	End Property
 
-	Public Sub New(baseEntity As Entity, collisionState As Collision.ICollisionState)
+	Public Sub New(baseEntity As Entity, collisionState As ICollisionState)
 		m_baseEntity = baseEntity
 		m_collisionState = collisionState
 
