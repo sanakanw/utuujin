@@ -47,16 +47,20 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -72,6 +76,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameSound.vb" />
     <Compile Include="ICollisionState.vb" />
     <Compile Include="MainGame.vb">
       <SubType>Form</SubType>
@@ -80,16 +85,28 @@
       <DependentUpon>MainGame.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ColorGame.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ColorGame.Designer.vb">
-      <DependentUpon>ColorGame.vb</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="SoundPlayer.vb" />
     <Compile Include="Sprite.vb" />
     <Compile Include="GameLevel.vb" />
+    <Compile Include="SpriteBox.Designer.vb">
+      <DependentUpon>SpriteBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SpriteBox.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="SpriteDef.vb" />
+    <Compile Include="ColorGameScreen.Designer.vb">
+      <DependentUpon>ColorGameScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ColorGameScreen.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainGameScreen.Designer.vb">
+      <DependentUpon>MainGameScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainGameScreen.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserInput.vb" />
     <Compile Include="GameState.vb" />
     <Compile Include="RenderState.vb" />
@@ -123,14 +140,20 @@
     <EmbeddedResource Include="MainGame.resx">
       <DependentUpon>MainGame.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ColorGame.resx">
-      <DependentUpon>ColorGame.vb</DependentUpon>
+    <EmbeddedResource Include="MainGameScreen.resx">
+      <DependentUpon>MainGameScreen.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColorGameScreen.resx">
+      <DependentUpon>ColorGameScreen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpriteBox.resx">
+      <DependentUpon>SpriteBox.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

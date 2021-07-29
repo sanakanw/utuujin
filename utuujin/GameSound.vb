@@ -1,0 +1,5 @@
+﻿Public Enum GameSound
+	SOUND_BUTTON_CLICK
+	SOUND_CORRECT
+	SOUND_ERROR
+End Enum
