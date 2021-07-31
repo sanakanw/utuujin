@@ -19,8 +19,12 @@
 			m_bitmap,
 			0,
 			0,
-			panelSprite.Width + 4,
-			panelSprite.Height + 4)
+			panelSprite.Width + 2,
+			panelSprite.Height + 2)
 		End If
+	End Sub
+
+	Private Sub panelSprite_Click(sender As Object, e As EventArgs) Handles panelSprite.Click
+		Me.OnClick(EventArgs.Empty)
 	End Sub
 End Class

@@ -34,7 +34,7 @@
 		m_entitySprites = New SpriteTable(MAX_SPRITES)
 		m_floatingTileSprites = New SpriteTable(MAX_SPRITES)
 
-		Dim bmp As Bitmap = New Bitmap("Assets/sprite_map.png")
+		Dim bmp As Bitmap = My.Resources.sprite_map
 
 		For i As Integer = 0 To TileDatabase.Size - 1
 			Dim tileData As TileData = TileDatabase.Lookup(i)

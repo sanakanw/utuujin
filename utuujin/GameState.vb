@@ -1,7 +1,7 @@
 ﻿Public Class GameState
-	Private m_levelPathName() As String = {
-		"Assets/park.level",
-		"Assets/shop.level"
+	Private m_levelData()() As Byte = {
+		My.Resources.lvl_park,
+		My.Resources.lvl_shop
 	}
 
 	Private m_map As TileMap
@@ -43,7 +43,7 @@
 	End Sub
 	
 	Public Sub LoadLevel(level As GameLevel)
-		Dim levelLoader As LevelLoader = New LevelLoader(m_levelPathName(level))
+		Dim levelLoader As LevelLoader = New LevelLoader(m_levelData(level))
 
 		Dim mapWidth As Integer = levelLoader.ReadMapWidth()
 		Dim mapHeight As Integer = levelLoader.ReadMapHeight()

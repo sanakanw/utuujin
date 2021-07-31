@@ -22,179 +22,187 @@ Partial Class ColorGameScreen
 	'Do not modify it using the code editor.
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
-		Me.lblOperation = New System.Windows.Forms.TextBox()
-		Me.lblEqual = New System.Windows.Forms.TextBox()
-		Me.btnCheck = New System.Windows.Forms.Button()
-		Me.btnChoiceRed = New System.Windows.Forms.Button()
-		Me.btnChoiceYellow = New System.Windows.Forms.Button()
-		Me.btnChoiceGreen = New System.Windows.Forms.Button()
-		Me.btnChoiceBlue = New System.Windows.Forms.Button()
+		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ColorGameScreen))
 		Me.Panel1 = New System.Windows.Forms.Panel()
-		Me.Panel2 = New System.Windows.Forms.Panel()
-		Me.spriteLeftHandSide = New utuujin.SpriteBox()
+		Me.panelColorBackdrop = New System.Windows.Forms.Panel()
+		Me.btnChoiceRed = New System.Windows.Forms.Button()
+		Me.btnChoiceBlue = New System.Windows.Forms.Button()
+		Me.btnChoiceGreen = New System.Windows.Forms.Button()
+		Me.btnChoiceYellow = New System.Windows.Forms.Button()
+		Me.panelColorGame = New System.Windows.Forms.Panel()
+		Me.spriteCheckButton = New utuujin.SpriteBox()
+		Me.lblEqual = New System.Windows.Forms.Label()
+		Me.lblOperator = New System.Windows.Forms.Label()
+		Me.spriteBackButton = New utuujin.SpriteBox()
 		Me.spriteAnswer = New utuujin.SpriteBox()
 		Me.spriteRightHandSide = New utuujin.SpriteBox()
-		Me.spriteBackground = New utuujin.SpriteBox()
-		Me.btnBack = New System.Windows.Forms.Button()
+		Me.SpriteBox2 = New utuujin.SpriteBox()
+		Me.spriteLeftHandSide = New utuujin.SpriteBox()
 		Me.Panel1.SuspendLayout()
-		Me.Panel2.SuspendLayout()
+		Me.panelColorBackdrop.SuspendLayout()
+		Me.panelColorGame.SuspendLayout()
 		Me.SuspendLayout()
-		'
-		'lblOperation
-		'
-		Me.lblOperation.BackColor = System.Drawing.SystemColors.Control
-		Me.lblOperation.BorderStyle = System.Windows.Forms.BorderStyle.None
-		Me.lblOperation.Enabled = False
-		Me.lblOperation.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.lblOperation.Location = New System.Drawing.Point(125, 39)
-		Me.lblOperation.Margin = New System.Windows.Forms.Padding(2)
-		Me.lblOperation.Multiline = True
-		Me.lblOperation.Name = "lblOperation"
-		Me.lblOperation.Size = New System.Drawing.Size(64, 64)
-		Me.lblOperation.TabIndex = 41
-		Me.lblOperation.Text = "+"
-		Me.lblOperation.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-		'
-		'lblEqual
-		'
-		Me.lblEqual.BackColor = System.Drawing.SystemColors.Control
-		Me.lblEqual.BorderStyle = System.Windows.Forms.BorderStyle.None
-		Me.lblEqual.Enabled = False
-		Me.lblEqual.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.lblEqual.Location = New System.Drawing.Point(309, 39)
-		Me.lblEqual.Margin = New System.Windows.Forms.Padding(2)
-		Me.lblEqual.Multiline = True
-		Me.lblEqual.Name = "lblEqual"
-		Me.lblEqual.Size = New System.Drawing.Size(64, 64)
-		Me.lblEqual.TabIndex = 42
-		Me.lblEqual.Text = "="
-		Me.lblEqual.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-		'
-		'btnCheck
-		'
-		Me.btnCheck.Location = New System.Drawing.Point(460, 75)
-		Me.btnCheck.Margin = New System.Windows.Forms.Padding(2)
-		Me.btnCheck.Name = "btnCheck"
-		Me.btnCheck.Size = New System.Drawing.Size(67, 39)
-		Me.btnCheck.TabIndex = 46
-		Me.btnCheck.Text = "Check"
-		Me.btnCheck.UseVisualStyleBackColor = True
-		'
-		'btnChoiceRed
-		'
-		Me.btnChoiceRed.BackColor = System.Drawing.Color.Red
-		Me.btnChoiceRed.Location = New System.Drawing.Point(190, 282)
-		Me.btnChoiceRed.Margin = New System.Windows.Forms.Padding(2)
-		Me.btnChoiceRed.Name = "btnChoiceRed"
-		Me.btnChoiceRed.Size = New System.Drawing.Size(67, 40)
-		Me.btnChoiceRed.TabIndex = 47
-		Me.btnChoiceRed.UseVisualStyleBackColor = False
-		'
-		'btnChoiceYellow
-		'
-		Me.btnChoiceYellow.BackColor = System.Drawing.Color.Yellow
-		Me.btnChoiceYellow.Location = New System.Drawing.Point(331, 282)
-		Me.btnChoiceYellow.Margin = New System.Windows.Forms.Padding(2)
-		Me.btnChoiceYellow.Name = "btnChoiceYellow"
-		Me.btnChoiceYellow.Size = New System.Drawing.Size(67, 40)
-		Me.btnChoiceYellow.TabIndex = 48
-		Me.btnChoiceYellow.UseVisualStyleBackColor = False
-		'
-		'btnChoiceGreen
-		'
-		Me.btnChoiceGreen.BackColor = System.Drawing.Color.Lime
-		Me.btnChoiceGreen.Location = New System.Drawing.Point(460, 282)
-		Me.btnChoiceGreen.Margin = New System.Windows.Forms.Padding(2)
-		Me.btnChoiceGreen.Name = "btnChoiceGreen"
-		Me.btnChoiceGreen.Size = New System.Drawing.Size(67, 40)
-		Me.btnChoiceGreen.TabIndex = 49
-		Me.btnChoiceGreen.UseVisualStyleBackColor = False
-		'
-		'btnChoiceBlue
-		'
-		Me.btnChoiceBlue.BackColor = System.Drawing.Color.Blue
-		Me.btnChoiceBlue.Location = New System.Drawing.Point(54, 282)
-		Me.btnChoiceBlue.Margin = New System.Windows.Forms.Padding(2)
-		Me.btnChoiceBlue.Name = "btnChoiceBlue"
-		Me.btnChoiceBlue.Size = New System.Drawing.Size(67, 40)
-		Me.btnChoiceBlue.TabIndex = 50
-		Me.btnChoiceBlue.UseVisualStyleBackColor = False
 		'
 		'Panel1
 		'
 		Me.Panel1.BackColor = System.Drawing.Color.Transparent
-		Me.Panel1.Controls.Add(Me.btnBack)
-		Me.Panel1.Controls.Add(Me.Panel2)
-		Me.Panel1.Controls.Add(Me.btnChoiceBlue)
-		Me.Panel1.Controls.Add(Me.btnChoiceGreen)
-		Me.Panel1.Controls.Add(Me.btnChoiceYellow)
-		Me.Panel1.Controls.Add(Me.btnChoiceRed)
-		Me.Panel1.Controls.Add(Me.btnCheck)
-		Me.Panel1.Controls.Add(Me.spriteBackground)
+		Me.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+		Me.Panel1.Controls.Add(Me.panelColorBackdrop)
+		Me.Panel1.Controls.Add(Me.panelColorGame)
 		Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.Panel1.Location = New System.Drawing.Point(0, 0)
 		Me.Panel1.Name = "Panel1"
 		Me.Panel1.Size = New System.Drawing.Size(600, 400)
 		Me.Panel1.TabIndex = 0
 		'
-		'Panel2
+		'panelColorBackdrop
 		'
-		Me.Panel2.Controls.Add(Me.spriteLeftHandSide)
-		Me.Panel2.Controls.Add(Me.spriteAnswer)
-		Me.Panel2.Controls.Add(Me.lblOperation)
-		Me.Panel2.Controls.Add(Me.spriteRightHandSide)
-		Me.Panel2.Controls.Add(Me.lblEqual)
-		Me.Panel2.Location = New System.Drawing.Point(54, 134)
-		Me.Panel2.Name = "Panel2"
-		Me.Panel2.Size = New System.Drawing.Size(473, 119)
-		Me.Panel2.TabIndex = 55
+		Me.panelColorBackdrop.BackgroundImage = Global.utuujin.My.Resources.Resources.png_btn_shape_backdrop
+		Me.panelColorBackdrop.Controls.Add(Me.btnChoiceRed)
+		Me.panelColorBackdrop.Controls.Add(Me.btnChoiceBlue)
+		Me.panelColorBackdrop.Controls.Add(Me.btnChoiceGreen)
+		Me.panelColorBackdrop.Controls.Add(Me.btnChoiceYellow)
+		Me.panelColorBackdrop.Location = New System.Drawing.Point(0, 300)
+		Me.panelColorBackdrop.Name = "panelColorBackdrop"
+		Me.panelColorBackdrop.Size = New System.Drawing.Size(600, 100)
+		Me.panelColorBackdrop.TabIndex = 58
 		'
-		'spriteLeftHandSide
+		'btnChoiceRed
 		'
-		Me.spriteLeftHandSide.BackColor = System.Drawing.SystemColors.Control
-		Me.spriteLeftHandSide.ForeColor = System.Drawing.SystemColors.ControlText
-		Me.spriteLeftHandSide.Location = New System.Drawing.Point(21, 7)
-		Me.spriteLeftHandSide.Name = "spriteLeftHandSide"
-		Me.spriteLeftHandSide.Size = New System.Drawing.Size(96, 96)
-		Me.spriteLeftHandSide.TabIndex = 52
+		Me.btnChoiceRed.BackColor = System.Drawing.Color.Red
+		Me.btnChoiceRed.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnChoiceRed.Location = New System.Drawing.Point(209, 29)
+		Me.btnChoiceRed.Margin = New System.Windows.Forms.Padding(2)
+		Me.btnChoiceRed.Name = "btnChoiceRed"
+		Me.btnChoiceRed.Size = New System.Drawing.Size(67, 40)
+		Me.btnChoiceRed.TabIndex = 47
+		Me.btnChoiceRed.UseVisualStyleBackColor = False
+		'
+		'btnChoiceBlue
+		'
+		Me.btnChoiceBlue.BackColor = System.Drawing.Color.Blue
+		Me.btnChoiceBlue.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnChoiceBlue.Location = New System.Drawing.Point(74, 29)
+		Me.btnChoiceBlue.Margin = New System.Windows.Forms.Padding(2)
+		Me.btnChoiceBlue.Name = "btnChoiceBlue"
+		Me.btnChoiceBlue.Size = New System.Drawing.Size(67, 40)
+		Me.btnChoiceBlue.TabIndex = 50
+		Me.btnChoiceBlue.UseVisualStyleBackColor = False
+		'
+		'btnChoiceGreen
+		'
+		Me.btnChoiceGreen.BackColor = System.Drawing.Color.Lime
+		Me.btnChoiceGreen.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnChoiceGreen.Location = New System.Drawing.Point(480, 29)
+		Me.btnChoiceGreen.Margin = New System.Windows.Forms.Padding(2)
+		Me.btnChoiceGreen.Name = "btnChoiceGreen"
+		Me.btnChoiceGreen.Size = New System.Drawing.Size(67, 40)
+		Me.btnChoiceGreen.TabIndex = 49
+		Me.btnChoiceGreen.UseVisualStyleBackColor = False
+		'
+		'btnChoiceYellow
+		'
+		Me.btnChoiceYellow.BackColor = System.Drawing.Color.Yellow
+		Me.btnChoiceYellow.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnChoiceYellow.Location = New System.Drawing.Point(349, 29)
+		Me.btnChoiceYellow.Margin = New System.Windows.Forms.Padding(2)
+		Me.btnChoiceYellow.Name = "btnChoiceYellow"
+		Me.btnChoiceYellow.Size = New System.Drawing.Size(67, 40)
+		Me.btnChoiceYellow.TabIndex = 48
+		Me.btnChoiceYellow.UseVisualStyleBackColor = False
+		'
+		'panelColorGame
+		'
+		Me.panelColorGame.BackgroundImage = CType(resources.GetObject("panelColorGame.BackgroundImage"), System.Drawing.Image)
+		Me.panelColorGame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+		Me.panelColorGame.Controls.Add(Me.spriteCheckButton)
+		Me.panelColorGame.Controls.Add(Me.lblEqual)
+		Me.panelColorGame.Controls.Add(Me.lblOperator)
+		Me.panelColorGame.Controls.Add(Me.spriteBackButton)
+		Me.panelColorGame.Controls.Add(Me.spriteAnswer)
+		Me.panelColorGame.Controls.Add(Me.spriteRightHandSide)
+		Me.panelColorGame.Controls.Add(Me.SpriteBox2)
+		Me.panelColorGame.Controls.Add(Me.spriteLeftHandSide)
+		Me.panelColorGame.Location = New System.Drawing.Point(0, 0)
+		Me.panelColorGame.Name = "panelColorGame"
+		Me.panelColorGame.Size = New System.Drawing.Size(600, 300)
+		Me.panelColorGame.TabIndex = 57
+		'
+		'spriteCheckButton
+		'
+		Me.spriteCheckButton.BackColor = System.Drawing.Color.Transparent
+		Me.spriteCheckButton.ForeColor = System.Drawing.SystemColors.ControlText
+		Me.spriteCheckButton.Location = New System.Drawing.Point(483, 145)
+		Me.spriteCheckButton.Name = "spriteCheckButton"
+		Me.spriteCheckButton.Size = New System.Drawing.Size(64, 64)
+		Me.spriteCheckButton.TabIndex = 6
+		'
+		'lblEqual
+		'
+		Me.lblEqual.AutoSize = True
+		Me.lblEqual.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblEqual.ForeColor = System.Drawing.Color.White
+		Me.lblEqual.Location = New System.Drawing.Point(302, 145)
+		Me.lblEqual.Name = "lblEqual"
+		Me.lblEqual.Size = New System.Drawing.Size(52, 55)
+		Me.lblEqual.TabIndex = 5
+		Me.lblEqual.Text = "="
+		'
+		'lblOperator
+		'
+		Me.lblOperator.AutoSize = True
+		Me.lblOperator.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblOperator.ForeColor = System.Drawing.Color.White
+		Me.lblOperator.Location = New System.Drawing.Point(174, 145)
+		Me.lblOperator.Name = "lblOperator"
+		Me.lblOperator.Size = New System.Drawing.Size(52, 55)
+		Me.lblOperator.TabIndex = 4
+		Me.lblOperator.Text = "+"
+		'
+		'spriteBackButton
+		'
+		Me.spriteBackButton.BackColor = System.Drawing.Color.Transparent
+		Me.spriteBackButton.ForeColor = System.Drawing.SystemColors.ControlText
+		Me.spriteBackButton.Location = New System.Drawing.Point(21, 18)
+		Me.spriteBackButton.Name = "spriteBackButton"
+		Me.spriteBackButton.Size = New System.Drawing.Size(64, 64)
+		Me.spriteBackButton.TabIndex = 3
 		'
 		'spriteAnswer
 		'
-		Me.spriteAnswer.BackColor = System.Drawing.SystemColors.Control
+		Me.spriteAnswer.BackColor = System.Drawing.Color.Transparent
 		Me.spriteAnswer.ForeColor = System.Drawing.SystemColors.ControlText
-		Me.spriteAnswer.Location = New System.Drawing.Point(364, 7)
+		Me.spriteAnswer.Location = New System.Drawing.Point(360, 145)
 		Me.spriteAnswer.Name = "spriteAnswer"
-		Me.spriteAnswer.Size = New System.Drawing.Size(96, 96)
-		Me.spriteAnswer.TabIndex = 53
+		Me.spriteAnswer.Size = New System.Drawing.Size(64, 64)
+		Me.spriteAnswer.TabIndex = 2
 		'
 		'spriteRightHandSide
 		'
-		Me.spriteRightHandSide.BackColor = System.Drawing.SystemColors.Control
+		Me.spriteRightHandSide.BackColor = System.Drawing.Color.Transparent
 		Me.spriteRightHandSide.ForeColor = System.Drawing.SystemColors.ControlText
-		Me.spriteRightHandSide.Location = New System.Drawing.Point(194, 7)
+		Me.spriteRightHandSide.Location = New System.Drawing.Point(232, 145)
 		Me.spriteRightHandSide.Name = "spriteRightHandSide"
-		Me.spriteRightHandSide.Size = New System.Drawing.Size(96, 96)
-		Me.spriteRightHandSide.TabIndex = 51
+		Me.spriteRightHandSide.Size = New System.Drawing.Size(64, 64)
+		Me.spriteRightHandSide.TabIndex = 1
 		'
-		'spriteBackground
+		'SpriteBox2
 		'
-		Me.spriteBackground.BackColor = System.Drawing.Color.Magenta
-		Me.spriteBackground.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.spriteBackground.ForeColor = System.Drawing.SystemColors.ControlText
-		Me.spriteBackground.Location = New System.Drawing.Point(0, 0)
-		Me.spriteBackground.Name = "spriteBackground"
-		Me.spriteBackground.Size = New System.Drawing.Size(600, 400)
-		Me.spriteBackground.TabIndex = 54
+		Me.SpriteBox2.BackColor = System.Drawing.Color.Transparent
+		Me.SpriteBox2.ForeColor = System.Drawing.SystemColors.ControlText
+		Me.SpriteBox2.Location = New System.Drawing.Point(238, 162)
+		Me.SpriteBox2.Name = "SpriteBox2"
+		Me.SpriteBox2.Size = New System.Drawing.Size(64, 64)
+		Me.SpriteBox2.TabIndex = 1
 		'
-		'btnBack
+		'spriteLeftHandSide
 		'
-		Me.btnBack.Location = New System.Drawing.Point(20, 20)
-		Me.btnBack.Margin = New System.Windows.Forms.Padding(2)
-		Me.btnBack.Name = "btnBack"
-		Me.btnBack.Size = New System.Drawing.Size(67, 39)
-		Me.btnBack.TabIndex = 56
-		Me.btnBack.Text = "Back"
-		Me.btnBack.UseVisualStyleBackColor = True
+		Me.spriteLeftHandSide.BackColor = System.Drawing.Color.Transparent
+		Me.spriteLeftHandSide.ForeColor = System.Drawing.SystemColors.ControlText
+		Me.spriteLeftHandSide.Location = New System.Drawing.Point(104, 145)
+		Me.spriteLeftHandSide.Name = "spriteLeftHandSide"
+		Me.spriteLeftHandSide.Size = New System.Drawing.Size(64, 64)
+		Me.spriteLeftHandSide.TabIndex = 0
 		'
 		'ColorGameScreen
 		'
@@ -204,24 +212,26 @@ Partial Class ColorGameScreen
 		Me.Name = "ColorGameScreen"
 		Me.Size = New System.Drawing.Size(600, 400)
 		Me.Panel1.ResumeLayout(False)
-		Me.Panel2.ResumeLayout(False)
-		Me.Panel2.PerformLayout()
+		Me.panelColorBackdrop.ResumeLayout(False)
+		Me.panelColorGame.ResumeLayout(False)
+		Me.panelColorGame.PerformLayout()
 		Me.ResumeLayout(False)
 
 	End Sub
 
-	Friend WithEvents lblOperation As TextBox
-	Friend WithEvents lblEqual As TextBox
-	Friend WithEvents btnCheck As Button
 	Friend WithEvents btnChoiceRed As Button
 	Friend WithEvents btnChoiceYellow As Button
 	Friend WithEvents btnChoiceGreen As Button
 	Friend WithEvents btnChoiceBlue As Button
-	Friend WithEvents spriteRightHandSide As SpriteBox
-	Friend WithEvents spriteLeftHandSide As SpriteBox
-	Friend WithEvents spriteAnswer As SpriteBox
+	Friend WithEvents panelColorGame As Panel
 	Friend WithEvents Panel1 As Panel
-	Friend WithEvents spriteBackground As SpriteBox
-	Friend WithEvents Panel2 As Panel
-	Friend WithEvents btnBack As Button
+	Friend WithEvents panelColorBackdrop As Panel
+	Friend WithEvents spriteLeftHandSide As SpriteBox
+	Friend WithEvents spriteRightHandSide As SpriteBox
+	Friend WithEvents SpriteBox2 As SpriteBox
+	Friend WithEvents spriteAnswer As SpriteBox
+	Friend WithEvents spriteBackButton As SpriteBox
+	Friend WithEvents lblOperator As Label
+	Friend WithEvents lblEqual As Label
+	Friend WithEvents spriteCheckButton As SpriteBox
 End Class

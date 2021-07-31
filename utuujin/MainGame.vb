@@ -3,6 +3,11 @@ Public Class MainGame
 	Public Enum GameEvent
 		LOAD_GAME_MAIN
 		LOAD_GAME_COLOR
+		LOAD_GAME_CLIMBING
+		LOAD_GAME_REGISTER
+		LOAD_GAME_WORD_CONNECT
+		LOAD_GAME_CIPHER
+		LOAD_GAME_MAGIC_SQUARE
 	End Enum
 	
 	Private m_deltaTime As Double
@@ -18,7 +23,7 @@ Public Class MainGame
 	Private m_gameState As GameState
 	Private m_renderState As RenderState
 
-	Private m_soundPlayer As SoundPlayer
+	Private m_soundPlayer As GameSoundPlayer
 	Private m_video As Video
 
 	Private m_stopwatch As Stopwatch
@@ -41,7 +46,7 @@ Public Class MainGame
 		m_stopwatch = New Stopwatch()
 
 		m_video = New Video(Settings.VIDEO_WIDTH, Settings.VIDEO_HEIGHT)
-		m_soundPlayer = New SoundPlayer()
+		m_soundPlayer = New GameSoundPlayer()
 
 		m_userInput = New UserInput()
 		m_gameState = New GameState()
@@ -54,9 +59,24 @@ Public Class MainGame
 
 	Public Sub PostEvent(gameEvent As GameEvent)
 		Select Case gameEvent
+			Case GameEvent.LOAD_GAME_CLIMBING
+				mainGameScreen.Hide()
+				climbingGameScreen.Show()
 			Case GameEvent.LOAD_GAME_COLOR
 				mainGameScreen.Hide()
 				colorGameScreen.Show()
+			Case GameEvent.LOAD_GAME_REGISTER
+				cashRegisterScreen.Show()
+				mainGameScreen.Hide()
+			Case GameEvent.LOAD_GAME_WORD_CONNECT
+				wordGameScreen.Show()
+				mainGameScreen.Hide()
+			Case GameEvent.LOAD_GAME_CIPHER
+				cipherGameScreen.Show()
+				mainGameScreen.Hide()
+			Case GameEvent.LOAD_GAME_MAGIC_SQUARE
+				magicSquareScreen.Show()
+				mainGameScreen.Hide()
 			Case GameEvent.LOAD_GAME_MAIN
 				colorGameScreen.Hide()
 				mainGameScreen.Show()

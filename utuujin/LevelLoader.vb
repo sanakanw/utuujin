@@ -71,15 +71,15 @@
 		End Get
 	End Property
 
-	Public Sub New(pathName As String)
-		Dim fileData() As String
-		fileData = System.IO.File.ReadAllText(pathName).Split(" "c)
+	Public Sub New(fileData() As Byte)
+		Dim levelData() As String
+		levelData = System.Text.Encoding.ASCII.GetString(fileData).Split(" "c)
 
-		ReDim m_levelData(fileData.Length)
+		ReDim m_levelData(levelData.Length)
 
-		For i As Integer = 0 To fileData.Length - 1
-			If fileData(i).Trim().Length > 0 Then
-				m_levelData(i) = Convert.ToInt32(fileData(i))
+		For i As Integer = 0 To levelData.Length - 1
+			If levelData(i).Trim().Length > 0 Then
+				m_levelData(i) = Convert.ToInt32(levelData(i))
 			End If
 		Next
 

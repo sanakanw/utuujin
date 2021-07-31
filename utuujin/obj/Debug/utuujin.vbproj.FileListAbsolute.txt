@@ -26,3 +26,8 @@ C:\Users\sanakan\Downloads\utuujin\utuujin\bin\Debug\utuujin.xml
 C:\Users\sanakan\Downloads\utuujin\utuujin\obj\Debug\utuujin.MainGameScreen.resources
 C:\Users\sanakan\Downloads\utuujin\utuujin\obj\Debug\utuujin.ColorGameScreen.resources
 C:\Users\sanakan\Downloads\utuujin\utuujin\obj\Debug\utuujin.SpriteBox.resources
+C:\Users\sanakan\Downloads\utuujin\utuujin\obj\Debug\utuujin.ClimbingGameScreen.resources
+C:\Users\sanakan\Downloads\utuujin\utuujin\obj\Debug\utuujin.CashRegisterScreen.resources
+C:\Users\sanakan\Downloads\utuujin\utuujin\obj\Debug\utuujin.WordGameScreen.resources
+C:\Users\sanakan\Downloads\utuujin\utuujin\obj\Debug\utuujin.CipherGameScreen.resources
+C:\Users\sanakan\Downloads\utuujin\utuujin\obj\Debug\utuujin.MagicSquareScreen.resources

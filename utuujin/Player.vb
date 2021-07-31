@@ -30,11 +30,16 @@
 		If (moveX <> 0 Or moveY <> 0) And Not m_collisionState.isCollide Then
 			animFrame = 1 - ((currentTick Mod 30) > 15)
 		End If
-		
-		If m_collisionState.isCollide Then
-			If m_collisionState.entityCollide.state = Entity.EntityState.ENTITY_BOARD And userInput.Interact() Then
-				MainGame.PostEvent(MainGame.GameEvent.LOAD_GAME_COLOR)
-			End If
+
+		If m_collisionState.isCollide And userInput.Interact() Then
+			Select Case m_collisionState.entityCollide.state
+				Case Entity.EntityState.ENTITY_SLIDE
+					MainGame.PostEvent(MainGame.GameEvent.LOAD_GAME_CLIMBING)
+				Case Entity.EntityState.ENTITY_BOARD
+					MainGame.PostEvent(MainGame.GameEvent.LOAD_GAME_WORD_CONNECT)
+				Case Entity.EntityState.ENTITY_MAGIC_SQUARE
+					MainGame.PostEvent(MainGame.GameEvent.LOAD_GAME_MAGIC_SQUARE)
+			End Select
 		End If
 
 		If moveY < 0 Then

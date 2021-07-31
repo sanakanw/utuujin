@@ -76,7 +76,20 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CashRegisterScreen.Designer.vb">
+      <DependentUpon>CashRegisterScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CashRegisterScreen.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ClimbingGameScreen.Designer.vb">
+      <DependentUpon>ClimbingGameScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ClimbingGameScreen.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="GameSound.vb" />
+    <Compile Include="GlobalRandom.vb" />
     <Compile Include="ICollisionState.vb" />
     <Compile Include="MainGame.vb">
       <SubType>Form</SubType>
@@ -85,7 +98,24 @@
       <DependentUpon>MainGame.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SoundPlayer.vb" />
+    <Compile Include="GameSoundPlayer.vb" />
+    <Compile Include="CipherGameScreen.Designer.vb">
+      <DependentUpon>CipherGameScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CipherGameScreen.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MagicSquareScreen.Designer.vb">
+      <DependentUpon>MagicSquareScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MagicSquareScreen.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Sprite.vb" />
     <Compile Include="GameLevel.vb" />
     <Compile Include="SpriteBox.Designer.vb">
@@ -125,35 +155,51 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
-    <Compile Include="My Project\Resources.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="My Project\Settings.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="WordGameScreen.Designer.vb">
+      <DependentUpon>WordGameScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="WordGameScreen.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CashRegisterScreen.resx">
+      <DependentUpon>CashRegisterScreen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClimbingGameScreen.resx">
+      <DependentUpon>ClimbingGameScreen.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainGame.resx">
       <DependentUpon>MainGame.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainGameScreen.resx">
       <DependentUpon>MainGameScreen.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CipherGameScreen.resx">
+      <DependentUpon>CipherGameScreen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MagicSquareScreen.resx">
+      <DependentUpon>MagicSquareScreen.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ColorGameScreen.resx">
       <DependentUpon>ColorGameScreen.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SpriteBox.resx">
       <DependentUpon>SpriteBox.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WordGameScreen.resx">
+      <DependentUpon>WordGameScreen.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -167,6 +213,141 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="Resources\park.level" />
+    <None Include="Resources\pixel_perfect.ttf" />
+    <None Include="Resources\shop.level" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sprite_map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Assets\sprite_map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Assets\bg_color_game.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg_color_game.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_click.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\correct.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png_btn_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png_paint_bucket.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png_btn_check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png_climbing_game_backdrop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png_btn_circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png_btn_diamond.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png_btn_square.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png_btn_triangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png_shape_circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png_shape_diamond.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png_shape_square.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png_shape_triangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png_btn_shape_backdrop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png_cash_register_backdrop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png_charset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\charset\num_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\charset\num_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\charset\num_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\charset\num_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\charset\num_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\charset\num_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\charset\num_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\charset\num_7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\charset\num_8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\charset\num_9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png_item_battery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png_item_crowbar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png_item_hammer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png_item_nail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png_item_screwdriver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png_item_wrench.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg_space.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png_star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg_parchment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png_btn_shift_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png_btn_shift_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg_magic_square.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

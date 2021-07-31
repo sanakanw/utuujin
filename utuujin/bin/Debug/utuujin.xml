@@ -22,5 +22,175 @@ utuujin
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="P:utuujin.My.Resources.Resources.bg_color_game">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.bg_magic_square">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.bg_parchment">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.bg_space">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.lvl_park">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.lvl_shop">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.png_btn_back">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.png_btn_check">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.png_btn_circle">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.png_btn_diamond">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.png_btn_shape_backdrop">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.png_btn_shift_left">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.png_btn_shift_right">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.png_btn_square">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.png_btn_triangle">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.png_cash_register_backdrop">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.png_climbing_game_backdrop">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.png_item_battery">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.png_item_crowbar">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.png_item_hammer">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.png_item_nail">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.png_item_screwdriver">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.png_item_wrench">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.png_paint_bucket">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.png_shape_circle">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.png_shape_diamond">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.png_shape_square">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.png_shape_triangle">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.png_star">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.snd_button_click">
+<summary>
+  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.snd_correct">
+<summary>
+  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.snd_error">
+<summary>
+  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.sprite_map">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.ttf_pixel_perfect">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
 </members>
 </doc>
