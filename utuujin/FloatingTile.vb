@@ -18,7 +18,8 @@ Public Class FloatingTileDatabase
 		New SpriteDef With { .xTexCoord = 07, .yTexCoord = 01, .texWidth = 01, .texHeight = 01 }, ' FLOATING_TILE_VOID
 		New SpriteDef With { .xTexCoord = 08, .yTexCoord = 00, .texWidth = 01, .texHeight = 01 }, ' FLOATING_TILE_HALF_VOID
 		New SpriteDef With { .xTexCoord = 06, .yTexCoord = 02, .texWidth = 01, .texHeight = 01 }, ' FLOATING_TILE_SHOP_0
-		New SpriteDef With { .xTexCoord = 11, .yTexCoord = 00, .texWidth = 01, .texHeight = 01 }  ' FLOATING_TILE_SHOP_1
+		New SpriteDef With { .xTexCoord = 11, .yTexCoord = 00, .texWidth = 01, .texHeight = 01 }, ' FLOATING_TILE_SHOP_1
+		New SpriteDef With { .xTexCoord = 04, .yTexCoord = 12, .texWidth = 01, .texHeight = 01 }  ' FLOATING_TILE_SEWER_WALL
 	}
 	
 	Public Shared ReadOnly Property Size

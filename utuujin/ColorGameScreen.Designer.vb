@@ -30,9 +30,9 @@ Partial Class ColorGameScreen
 		Me.btnChoiceGreen = New System.Windows.Forms.Button()
 		Me.btnChoiceYellow = New System.Windows.Forms.Button()
 		Me.panelColorGame = New System.Windows.Forms.Panel()
-		Me.spriteCheckButton = New utuujin.SpriteBox()
 		Me.lblEqual = New System.Windows.Forms.Label()
 		Me.lblOperator = New System.Windows.Forms.Label()
+		Me.spriteCheckButton = New utuujin.SpriteBox()
 		Me.spriteBackButton = New utuujin.SpriteBox()
 		Me.spriteAnswer = New utuujin.SpriteBox()
 		Me.spriteRightHandSide = New utuujin.SpriteBox()
@@ -128,15 +128,6 @@ Partial Class ColorGameScreen
 		Me.panelColorGame.Size = New System.Drawing.Size(600, 300)
 		Me.panelColorGame.TabIndex = 57
 		'
-		'spriteCheckButton
-		'
-		Me.spriteCheckButton.BackColor = System.Drawing.Color.Transparent
-		Me.spriteCheckButton.ForeColor = System.Drawing.SystemColors.ControlText
-		Me.spriteCheckButton.Location = New System.Drawing.Point(483, 145)
-		Me.spriteCheckButton.Name = "spriteCheckButton"
-		Me.spriteCheckButton.Size = New System.Drawing.Size(64, 64)
-		Me.spriteCheckButton.TabIndex = 6
-		'
 		'lblEqual
 		'
 		Me.lblEqual.AutoSize = True
@@ -158,6 +149,15 @@ Partial Class ColorGameScreen
 		Me.lblOperator.Size = New System.Drawing.Size(52, 55)
 		Me.lblOperator.TabIndex = 4
 		Me.lblOperator.Text = "+"
+		'
+		'spriteCheckButton
+		'
+		Me.spriteCheckButton.BackColor = System.Drawing.Color.Transparent
+		Me.spriteCheckButton.ForeColor = System.Drawing.SystemColors.ControlText
+		Me.spriteCheckButton.Location = New System.Drawing.Point(483, 145)
+		Me.spriteCheckButton.Name = "spriteCheckButton"
+		Me.spriteCheckButton.Size = New System.Drawing.Size(64, 64)
+		Me.spriteCheckButton.TabIndex = 6
 		'
 		'spriteBackButton
 		'

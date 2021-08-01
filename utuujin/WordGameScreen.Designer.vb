@@ -41,6 +41,7 @@ Partial Class WordGameScreen
 		Me.lblLetter3 = New System.Windows.Forms.Label()
 		Me.lblLetter2 = New System.Windows.Forms.Label()
 		Me.lblLetter1 = New System.Windows.Forms.Label()
+		Me.sprBtnBack = New utuujin.SpriteBox()
 		Me.panelSentence.SuspendLayout()
 		Me.panelLetterConnect.SuspendLayout()
 		Me.SuspendLayout()
@@ -70,6 +71,7 @@ Partial Class WordGameScreen
 		'
 		Me.panelLetterConnect.BackgroundImage = Global.utuujin.My.Resources.Resources.bg_space
 		Me.panelLetterConnect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+		Me.panelLetterConnect.Controls.Add(Me.sprBtnBack)
 		Me.panelLetterConnect.Controls.Add(Me.lblLetter16)
 		Me.panelLetterConnect.Controls.Add(Me.lblLetter14)
 		Me.panelLetterConnect.Controls.Add(Me.lblLetter13)
@@ -292,12 +294,21 @@ Partial Class WordGameScreen
 		Me.lblLetter1.BackColor = System.Drawing.Color.Transparent
 		Me.lblLetter1.Font = New System.Drawing.Font("Segoe Script", 15.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
 		Me.lblLetter1.ForeColor = System.Drawing.Color.Snow
-		Me.lblLetter1.Location = New System.Drawing.Point(48, 43)
+		Me.lblLetter1.Location = New System.Drawing.Point(91, 97)
 		Me.lblLetter1.Name = "lblLetter1"
 		Me.lblLetter1.Size = New System.Drawing.Size(29, 33)
 		Me.lblLetter1.TabIndex = 2
 		Me.lblLetter1.Text = "T"
 		Me.lblLetter1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'sprBtnBack
+		'
+		Me.sprBtnBack.BackColor = System.Drawing.Color.Transparent
+		Me.sprBtnBack.ForeColor = System.Drawing.SystemColors.ControlText
+		Me.sprBtnBack.Location = New System.Drawing.Point(13, 10)
+		Me.sprBtnBack.Name = "sprBtnBack"
+		Me.sprBtnBack.Size = New System.Drawing.Size(64, 64)
+		Me.sprBtnBack.TabIndex = 18
 		'
 		'WordGameScreen
 		'
@@ -333,4 +344,5 @@ Partial Class WordGameScreen
 	Friend WithEvents lblLetter7 As Label
 	Friend WithEvents lblLetter6 As Label
 	Friend WithEvents lblLetter5 As Label
+	Friend WithEvents sprBtnBack As SpriteBox
 End Class

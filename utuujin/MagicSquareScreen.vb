@@ -6,7 +6,20 @@
 	Dim m_numGrid(3, 3) As Integer
 
 	Private Sub MagicSquareScreen_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		_MagicSquareInit()
+		_MagicSquareLoad()
+	End Sub
+
+	Private Sub MagicSquareScreen_VisibleChanged(sender As Object, e As EventArgs) Handles MyBase.VisibleChanged
+		If Me.Visible = True Then
+			_MagicSquareLoad()
+		End If
+	End Sub
+
+	Private Sub _MagicSquareInit()
+
 		sprBtnCheck.SetBitmap(My.Resources.png_btn_check)
+		sprBtnBack.SetBitmap(My.Resources.png_btn_back)
 
 		m_resultCol(0) = lblResultCol1
 		m_resultCol(1) = lblResultCol2
@@ -27,12 +40,14 @@
 		m_btnGrid(2, 0) = lblGrid31
 		m_btnGrid(2, 1) = lblGrid32
 		m_btnGrid(2, 2) = lblGrid33
+	End Sub
 
+	Private Sub _MagicSquareLoad()
 		_UpdateGrid()
 	End Sub
 
 	Private Sub sprBtnCheck_Click(sender As Object, e As EventArgs) Handles sprBtnCheck.Click
-		MainGame.PlaySound(GameSound.SOUND_BUTTON_CLICK)
+		GameSoundPlayer.Play(GameSound.SOUND_BUTTON_CLICK)
 
 		Dim isValid As Boolean = True
 
@@ -65,9 +80,9 @@
 		Next
 
 		If isValid Then
-
+			MainGame.PostEvent(GameEvent.EVENT_MAGIC_SQUARE_COMPLETE)
 		Else
-			MainGame.PlaySound(GameSound.SOUND_ERROR)
+			GameSoundPlayer.Play(GameSound.SOUND_ERROR)
 		End If
 	End Sub
 
@@ -82,7 +97,7 @@
 	Private Sub _GridClick(xPos As Integer, yPos As Integer)
 		m_numGrid(xPos, yPos) = (m_numGrid(xPos, yPos) + 1) Mod 10
 
-		MainGame.PlaySound(GameSound.SOUND_BUTTON_CLICK)
+		GameSoundPlayer.Play(GameSound.SOUND_BUTTON_CLICK)
 		_UpdateGrid()
 	End Sub
 
@@ -128,5 +143,10 @@
 	Private Sub lblGrid33_Click(sender As Object, e As EventArgs) Handles lblGrid33.Click
 		_GridClick(2, 2)
 
+	End Sub
+
+	Private Sub sprBtnBack_Click(sender As Object, e As EventArgs) Handles sprBtnBack.Click
+		MainGame.PostEvent(GameEvent.LOAD_GAME_MAIN)
+		GameSoundPlayer.Play(GameSound.SOUND_BUTTON_CLICK)
 	End Sub
 End Class

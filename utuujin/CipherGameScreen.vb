@@ -21,6 +21,17 @@
 	Private m_letterShift(26) As Label
 
 	Private Sub CipherGameScreen_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		_CipherGameInit()
+		_CipherGameLoad()
+	End Sub
+
+	Private Sub CipherGameScreen_VisibleChanged(sender As Object, e As EventArgs) Handles MyBase.VisibleChanged
+		If Me.Visible = True Then
+			_CipherGameLoad()
+		End If
+	End Sub
+
+	Private Sub _CipherGameInit()
 		m_letterShift(0) = lblLetterA
 		m_letterShift(1) = lblLetterB
 		m_letterShift(2) = lblLetterC
@@ -48,17 +59,19 @@
 		m_letterShift(24) = lblLetterY
 		m_letterShift(25) = lblLetterZ
 
+		sprBtnShiftLeft.SetBitmap(My.Resources.png_btn_shift_left)
+		sprBtnShiftRight.SetBitmap(My.Resources.png_btn_shift_right)
+		sprBtnCheck.SetBitmap(My.Resources.png_btn_check)
+		sprBtnBack.SetBitmap(My.Resources.png_btn_back)
+	End Sub
+
+	Private Sub _CipherGameLoad()
 		For i As Integer = 0 To m_questionTable.Length - 2
 			m_questionTable(i).shift = GlobalRandom.NextInt() Mod 26
 		Next
 
-		sprBtnShiftLeft.SetBitmap(My.Resources.png_btn_shift_left)
-		sprBtnShiftRight.SetBitmap(My.Resources.png_btn_shift_right)
-		sprBtnCheck.SetBitmap(My.Resources.png_btn_check)
-
 		_LoadCurrentQuestion()
 	End Sub
-
 	Private Sub _LoadCurrentQuestion()
 		m_currentShift = m_questionTable(m_currentQuestion).shift
 
@@ -87,7 +100,7 @@
 	End Sub
 
 	Private Sub sprBtnShiftRight_Click(sender As Object, e As EventArgs) Handles sprBtnShiftRight.Click
-		MainGame.PlaySound(GameSound.SOUND_BUTTON_CLICK)
+		GameSoundPlayer.Play(GameSound.SOUND_BUTTON_CLICK)
 
 		m_currentShift = m_currentShift - 1
 
@@ -99,7 +112,7 @@
 	End Sub
 
 	Private Sub sprBtnShiftLeft_Click(sender As Object, e As EventArgs) Handles sprBtnShiftLeft.Click
-		MainGame.PlaySound(GameSound.SOUND_BUTTON_CLICK)
+		GameSoundPlayer.Play(GameSound.SOUND_BUTTON_CLICK)
 
 		m_currentShift = m_currentShift + 1
 
@@ -112,11 +125,16 @@
 
 	Private Sub sprBtnCheck_Click(sender As Object, e As EventArgs) Handles sprBtnCheck.Click
 		If m_currentShift = 0 Then
-			MainGame.PlaySound(GameSound.SOUND_CORRECT)
+			GameSoundPlayer.Play(GameSound.SOUND_CORRECT)
 			m_currentQuestion = m_currentQuestion + 1
 			_LoadCurrentQuestion()
 		Else
-			MainGame.PlaySound(GameSound.SOUND_ERROR)
+			GameSoundPlayer.Play(GameSound.SOUND_ERROR)
 		End If
+	End Sub
+
+	Private Sub sprBtnBack_Click(sender As Object, e As EventArgs) Handles sprBtnBack.Click
+		MainGame.PostEvent(GameEvent.LOAD_GAME_MAIN)
+		GameSoundPlayer.Play(GameSound.SOUND_BUTTON_CLICK)
 	End Sub
 End Class

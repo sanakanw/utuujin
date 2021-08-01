@@ -88,9 +88,13 @@
     <Compile Include="ClimbingGameScreen.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="EntityState.vb" />
+    <Compile Include="GameBgm.vb" />
+    <Compile Include="GameEvent.vb" />
     <Compile Include="GameSound.vb" />
     <Compile Include="GlobalRandom.vb" />
     <Compile Include="ICollisionState.vb" />
+    <Compile Include="LoadTrigger.vb" />
     <Compile Include="MainGame.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +120,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RenderStateBackground.vb" />
     <Compile Include="Sprite.vb" />
     <Compile Include="GameLevel.vb" />
     <Compile Include="SpriteBox.Designer.vb">
@@ -213,6 +218,11 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="Resources\map_climbing_top.level" />
+    <None Include="Resources\map_park1.level" />
+    <None Include="Resources\map_park2.level" />
+    <None Include="Resources\map_sewers1.level" />
+    <None Include="Resources\map_streets1.level" />
     <None Include="Resources\park.level" />
     <None Include="Resources\pixel_perfect.ttf" />
     <None Include="Resources\shop.level" />
@@ -348,6 +358,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bg_magic_square.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg_climbing_game_top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bgm_reality.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bgm_reality.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -1,5 +1,5 @@
 ﻿Public Class RenderState
-	Private Const MAX_SPRITES As Integer = 64
+	Private Const MAX_SPRITES As Integer = 128
 	Private Const MAX_RENDER_ENTITIES As Integer = 64
 	
 	Public Class _RenderEntity
@@ -23,6 +23,9 @@
 	Private m_tileSprites As SpriteTable
 	Private m_entitySprites As SpriteTable
 	Private m_floatingTileSprites As SpriteTable
+	Private m_backgroundSprites As SpriteTable
+
+	Private m_currentBackground As RenderStateBackground
 	
 	Private m_renderEntities(MAX_RENDER_ENTITIES) As _RenderEntity
 	Private m_renderEntityPtr As Integer
@@ -46,22 +49,41 @@
 			m_floatingTileSprites.Insert(bmp, i, floatingTileSprite)
 		Next
 
-		m_entitySprites.Insert(bmp, Entity.EntityState.ENTITY_NONE, New SpriteDef With {.xTexCoord = 0, .yTexCoord = 0, .texWidth = 1, .texheight = 1})
-		m_entitySprites.Insert(bmp, Entity.EntityState.ENTITY_PLAYER_FORWARD, New SpriteDef With {.xTexCoord = 0, .yTexCoord = 5, .texWidth = 1, .texheight = 2})
-		m_entitySprites.Insert(bmp, Entity.EntityState.ENTITY_PLAYER_FORWARD_WALK_0, New SpriteDef With {.xTexCoord = 1, .yTexCoord = 5, .texWidth = 1, .texheight = 2})
-		m_entitySprites.Insert(bmp, Entity.EntityState.ENTITY_PLAYER_FORWARD_WALK_1, New SpriteDef With {.xTexCoord = 2, .yTexCoord = 5, .texWidth = 1, .texheight = 2})
-		m_entitySprites.Insert(bmp, Entity.EntityState.ENTITY_PLAYER_LEFT, New SpriteDef With {.xTexCoord = 0, .yTexCoord = 7, .texWidth = 1, .texheight = 2})
-		m_entitySprites.Insert(bmp, Entity.EntityState.ENTITY_PLAYER_LEFT_WALK_0, New SpriteDef With {.xTexCoord = 1, .yTexCoord = 7, .texWidth = 1, .texheight = 2})
-		m_entitySprites.Insert(bmp, Entity.EntityState.ENTITY_PLAYER_LEFT_WALK_1, New SpriteDef With {.xTexCoord = 2, .yTexCoord = 7, .texWidth = 1, .texheight = 2})
-		m_entitySprites.Insert(bmp, Entity.EntityState.ENTITY_PLAYER_BACKWARD, New SpriteDef With {.xTexCoord = 0, .yTexCoord = 9, .texWidth = 1, .texheight = 2})
-		m_entitySprites.Insert(bmp, Entity.EntityState.ENTITY_PLAYER_BACKWARD_WALK_0, New SpriteDef With {.xTexCoord = 1, .yTexCoord = 9, .texWidth = 1, .texheight = 2})
-		m_entitySprites.Insert(bmp, Entity.EntityState.ENTITY_PLAYER_BACKWARD_WALK_1, New SpriteDef With {.xTexCoord = 2, .yTexCoord = 9, .texWidth = 1, .texheight = 2})
-		m_entitySprites.Insert(bmp, Entity.EntityState.ENTITY_PLAYER_RIGHT, New SpriteDef With {.xTexCoord = 0, .yTexCoord = 11, .texWidth = 1, .texheight = 2})
-		m_entitySprites.Insert(bmp, Entity.EntityState.ENTITY_PLAYER_RIGHT_WALK_0, New SpriteDef With {.xTexCoord = 1, .yTexCoord = 11, .texWidth = 1, .texheight = 2})
-		m_entitySprites.Insert(bmp, Entity.EntityState.ENTITY_PLAYER_RIGHT_WALK_1, New SpriteDef With {.xTexCoord = 2, .yTexCoord = 11, .texWidth = 1, .texheight = 2})
-		m_entitySprites.Insert(bmp, Entity.EntityState.ENTITY_SLIDE, New SpriteDef With {.xTexCoord = 3, .yTexCoord = 4, .texWidth = 5, .texheight = 4})
-		m_entitySprites.Insert(bmp, Entity.EntityState.ENTITY_BOARD, New SpriteDef With {.xTexCoord = 0, .yTexCoord = 2, .texWidth = 2, .texheight = 2})
-		m_entitySprites.Insert(bmp, Entity.EntityState.ENTITY_MAGIC_SQUARE, New SpriteDef With {.xTexCoord = 0, .yTexCoord = 4, .texWidth = 2, .texheight = 1})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_NONE,                   New SpriteDef With {.xTexCoord = 00, .yTexCoord = 00, .texWidth = 1, .texheight = 1})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_PLAYER_FORWARD,         New SpriteDef With {.xTexCoord = 00, .yTexCoord = 05, .texWidth = 1, .texheight = 2})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_PLAYER_FORWARD_WALK_0,  New SpriteDef With {.xTexCoord = 01, .yTexCoord = 05, .texWidth = 1, .texheight = 2})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_PLAYER_FORWARD_WALK_1,  New SpriteDef With {.xTexCoord = 02, .yTexCoord = 05, .texWidth = 1, .texheight = 2})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_PLAYER_LEFT,            New SpriteDef With {.xTexCoord = 00, .yTexCoord = 07, .texWidth = 1, .texheight = 2})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_PLAYER_LEFT_WALK_0,     New SpriteDef With {.xTexCoord = 01, .yTexCoord = 07, .texWidth = 1, .texheight = 2})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_PLAYER_LEFT_WALK_1,     New SpriteDef With {.xTexCoord = 02, .yTexCoord = 07, .texWidth = 1, .texheight = 2})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_PLAYER_BACKWARD,        New SpriteDef With {.xTexCoord = 00, .yTexCoord = 09, .texWidth = 1, .texheight = 2})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_PLAYER_BACKWARD_WALK_0, New SpriteDef With {.xTexCoord = 01, .yTexCoord = 09, .texWidth = 1, .texheight = 2})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_PLAYER_BACKWARD_WALK_1, New SpriteDef With {.xTexCoord = 02, .yTexCoord = 09, .texWidth = 1, .texheight = 2})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_PLAYER_RIGHT,           New SpriteDef With {.xTexCoord = 00, .yTexCoord = 11, .texWidth = 1, .texheight = 2})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_PLAYER_RIGHT_WALK_0,    New SpriteDef With {.xTexCoord = 01, .yTexCoord = 11, .texWidth = 1, .texheight = 2})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_PLAYER_RIGHT_WALK_1,    New SpriteDef With {.xTexCoord = 02, .yTexCoord = 11, .texWidth = 1, .texheight = 2})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_SLIDE,                  New SpriteDef With {.xTexCoord = 03, .yTexCoord = 04, .texWidth = 5, .texheight = 4})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_BOARD,                  New SpriteDef With {.xTexCoord = 00, .yTexCoord = 02, .texWidth = 2, .texheight = 2})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_MAGIC_SQUARE,           New SpriteDef With {.xTexCoord = 00, .yTexCoord = 04, .texWidth = 2, .texheight = 1})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_TREE,                   New SpriteDef With {.xTexCoord = 05, .yTexCoord = 02, .texWidth = 1, .texheight = 2})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_TREE_BUNDLE,            New SpriteDef With {.xTexCoord = 12, .yTexCoord = 00, .texWidth = 2, .texheight = 3})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_MANHOLE,                New SpriteDef With {.xTexCoord = 02, .yTexCoord = 02, .texWidth = 2, .texheight = 1})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_MANHOLE_OPEN,           New SpriteDef With {.xTexCoord = 02, .yTexCoord = 03, .texWidth = 3, .texheight = 1})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_ROAD_BLOCK,             New SpriteDef With {.xTexCoord = 10, .yTexCoord = 10, .texWidth = 2, .texheight = 3})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_JOYSTICK_OFF,           New SpriteDef With {.xTexCoord = 04, .yTexCoord = 10, .texWidth = 1, .texheight = 1})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_JOYSTICK_ON,            New SpriteDef With {.xTexCoord = 03, .yTexCoord = 10, .texWidth = 1, .texheight = 1})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_LAMP,                   New SpriteDef With {.xTexCoord = 05, .yTexCoord = 08, .texWidth = 1, .texHeight = 3})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_BENCH,                  New SpriteDef With {.xTexCoord = 06, .yTexCoord = 08, .texWidth = 2, .texHeight = 1})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_BUS_STOP,               New SpriteDef With {.xTexCoord = 07, .yTexCoord = 09, .texWidth = 1, .texHeight = 2})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_BIN,                    New SpriteDef With {.xTexCoord = 06, .yTexCoord = 09, .texWidth = 1, .texHeight = 1}) 
+
+		m_backgroundSprites = New SpriteTable(MAX_SPRITES)
+		m_backgroundSprites.Insert(
+			My.Resources.bg_climbing_game_top,
+			RenderStateBackground.BG_CLIMBING_GAME_TOP,
+			New SpriteDef With {.xTexCoord = 0, .yTexCoord = 0, .texWidth = 16, .texheight = 12})
+
+		m_currentBackground = RenderStateBackground.BG_CLIMBING_GAME_TOP
 	End Sub
 
 	Public Sub New(video As Video)
@@ -76,6 +98,7 @@
 	End Sub
 	
 	Private Sub _PutPixelOpacity(color As Integer, x As Integer, y As Integer, opacity As Integer)
+		Dim alpha As Integer = color And &HFF000000
 		Dim red As Integer = (color >> 16) And &HFF
 		Dim green As Integer = (color >> 8) And &HFF
 		Dim blue As Integer = color And &HFF
@@ -84,7 +107,7 @@
 		green = (green * opacity ) And &H00FF00
 		blue = (blue * opacity >> 8) And &HFF
 
-		m_video.PutPixel(red Or green Or blue, x, y)
+		m_video.PutPixel(alpha Or red Or green Or blue, x, y)
 	End Sub
 
 	Private Sub _RenderEntityDraw(sprite As Sprite, renderEntity As _RenderEntity)
@@ -214,10 +237,28 @@
 		For y As Integer = 0 To Settings.SPRITE_SIZE - 1 - yClip0 - yClip1
 			For x As Integer = 0 To Settings.SPRITE_SIZE - 1 - xClip0 - xClip1
 				Dim color As Integer = sprite.GetPixel(x + xClip0, y + yClip0)
+				
+				Dim xPixel As Integer = x + xPos + xClip1
+				Dim yPixel As Integer = y + yPos + yClip1
 
-				If color <> &H0 Then
-					_PutPixelOpacity(color, x + xPos + xClip1, y + yPos + yClip1, m_renderOpacity)
-					' m_video.Put_Pixel(color, x + xPos + xClip1, y + yPos + yClip1)
+				If color <> 0 Then
+					_PutPixelOpacity(color, xPixel, yPixel, m_renderOpacity)
+				Else
+					_PutPixelOpacity(m_backgroundSprites.GetSprite(m_currentBackground).GetPixel(xPixel, yPixel), xPixel, yPixel, m_renderOpacity)
+				End If
+			Next
+		Next
+	End Sub
+	Private Sub _RenderFloatingTile(sprite As Sprite, xPos As Integer, yPos As Integer, xClip0 As Integer, yClip0 As Integer, xClip1 As Integer, yClip1 As Integer)
+		For y As Integer = 0 To Settings.SPRITE_SIZE - 1 - yClip0 - yClip1
+			For x As Integer = 0 To Settings.SPRITE_SIZE - 1 - xClip0 - xClip1
+				Dim color As Integer = sprite.GetPixel(x + xClip0, y + yClip0)
+				
+				Dim xPixel As Integer = x + xPos + xClip1
+				Dim yPixel As Integer = y + yPos + yClip1
+
+				If color <> 0 Then
+					_PutPixelOpacity(color, xPixel, yPixel, m_renderOpacity)
 				End If
 			Next
 		Next
@@ -250,7 +291,7 @@
 				xPixel = xPixel - xClip1
 			End If
 
-			_RenderTile(
+			_RenderFloatingTile(
 				m_floatingTileSprites.GetSprite(floatingTile.tileType),
 				xPixel,
 				yPixel,

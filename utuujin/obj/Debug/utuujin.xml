@@ -22,6 +22,11 @@ utuujin
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="P:utuujin.My.Resources.Resources.bg_climbing_game_top">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:utuujin.My.Resources.Resources.bg_color_game">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -42,12 +47,32 @@ utuujin
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="P:utuujin.My.Resources.Resources.lvl_park">
+<member name="P:utuujin.My.Resources.Resources.lvl_shop">
 <summary>
   Looks up a localized resource of type System.Byte[].
 </summary>
 </member>
-<member name="P:utuujin.My.Resources.Resources.lvl_shop">
+<member name="P:utuujin.My.Resources.Resources.map_climbing_top">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.map_park1">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.map_park2">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.map_sewers1">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.map_streets1">
 <summary>
   Looks up a localized resource of type System.Byte[].
 </summary>

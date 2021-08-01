@@ -23,6 +23,7 @@ Partial Class CashRegisterScreen
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
 		Me.panelCashRegisterBackdrop = New System.Windows.Forms.Panel()
+		Me.sprBtnBack = New utuujin.SpriteBox()
 		Me.lblBtnCheck = New System.Windows.Forms.Label()
 		Me.lblMul8 = New System.Windows.Forms.Label()
 		Me.lblMul7 = New System.Windows.Forms.Label()
@@ -69,6 +70,7 @@ Partial Class CashRegisterScreen
 		'
 		Me.panelCashRegisterBackdrop.BackgroundImage = Global.utuujin.My.Resources.Resources.png_cash_register_backdrop
 		Me.panelCashRegisterBackdrop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+		Me.panelCashRegisterBackdrop.Controls.Add(Me.sprBtnBack)
 		Me.panelCashRegisterBackdrop.Controls.Add(Me.lblBtnCheck)
 		Me.panelCashRegisterBackdrop.Controls.Add(Me.lblMul8)
 		Me.panelCashRegisterBackdrop.Controls.Add(Me.lblMul7)
@@ -112,6 +114,15 @@ Partial Class CashRegisterScreen
 		Me.panelCashRegisterBackdrop.Name = "panelCashRegisterBackdrop"
 		Me.panelCashRegisterBackdrop.Size = New System.Drawing.Size(600, 400)
 		Me.panelCashRegisterBackdrop.TabIndex = 0
+		'
+		'sprBtnBack
+		'
+		Me.sprBtnBack.BackColor = System.Drawing.Color.Transparent
+		Me.sprBtnBack.ForeColor = System.Drawing.SystemColors.ControlText
+		Me.sprBtnBack.Location = New System.Drawing.Point(19, 18)
+		Me.sprBtnBack.Name = "sprBtnBack"
+		Me.sprBtnBack.Size = New System.Drawing.Size(64, 64)
+		Me.sprBtnBack.TabIndex = 40
 		'
 		'lblBtnCheck
 		'
@@ -603,4 +614,5 @@ Partial Class CashRegisterScreen
 	Friend WithEvents lblMul2 As Label
 	Friend WithEvents lblMul1 As Label
 	Friend WithEvents lblBtnCheck As Label
+	Friend WithEvents sprBtnBack As SpriteBox
 End Class

@@ -32,6 +32,7 @@ Partial Class ClimbingGameScreen
 		Me.spriteShapeRow2 = New utuujin.SpriteBox()
 		Me.spriteBackdrop = New utuujin.SpriteBox()
 		Me.spriteShapeRow1 = New utuujin.SpriteBox()
+		Me.sprBtnBack = New utuujin.SpriteBox()
 		Me.panelShapeBackdrop.SuspendLayout()
 		Me.SuspendLayout()
 		'
@@ -130,10 +131,20 @@ Partial Class ClimbingGameScreen
 		Me.spriteShapeRow1.Size = New System.Drawing.Size(48, 48)
 		Me.spriteShapeRow1.TabIndex = 12
 		'
+		'sprBtnBack
+		'
+		Me.sprBtnBack.BackColor = System.Drawing.Color.FromArgb(CType(CType(205, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(241, Byte), Integer))
+		Me.sprBtnBack.ForeColor = System.Drawing.SystemColors.ControlText
+		Me.sprBtnBack.Location = New System.Drawing.Point(14, 13)
+		Me.sprBtnBack.Name = "sprBtnBack"
+		Me.sprBtnBack.Size = New System.Drawing.Size(64, 64)
+		Me.sprBtnBack.TabIndex = 13
+		'
 		'ClimbingGameScreen
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+		Me.Controls.Add(Me.sprBtnBack)
 		Me.Controls.Add(Me.spriteShapeRow1)
 		Me.Controls.Add(Me.panelShapeBackdrop)
 		Me.Controls.Add(Me.spriteShapeRow3)
@@ -157,4 +168,5 @@ Partial Class ClimbingGameScreen
 	Friend WithEvents spriteChoiceDiamond As SpriteBox
 	Friend WithEvents spriteShapeRow2 As SpriteBox
 	Friend WithEvents spriteShapeRow1 As SpriteBox
+	Friend WithEvents sprBtnBack As SpriteBox
 End Class

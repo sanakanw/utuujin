@@ -1,6 +1,10 @@
 ﻿Public Class GameState
 	Private m_levelData()() As Byte = {
-		My.Resources.lvl_park,
+		My.Resources.map_park1,
+		My.Resources.map_park2,
+		My.Resources.map_climbing_top,
+		My.Resources.map_sewers1,
+		My.Resources.map_streets1,
 		My.Resources.lvl_shop
 	}
 
@@ -9,6 +13,8 @@
 	Private m_floatingTiles As List(Of FloatingTile)
 
 	Private m_player As Player
+	Private m_manhole As Entity
+
 	Private m_collision As Collision
 
 	Public xView As Single = 0
@@ -32,14 +38,25 @@
 		End Get
 	End Property
 
+	Public Property Player As Player
+		Get
+			Return m_player
+		End Get
+	  Set(value As Player)
+			m_player = value
+	  End Set
+	End Property
+
 	Public Sub New()
 		m_map = New TileMap()
 		m_entities = New List(Of Entity)
 		m_floatingTiles = New List(Of FloatingTile)
 		
 		m_collision = New Collision(m_map)
+	End Sub
 
-		LoadLevel(GameLevel.LEVEL_PARK)
+	Public Sub OpenManhole()
+		m_manhole.state = EntityState.ENTITY_MANHOLE_OPEN
 	End Sub
 	
 	Public Sub LoadLevel(level As GameLevel)
@@ -57,32 +74,52 @@
 		Next
 
 		m_entities = New List(Of Entity)
+		m_collision = New Collision(m_map)
+		m_floatingTiles = New List(Of FloatingTile)
 
 		Dim entityCount As Integer = levelLoader.ReadEntityCount()
-
 		For i As Integer = 0 To entityCount - 1
 			Dim entity As Entity = levelLoader.ReadEntity()
 
-			Select Case entity.State
-				Case Entity.EntityState.ENTITY_PLAYER_FORWARD
+			Select Case entity.state
+				Case EntityState.ENTITY_PLAYER_FORWARD
 					m_player = New Player(entity, m_collision.AddDynamicObject(entity, 0.8, 0.5))
-				Case Entity.EntityState.ENTITY_SLIDE
+				Case EntityState.ENTITY_MANHOLE
+					m_manhole = entity
+					m_collision.AddStaticObject(entity, 1.8, 0.6)
+				Case EntityState.ENTITY_SLIDE
 					m_collision.AddStaticObject(entity, 4.2, 0.7)
-				Case Entity.EntityState.ENTITY_BOARD
+				Case EntityState.ENTITY_BOARD
 					m_collision.AddStaticObject(entity, 2.0, 0.5)
-				Case Entity.EntityState.ENTITY_MAGIC_SQUARE
+				Case EntityState.ENTITY_MAGIC_SQUARE
 					m_collision.AddStaticObject(entity, 2.0, 0.5)
+				Case EntityState.ENTITY_TREE
+					m_collision.AddStaticObject(entity, 0.7, 0.5)
+				Case EntityState.ENTITY_TREE_BUNDLE
+					m_collision.AddStaticObject(entity, 2.0, 0.7)
+				Case EntityState.ENTITY_ROAD_BLOCK
+					m_collision.AddStaticObject(entity, 2.0, 3.0)
+				Case EntityState.ENTITY_LAMP
+					m_collision.AddStaticObject(entity, 0.5, 0.5)
+				Case EntityState.ENTITY_BUS_STOP
+					m_collision.AddStaticObject(entity, 0.5, 0.5)
+				Case EntityState.ENTITY_BENCH
+					m_collision.AddStaticObject(entity, 2, 0.5)
+				Case EntityState.ENTITY_BIN
+					m_collision.AddStaticObject(entity, 0.8, 0.8)
 			End Select
 			
 			m_entities.Add(entity)
 		Next
 
 		Dim floatingTileCount As Integer = levelLoader.ReadFloatingTileCount()
-
 		For i As Integer = 0 To floatingTileCount - 1
-			Dim floatingTile As FloatingTile = levelLoader.ReadFloatingTile()
+			m_floatingTiles.Add(levelLoader.ReadFloatingTile())
+		Next
 
-			m_floatingTiles.Add(floatingTile)
+		Dim loadTriggerCount As Integer = levelLoader.ReadLoadTriggerCount()
+		For i As Integer = 0 To loadTriggerCount - 1
+			m_collision.AddLoadTrigger(levelLoader.ReadLoadTrigger())
 		Next
 	End Sub
 
@@ -90,7 +127,13 @@
 		m_player.Move(currentTick, userInput)
 		m_collision.Resolve()
 
-		xView = Math.Min(Math.Max(m_player.baseEntity.xPos - Settings.FIELD_OF_VIEW / 2, 0), m_map.Width)
-		yView = Math.Min(Math.Max(m_player.baseEntity.yPos - Settings.FIELD_OF_VIEW * 3 / 8 - 2, 0), m_map.Height)
+		Dim viewWidth As Single = Settings.FIELD_OF_VIEW / 2
+		Dim viewHeight As Single = Settings.FIELD_OF_VIEW * 3 / 8
+
+		Dim xOffset As Single = Math.Max(m_player.baseEntity.xPos - viewWidth, 0)
+		Dim yOffset As Single = Math.Max(m_player.baseEntity.yPos - viewHeight - 2, 0)
+
+		xView = Math.Min(xOffset, m_map.Width - 2 * viewWidth - 1)
+		yView = Math.Min(yOffset, m_map.Height - 2 * viewHeight - 1)
 	End Sub
 End Class

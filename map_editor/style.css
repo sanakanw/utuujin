@@ -1,5 +1,6 @@
 body {
 	background-color: black;
+	color: white;
 }
 
 canvas {
@@ -9,6 +10,14 @@ canvas {
 textarea {
 	resize: none;
 	overflow: wrap;
+}
+
+input {
+	width: 100%;
+}
+
+select {
+	width: 100%;
 }
 
 .column {

@@ -78,6 +78,7 @@ Partial Class CipherGameScreen
 		Me.sprBtnShiftLeft = New utuujin.SpriteBox()
 		Me.sprBtnShiftRight = New utuujin.SpriteBox()
 		Me.sprBtnCheck = New utuujin.SpriteBox()
+		Me.sprBtnBack = New utuujin.SpriteBox()
 		Me.SuspendLayout()
 		'
 		'lblLetterB
@@ -743,11 +744,21 @@ Partial Class CipherGameScreen
 		Me.sprBtnCheck.Size = New System.Drawing.Size(64, 64)
 		Me.sprBtnCheck.TabIndex = 57
 		'
+		'sprBtnBack
+		'
+		Me.sprBtnBack.BackColor = System.Drawing.Color.Transparent
+		Me.sprBtnBack.ForeColor = System.Drawing.SystemColors.ControlText
+		Me.sprBtnBack.Location = New System.Drawing.Point(32, 20)
+		Me.sprBtnBack.Name = "sprBtnBack"
+		Me.sprBtnBack.Size = New System.Drawing.Size(64, 64)
+		Me.sprBtnBack.TabIndex = 58
+		'
 		'CipherGameScreen
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.BackgroundImage = Global.utuujin.My.Resources.Resources.bg_parchment
+		Me.Controls.Add(Me.sprBtnBack)
 		Me.Controls.Add(Me.sprBtnCheck)
 		Me.Controls.Add(Me.sprBtnShiftRight)
 		Me.Controls.Add(Me.sprBtnShiftLeft)
@@ -868,4 +879,5 @@ Partial Class CipherGameScreen
 	Friend WithEvents sprBtnShiftLeft As SpriteBox
 	Friend WithEvents sprBtnShiftRight As SpriteBox
 	Friend WithEvents sprBtnCheck As SpriteBox
+	Friend WithEvents sprBtnBack As SpriteBox
 End Class

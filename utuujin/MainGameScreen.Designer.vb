@@ -23,10 +23,11 @@ Partial Class MainGameScreen
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
 		Me.panelGameScreen = New System.Windows.Forms.Panel()
-		Me.SuspendLayout()
+		Me.SuspendLayout
 		'
 		'panelGameScreen
 		'
+		Me.panelGameScreen.BackColor = System.Drawing.Color.Transparent
 		Me.panelGameScreen.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.panelGameScreen.Location = New System.Drawing.Point(0, 0)
 		Me.panelGameScreen.Name = "panelGameScreen"
@@ -35,15 +36,15 @@ Partial Class MainGameScreen
 		'
 		'MainGameScreen
 		'
-		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+		Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.BackColor = System.Drawing.Color.Magenta
+		Me.BackColor = System.Drawing.Color.Transparent
 		Me.Controls.Add(Me.panelGameScreen)
 		Me.Name = "MainGameScreen"
 		Me.Size = New System.Drawing.Size(600, 400)
-		Me.ResumeLayout(False)
+		Me.ResumeLayout(false)
 
-	End Sub
+End Sub
 
 	Friend WithEvents panelGameScreen As Panel
 End Class

@@ -40,7 +40,7 @@
 
 	Public ReadOnly Property ReadEntity As Entity
 		Get
-			Dim entityState As Entity.EntityState = m_levelData(m_filePointer)
+			Dim entityState As EntityState = m_levelData(m_filePointer)
 			Dim xPos As Single = m_levelData(m_filePointer + 1)
 			Dim yPos As Single = m_levelData(m_filePointer + 2)
 
@@ -68,6 +68,29 @@
 			m_filePointer = m_filePointer + 3
 
 			Return New FloatingTile With {.tileType = floatingTileType, .xPos = xPos - 1, .yPos = yPos - 1}
+		End Get
+	End Property
+
+	Public ReadOnly Property ReadLoadTriggerCount As Integer
+		Get
+			Dim entityCount As Integer = m_levelData(m_filePointer)
+			m_filePointer = m_filePointer + 1
+
+			Return entityCount
+		End Get
+	End Property
+
+	Public ReadOnly Property ReadLoadTrigger As LoadTrigger
+		Get
+			Dim level As GameLevel = m_levelData(m_filePointer)
+			Dim xPos As Single = m_levelData(m_filePointer + 1)
+			Dim yPos As Single = m_levelData(m_filePointer + 2)
+			Dim width As Single = m_levelData(m_filePointer + 3)
+			Dim height As Single = m_levelData(m_filePointer + 4)
+
+			m_filePointer = m_filePointer + 5
+
+			Return New LoadTrigger(level, xPos, yPos, width, height)
 		End Get
 	End Property
 

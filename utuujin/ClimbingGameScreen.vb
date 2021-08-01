@@ -25,9 +25,20 @@
 	}
 
 	Private m_currentQuestion As Integer
-	Private m_questionTable(QUESTION_COUNT) As _ShapeGameQuestion
+	Private m_questionTable(QUESTION_COUNT - 1) As _ShapeGameQuestion
 
 	Private Sub ClimbingGameScreen_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		_ClimbingGameInit()
+		_ClimbingGameLoad()
+	End Sub
+
+	Private Sub ClimbingGameScreen_VisibleChanged(sender As Object, e As EventArgs) Handles MyBase.VisibleChanged
+		If Me.Visible = True Then
+			_ClimbingGameLoad()
+		End If
+	End Sub
+
+	Private Sub _ClimbingGameInit()
 		spriteBackdrop.SetBitmap(My.Resources.png_climbing_game_backdrop)
 
 		spriteChoiceCircle.SetBitmap(My.Resources.png_btn_circle)
@@ -40,13 +51,19 @@
 		m_spriteBoxShape(2) = spriteShapeRow3
 		m_spriteBoxShape(3) = spriteShapeRow4
 
-		For i As Integer = 0 To QUESTION_COUNT
+		For i As Integer = 0 To QUESTION_COUNT - 1
 			Dim randomColumn As Integer = GlobalRandom.NextInt() Mod 4
 			Dim randomShape As _GameShape = GlobalRandom.NextInt() Mod (_GameShape.SHAPE_DIAMOND + 1)
 
 			m_questionTable(i) = New _ShapeGameQuestion With {.shape = randomShape, .column = randomColumn}
 		Next
 
+		sprBtnBack.SetBitmap(My.Resources.png_btn_back)
+	End Sub
+
+	Private Sub _ClimbingGameLoad()
+		m_currentQuestion = 0
+		spriteBackdrop.Location = New Point(0, -1190)
 		_LoadCurrentQuestion()
 	End Sub
 
@@ -72,15 +89,15 @@
 	Private Sub _spriteChoice_Click(gameShape As _GameShape)
 		If m_questionTable(m_currentQuestion).shape = gameShape Then
 			m_currentQuestion = m_currentQuestion + 1
-			MainGame.PlaySound(GameSound.SOUND_CORRECT)
+			GameSoundPlayer.Play(GameSound.SOUND_CORRECT)
 			spriteBackdrop.Location = New Point(0, spriteBackdrop.Location.Y + 64)
 			_LoadCurrentQuestion()
 
 			If m_currentQuestion = QUESTION_COUNT Then
-
+				MainGame.PostEvent(GameEvent.EVENT_CLIMBING_GAME_COMPLETE)
 			End If
 		Else
-			MainGame.PlaySound(GameSound.SOUND_ERROR)
+			GameSoundPlayer.Play(GameSound.SOUND_ERROR)
 		End If
 	End Sub
 
@@ -98,5 +115,10 @@
 
 	Private Sub spriteChoiceDiamond_Click(sender As Object, e As EventArgs) Handles spriteChoiceDiamond.Click
 		_spriteChoice_Click(_GameShape.SHAPE_DIAMOND)
+	End Sub
+
+	Private Sub sprBtnBack_Click(sender As Object, e As EventArgs) Handles sprBtnBack.Click
+		MainGame.PostEvent(GameEvent.LOAD_GAME_MAIN)
+		GameSoundPlayer.Play(GameSound.SOUND_BUTTON_CLICK)
 	End Sub
 End Class

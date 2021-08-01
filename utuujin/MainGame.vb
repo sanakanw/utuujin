@@ -1,90 +1,100 @@
 ﻿
 Public Class MainGame
-	Public Enum GameEvent
-		LOAD_GAME_MAIN
-		LOAD_GAME_COLOR
-		LOAD_GAME_CLIMBING
-		LOAD_GAME_REGISTER
-		LOAD_GAME_WORD_CONNECT
-		LOAD_GAME_CIPHER
-		LOAD_GAME_MAGIC_SQUARE
-	End Enum
-	
+	Private Const MAX_SCREEN = 4
+
 	Private m_deltaTime As Double
 	Private m_previousTime As Long
-
 	Private m_tickCount As Integer
 
-	Private m_gameScreen As Panel
-	Private m_gameScreenGraphics As Graphics
-
 	Private m_userInput As UserInput
-
 	Private m_gameState As GameState
-	Private m_renderState As RenderState
+	Private m_currentScreen As UserControl
 
-	Private m_soundPlayer As GameSoundPlayer
-	Private m_video As Video
+	Public EventFlag(128) As Boolean
 
 	Private m_stopwatch As Stopwatch
 
-	Private Sub _ScreenSwap()
-		m_gameScreenGraphics.DrawImage(
-			m_video.ImageBuffer,
-			0,
-			0,
-			m_gameScreen.Width + 1,
-			m_gameScreen.Height + 1)
-	End Sub
-
 	Private Sub MainGame_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-		m_gameScreen = mainGameScreen.panelGameScreen
-		m_gameScreenGraphics = m_gameScreen.CreateGraphics()
-		m_gameScreenGraphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None
-		m_gameScreenGraphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor
-
 		m_stopwatch = New Stopwatch()
-
-		m_video = New Video(Settings.VIDEO_WIDTH, Settings.VIDEO_HEIGHT)
-		m_soundPlayer = New GameSoundPlayer()
 
 		m_userInput = New UserInput()
 		m_gameState = New GameState()
-		m_renderState = New RenderState(m_video)
 
 		m_stopwatch.Start()
 
 		m_previousTime = m_stopwatch.ElapsedMilliseconds
+
+		GameSoundPlayer.PlayBgm(GameBgm.BGM_REALITY)
+
+		PostEvent(GameEvent.LOAD_LEVEL_PARK_1)
 	End Sub
 
 	Public Sub PostEvent(gameEvent As GameEvent)
 		Select Case gameEvent
 			Case GameEvent.LOAD_GAME_CLIMBING
-				mainGameScreen.Hide()
-				climbingGameScreen.Show()
+				_SwitchScreen(climbingGameScreen)
 			Case GameEvent.LOAD_GAME_COLOR
-				mainGameScreen.Hide()
-				colorGameScreen.Show()
+				_SwitchScreen(colorGameScreen)
 			Case GameEvent.LOAD_GAME_REGISTER
-				cashRegisterScreen.Show()
-				mainGameScreen.Hide()
+				_SwitchScreen(cashRegisterScreen)
 			Case GameEvent.LOAD_GAME_WORD_CONNECT
-				wordGameScreen.Show()
-				mainGameScreen.Hide()
+				_SwitchScreen(wordGameScreen)
 			Case GameEvent.LOAD_GAME_CIPHER
-				cipherGameScreen.Show()
-				mainGameScreen.Hide()
+				_SwitchScreen(cipherGameScreen)
 			Case GameEvent.LOAD_GAME_MAGIC_SQUARE
-				magicSquareScreen.Show()
-				mainGameScreen.Hide()
+				_SwitchScreen(magicSquareScreen)
 			Case GameEvent.LOAD_GAME_MAIN
-				colorGameScreen.Hide()
-				mainGameScreen.Show()
+				_LoadGameMain()
+			Case GameEvent.LOAD_LEVEL_PARK_1
+				mainGameScreen.renderState.SetOpacity(250)
+				m_gameState.LoadLevel(GameLevel.LEVEL_PARK1)
+			Case GameEvent.LOAD_LEVEL_PARK_2
+				mainGameScreen.renderState.SetOpacity(250)
+				m_gameState.LoadLevel(GameLevel.LEVEL_PARK2)
+			Case GameEvent.EVENT_CLIMBING_GAME_COMPLETE
+				_LoadGameMain()
+				m_gameState.LoadLevel(GameLevel.LEVEL_CLIMBING_TOP)
+			Case GameEvent.EVENT_SLIDE_COMPLETE
+				EventFlag(GameEvent.EVENT_SLIDE_COMPLETE) = True
+
+				GameSoundPlayer.Play(GameSound.SOUND_BUTTON_CLICK)
+				m_gameState.LoadLevel(GameLevel.LEVEL_PARK2)
+				m_gameState.Player.baseEntity.xPos = 9
+				m_gameState.Player.baseEntity.yPos = 18
+				
+				If EventFlag(GameEvent.EVENT_MAGIC_SQUARE_COMPLETE) = True Then
+					m_gameState.OpenManhole()
+				End If
+			Case GameEvent.EVENT_MAGIC_SQUARE_COMPLETE
+				EventFlag(GameEvent.EVENT_MAGIC_SQUARE_COMPLETE) = True
+
+				_LoadGameMain()
+				GameSoundPlayer.Play(GameSound.SOUND_BUTTON_CLICK)
+
+				If EventFlag(GameEvent.EVENT_SLIDE_COMPLETE) = True Then
+					m_gameState.OpenManhole()
+				End If
+			Case GameEvent.LOAD_LEVEL_SEWERS_1
+				mainGameScreen.renderState.SetOpacity(100)
+				m_gameState.LoadLevel(GameLevel.LEVEL_SEWERS1)
+			Case GameEvent.LOAD_LEVEL_STREETS_1
+				mainGameScreen.renderState.SetOpacity(200)
+				m_gameState.LoadLevel(GameLevel.LEVEL_STREETS1)
 		End Select
 	End Sub
 
-	Public Sub PlaySound(gameSound As GameSound)
-		m_soundPlayer.Play(gameSound)
+	Private Sub _LoadGameMain()
+		mainGameLoop.Enabled = True
+		m_currentScreen.Hide()
+		mainGameScreen.Show()
+	End Sub
+
+	Private Sub _SwitchScreen(screen As UserControl)
+		screen.Show()
+		mainGameScreen.Hide()
+		m_currentScreen = screen
+
+		mainGameLoop.Enabled = False
 	End Sub
 
 	Private Sub _MainFrame()
@@ -101,12 +111,7 @@ Public Class MainGame
 			m_tickCount = m_tickCount + 1
 		End While
 
-		m_renderState.RenderMap(m_gameState.Map, m_gameState.xView, m_gameState.yView)
-		m_renderState.RenderEntities(m_gameState.Entities, m_gameState.xView, m_gameState.yView)
-		m_renderState.RenderFloatingTiles(m_gameState.FloatingTiles, m_gameState.xView, m_gameState.yView)
-
-		m_video.Update()
-		_ScreenSwap()
+		mainGameScreen.Render(m_gameState)
 	End Sub
 
 	Private Sub MainGameLoop_Tick(sender As Object, e As EventArgs) Handles mainGameLoop.Tick

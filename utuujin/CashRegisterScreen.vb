@@ -28,6 +28,17 @@
 	Private m_answerDigit(4) As Integer
 
 	Private Sub CashRegisterScreen_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		_CashRegisterInit()
+		_CashRegisterLoad()
+	End Sub
+
+	Private Sub CashRegisterScreen_VisibleChanged(sender As Object, e As EventArgs) Handles MyBase.VisibleChanged
+		If Me.Visible = True Then
+			_CashRegisterLoad()
+		End If
+	End Sub
+
+	Private Sub _CashRegisterInit()
 		m_itemControlTable(0) = New _ItemControl With {.sprite = sprItem1, .price = lblItemPrice1, .multiplier = lblMul1}
 		m_itemControlTable(1) = New _ItemControl With {.sprite = sprItem2, .price = lblItemPrice2, .multiplier = lblMul2}
 		m_itemControlTable(2) = New _ItemControl With {.sprite = sprItem3, .price = lblItemPrice3, .multiplier = lblMul3}
@@ -37,9 +48,14 @@
 		m_itemControlTable(6) = New _ItemControl With {.sprite = sprItem7, .price = lblItemPrice7, .multiplier = lblMul7}
 		m_itemControlTable(7) = New _ItemControl With {.sprite = sprItem8, .price = lblItemPrice8, .multiplier = lblMul8}
 
+		sprBtnBack.SetBitmap(My.Resources.png_btn_back)
+	End Sub
+
+	Private Sub _CashRegisterLoad()
 		_LoadRemainingItems()
 		_LoadCurrentQuestion()
 	End Sub
+
 
 	Private Sub _LoadCurrentQuestion()
 		Dim currentQuestion As _ItemQuestion = m_questionTable(m_currentQuestion)
@@ -78,7 +94,7 @@
 		m_digitPtr = Math.Min(m_digitPtr + 1, 3)
 		m_answerDigit(m_digitPtr) = digit
 
-		MainGame.PlaySound(GameSound.SOUND_BUTTON_CLICK)
+		GameSoundPlayer.Play(GameSound.SOUND_BUTTON_CLICK)
 
 		_UpdateAnswer()
 	End Sub
@@ -90,12 +106,12 @@
 
 		For i As Integer = 0 To 3
 			If m_answerDigit(i) <> _GetDigitStr(i, answer) Then
-				MainGame.PlaySound(GameSound.SOUND_ERROR)
+				GameSoundPlayer.Play(GameSound.SOUND_ERROR)
 				Return
 			End If
 		Next
 
-		MainGame.PlaySound(GameSound.SOUND_CORRECT)
+		GameSoundPlayer.Play(GameSound.SOUND_CORRECT)
 		m_currentQuestion = m_currentQuestion + 1
 
 		m_digitPtr = -1
@@ -117,7 +133,7 @@
 			_UpdateAnswer()
 		End If
 
-		MainGame.PlaySound(GameSound.SOUND_BUTTON_CLICK)
+		GameSoundPlayer.Play(GameSound.SOUND_BUTTON_CLICK)
 	End Sub
 
 	Private Sub lblBtnNum0_Click(sender As Object, e As EventArgs) Handles lblBtnNum0.Click
@@ -158,5 +174,10 @@
 
 	Private Sub lblBtnNum9_Click(sender As Object, e As EventArgs) Handles lblBtnNum9.Click
 		_Digit_Click(9)
+	End Sub
+
+	Private Sub sprBtnBack_Click(sender As Object, e As EventArgs) Handles sprBtnBack.Click
+		MainGame.PostEvent(GameEvent.LOAD_GAME_MAIN)
+		GameSoundPlayer.Play(GameSound.SOUND_BUTTON_CLICK)
 	End Sub
 End Class

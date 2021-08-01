@@ -8,6 +8,18 @@
 	Private m_letterPtr As Integer
 
 	Private Sub WordGameScreen_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		_WordGameInit()
+		_WordGameLoad()
+	End Sub
+
+	Private Sub WordGameScreen_VisibleChanged(sender As Object, e As EventArgs) Handles MyBase.VisibleChanged
+		If Me.Visible = True Then
+			_WordGameLoad()
+		End If
+	End Sub
+
+	Private Sub _WordGameInit()
+
 		m_labelOrder(0) = lblLetter1
 		m_labelOrder(1) = lblLetter2
 		m_labelOrder(2) = lblLetter3
@@ -27,6 +39,10 @@
 
 		m_panelGraphics = panelLetterConnect.CreateGraphics()
 
+		sprBtnBack.SetBitmap(My.Resources.png_btn_back)
+	End Sub
+
+	Private Sub _WordGameLoad()
 		_UpdateProgressLabel()
 	End Sub
 
@@ -61,13 +77,13 @@
 				m_panelGraphics.DrawLine(New Pen(Color.White, 1), xStart, yStart, xEnd, yEnd)
 			End If
 
-			MainGame.PlaySound(GameSound.SOUND_CORRECT)
+			GameSoundPlayer.Play(GameSound.SOUND_CORRECT)
 
 			m_letterPtr = m_letterPtr + 1
 
 			_UpdateProgressLabel()
 		Else
-			MainGame.PlaySound(GameSound.SOUND_ERROR)
+			GameSoundPlayer.Play(GameSound.SOUND_ERROR)
 		End If
 	End Sub
 
@@ -147,5 +163,10 @@
 	Private Sub lblLetter16_Click(sender As Object, e As EventArgs) Handles lblLetter16.Click
 		_LetterClick(15)
 
+	End Sub
+
+	Private Sub sprBtnBack_Click(sender As Object, e As EventArgs) Handles sprBtnBack.Click
+		MainGame.PostEvent(GameEvent.LOAD_GAME_MAIN)
+		GameSoundPlayer.Play(GameSound.SOUND_BUTTON_CLICK)
 	End Sub
 End Class

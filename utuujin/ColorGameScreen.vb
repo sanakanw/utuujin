@@ -42,9 +42,22 @@ Public Class ColorGameScreen
 	Private m_currentQuestion As Integer
 
 	Private Sub ColorGameScreen_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-		m_currentQuestion = 0
+		_ColorGameInit()
+		_ColorGameLoad()
+	End Sub
 
+	Private Sub ColorGameScreen_VisibleChanged(sender As Object, e As EventArgs) Handles MyBase.VisibleChanged
+		If Me.Visible = True Then
+			_ColorGameLoad()
+		End If
+	End Sub
+
+	Private Sub _ColorGameInit()
 		_InitPaintBmp()
+	End Sub
+
+	Private Sub _ColorGameLoad()
+		m_currentQuestion = 0
 		_LoadCurrentQuestion()
 	End Sub
 
@@ -97,16 +110,15 @@ Public Class ColorGameScreen
 	End Sub
 
 	Private Sub _QuestionCorrect()
-		MainGame.PlaySound(GameSound.SOUND_CORRECT)
+		GameSoundPlayer.Play(GameSound.SOUND_CORRECT)
 	End Sub
 
 	Private Sub _QuestionIncorrect()
-		MainGame.PlaySound(GameSound.SOUND_ERROR)
+		GameSoundPlayer.Play(GameSound.SOUND_ERROR)
 	End Sub
 
 	Private Sub spriteCheck_Click(sender As Object, e As EventArgs) Handles spriteCheckButton.Click
-
-		MainGame.PlaySound(GameSound.SOUND_BUTTON_CLICK)
+		GameSoundPlayer.Play(GameSound.SOUND_BUTTON_CLICK)
 
 		If m_selectedAnswer = m_questionTable(m_currentQuestion).answer Then
 			_QuestionCorrect()
@@ -117,7 +129,6 @@ Public Class ColorGameScreen
 
 			If m_currentQuestion = m_questionTable.Length Then
 				m_currentQuestion = 0
-				MainGame.PostEvent(MainGame.GameEvent.LOAD_GAME_MAIN)
 			End If
 		Else
 			_QuestionIncorrect()
@@ -127,7 +138,7 @@ Public Class ColorGameScreen
 	Private Sub _Button_Click(color As GameColor)
 		m_selectedAnswer = color
 		spriteAnswer.SetBitmap(m_paintBmpTable(m_selectedAnswer))
-		MainGame.PlaySound(GameSound.SOUND_BUTTON_CLICK)
+		GameSoundPlayer.Play(GameSound.SOUND_BUTTON_CLICK)
 	End Sub
 
 	Private Sub Button_Blue_Click(sender As Object, e As EventArgs) Handles btnChoiceBlue.Click
@@ -147,7 +158,7 @@ Public Class ColorGameScreen
 	End Sub
 
 	Private Sub spriteBackButton_Click(sender As Object, e As EventArgs) Handles spriteBackButton.Click
-		m_currentQuestion = 0
-		MainGame.PostEvent(MainGame.GameEvent.LOAD_GAME_MAIN)
+		MainGame.PostEvent(GameEvent.LOAD_GAME_MAIN)
+		GameSoundPlayer.Play(GameSound.SOUND_BUTTON_CLICK)
 	End Sub
 End Class

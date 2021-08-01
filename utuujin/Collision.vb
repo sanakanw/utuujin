@@ -2,24 +2,26 @@ Public Class Collision
 	Private Class _CollisionState
 		Implements ICollisionState
 
-		Private m_isCollide As Boolean
 		Private m_entityCollide As Entity
-
-		ReadOnly Property isCollide As Boolean Implements ICollisionState.isCollide
-			Get
-				Return m_isCollide
-			End Get
-		End Property
+		Private m_triggerEvent As GameEvent
 
 		ReadOnly Property entityCollide As Entity Implements ICollisionState.entityCollide
 			Get
 				Return m_entityCollide
 			End Get
 		End Property
+		
+		ReadOnly Property triggerEvent As GameEvent Implements ICollisionState.triggerEvent
+			Get
+				Return m_triggerEvent
+			End Get
+		End Property
 
-		Public Sub StateUpdate(isCollide As Boolean, entityCollide As Entity)
-			m_isCollide = isCollide
+		Public Sub StateUpdateEntityCollide(entityCollide As Entity)
 			m_entityCollide = entityCollide
+		End Sub
+		Public Sub StateTriggerEvent(gameEvent As GameEvent)
+			m_triggerEvent = gameEvent
 		End Sub
 	End Class
 
@@ -46,12 +48,15 @@ Public Class Collision
 	Private m_dynamicObjects As List(Of _DynamicObject)
 	Private m_staticObjects As List(Of _StaticObject)
 
+	Private m_loadTriggers As List(Of LoadTrigger)
+
 	Private m_map As TileMap
 
 	Public Sub New(map As TileMap)
 		m_map = map
 		m_staticObjects = New List(Of _StaticObject)
 		m_dynamicObjects = New List(Of _DynamicObject)
+		m_loadTriggers = New List(Of LoadTrigger)
 	End Sub
 
 	Private Function _TestAABB(
@@ -137,7 +142,7 @@ Public Class Collision
 	End Function
 
 	Private Sub _ResolveStatic(dynamicObject As _DynamicObject)
-		dynamicObject.collisionState.StateUpdate(False, Nothing)
+		dynamicObject.collisionState.StateUpdateEntityCollide(Nothing)
 
 		For i As Integer = 0 To m_staticObjects.Count - 1
 			Dim staticObject As _StaticObject = m_staticObjects(i)
@@ -154,9 +159,31 @@ Public Class Collision
 				staticObject.boxHeight)
 
 			If collisionData.depth > 0 Then
-				dynamicObject.collisionState.StateUpdate(True, staticObject.entity)
+				dynamicObject.collisionState.StateUpdateEntityCollide(staticObject.entity)
 				dynamicObject.entity.xPos = dynamicObject.entity.xPos + collisionData.depth * collisionData.xNormal
 				dynamicObject.entity.yPos = dynamicObject.entity.yPos + collisionData.depth * collisionData.yNormal
+			End If
+		Next
+	End Sub
+	Private Sub _ResolveLoadTrigger(dynamicObject As _DynamicObject)
+		dynamicObject.collisionState.StateTriggerEvent(GameEvent.EVENT_NONE)
+
+		For i As Integer = 0 To m_loadTriggers.Count - 1
+			Dim loadTrigger As LoadTrigger = m_loadTriggers(i)
+			Dim collisionData As _CollisionData
+			
+			collisionData = _TestAABB(
+				dynamicObject.entity.xPos,
+				dynamicObject.entity.yPos,
+				dynamicObject.boxWidth,
+				dynamicObject.boxHeight,
+				loadTrigger.xPos,
+				loadTrigger.yPos,
+				loadTrigger.width,
+				loadTrigger.height)
+			
+			If collisionData.depth > 0 Then
+				dynamicObject.collisionState.StateTriggerEvent(loadTrigger.gameEvent)
 			End If
 		Next
 	End Sub
@@ -183,6 +210,9 @@ Public Class Collision
 			.boxHeight = boxHeight
 		})
 	End Sub
+	Public Sub AddLoadTrigger(loadTrigger As LoadTrigger)
+		m_loadTriggers.Add(loadTrigger)
+	End Sub
 
 	Public Function AddDynamicObject(entity As Entity, boxWidth As Single, boxHeight As Single) As ICollisionState
 		Dim dynamicObject As _DynamicObject
@@ -198,10 +228,12 @@ Public Class Collision
 		Return dynamicObject.collisionState
 	End Function
 
+
 	Public Sub Resolve()
 		For i As Integer = 0 To m_dynamicObjects.Count - 1
 			_ResolveMap(m_dynamicObjects(i))
 			_ResolveStatic(m_dynamicObjects(i))
+			_ResolveLoadTrigger(m_dynamicObjects(i))
 		Next
 	End Sub
 End Class
