@@ -112,17 +112,22 @@
 		Next
 
 		GameSoundPlayer.Play(GameSound.SOUND_CORRECT)
+
 		m_currentQuestion = m_currentQuestion + 1
 
-		m_digitPtr = -1
-		m_answerDigit(0) = "0"
-		m_answerDigit(1) = "0"
-		m_answerDigit(2) = "0"
-		m_answerDigit(3) = "0"
+		If m_currentQuestion = m_questionTable.Length Then 
+			MainGame.PostEvent(GameEvent.EVENT_HARDWARE_COMPLETE)
+		Else
+			m_digitPtr = -1
+			m_answerDigit(0) = "0"
+			m_answerDigit(1) = "0"
+			m_answerDigit(2) = "0"
+			m_answerDigit(3) = "0"
 
-		_UpdateAnswer()
-		_LoadCurrentQuestion()
-		_LoadRemainingItems()
+			_UpdateAnswer()
+			_LoadCurrentQuestion()
+			_LoadRemainingItems()
+		End If
 	End Sub
 
 	Private Sub lblBtnClear_Click(sender As Object, e As EventArgs) Handles lblBtnClear.Click

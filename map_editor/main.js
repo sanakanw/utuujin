@@ -128,6 +128,7 @@ const FLOATING_TILE_HALF_VOID					= 2;
 const FLOATING_TILE_SHOP_0						= 3;
 const FLOATING_TILE_SHOP_1						= 4;
 const FLOATING_TILE_SEWER_WALL				= 5;
+const FLOATING_TILE_STORE_WALL        = 6;
 
 const EVENT_NONE                      = 0;
 const LOAD_GAME_MAIN                  = 1;
@@ -228,6 +229,40 @@ const tile_dict = [
 	{ xt: 4, yt: 16 }, // TILE_MALL_17        
 	{ xt: 4, yt: 17 }, // TILE_MALL_18         
 	{ xt: 5, yt: 16 }, // TILE_MALL_19     
+	
+	{ xt: 3, yt: 17 }, // TILE_MALL_20     
+	
+	{ xt: 0, yt: 17 }, // TILE_MALL_21     
+	{ xt: 1, yt: 17 }, // TILE_MALL_22     
+	{ xt: 0, yt: 18 }, // TILE_MALL_23     
+	{ xt: 1, yt: 18 }, // TILE_MALL_24     
+	
+	{ xt: 1, yt: 19 }, // TILE_MALL_25     
+	{ xt: 0, yt: 20 }, // TILE_MALL_26     
+	{ xt: 1, yt: 20 }, // TILE_MALL_27     
+	{ xt: 0, yt: 21 }, // TILE_MALL_28     
+	{ xt: 1, yt: 21 }, // TILE_MALL_29     
+	{ xt: 0, yt: 22 }, // TILE_MALL_29     
+	
+	{ xt: 7, yt: 16 }, // TILE_MALL_30     
+	{ xt: 7, yt: 17 }, // TILE_MALL_31  
+	
+	{ xt: 2, yt: 17 }, // TILE_MALL_32 
+	
+	{ xt: 9, yt: 18 }, // TILE_FENCE_2  
+	{ xt: 10, yt: 18 }, // TILE_FENCE_3  
+	{ xt: 9, yt: 19 }, // TILE_FENCE_4  
+	{ xt: 8, yt: 20 }, // TILE_FENCE_5  
+	{ xt: 9, yt: 20 }, // TILE_FENCE_6  
+	
+	{ xt: 11, yt: 7 }, // TILE_ELEVATOR_0 
+	{ xt: 12, yt: 7  }, // TILE_ELEVATOR_1 
+	{ xt: 11, yt: 8 }, // TILE_ELEVATOR_2 
+	{ xt: 12, yt: 8 }, // TILE_ELEVATOR_3 
+	{ xt: 14, yt: 5 }, // TILE_ELEVATOR_2 
+	{ xt: 14, yt: 6 }, // TILE_ELEVATOR_3 
+	
+	{ xt: 6, yt: 1 } // TILE_CHECKER,
 ];                        
 
 const floating_tile_dict = [
@@ -239,7 +274,14 @@ const floating_tile_dict = [
 	{ xt: 4, yt: 12 },  // FLOATING_TILE_SEWER_WALL        
 	{ xt: 4, yt: 14 }, // FLOATINT_TILE_TILE_MALL_4        
 	{ xt: 5, yt: 14 }, // FLOATINT_TILE_TILE_MALL_5        
-	{ xt: 6, yt: 14 } // FLOATINT_TILE_TILE_MALL_6
+	{ xt: 6, yt: 14 }, // FLOATINT_TILE_TILE_MALL_6
+	{ xt: 6, yt: 11 }, // FLOATING_TILE_STORE_WALL
+	
+	{ xt: 6, yt: 18 }, // FLOATING_TILE_FENCE_2  
+	{ xt: 7, yt: 18 }, // FLOATING_TILE_FENCE_3  
+	{ xt: 6, yt: 19 }, // FLOATING_TILE_FENCE_4  
+	{ xt: 5, yt: 20 }, // FLOATING_TILE_FENCE_5  
+	{ xt: 6, yt: 20 } // FLOATING_TILE_FENCE_6  
 ];
 
 const entity_dict = [
@@ -274,7 +316,16 @@ const entity_dict = [
 	{ xt: 12, yt: 13, w: 4, h: 2 }, // ENTITY_HARDWARESTORE_FRONT  
 	{ xt: 4, yt: 11, w: 2, h: 1 }, // ENTITY_BOOK_GAME
 	{ xt: 7, yt: 11, w: 2, h: 2 }, // ENTITY_BOOK_SHELF_0
-	{ xt: 9, yt: 11, w: 1, h: 2 } // ENTITY_BOOK_SHELF_1
+	{ xt: 9, yt: 11, w: 1, h: 2 }, // ENTITY_BOOK_SHELF_1
+	{ xt: 13, yt: 7, w: 2, h: 4 }, // ENTITY_HARDWARE_GAME
+	{ xt: 8, yt: 15, w: 4, h: 2 }, // ENTITY_ARTSTORE_FRONT
+	{ xt: 9, yt: 19, w: 6, h: 5 }, // ENTITY_ROOFTOP_ELEVATOR
+	{ xt: 12, yt: 15, w: 3, h: 4 },// ENTITY_SHIP
+	{ xt: 3, yt: 18, w: 2, h: 2 }, //  ENTITY_TELESCOPE
+	
+	{ xt: 15, yt: 8, w: 1, h: 2 }, //   ENTITY_CANVAS
+	{ xt: 15, yt: 10, w: 4, h: 3 }, //  ENTITY_SHELF
+	{ xt: 19, yt: 11, w: 2, h: 2 } //   ENTITY_DESK
 ];
 
 function get_tile_space(n)
@@ -535,8 +586,13 @@ function start(sprite_map)
 		let map_width = map_data[data_ptr++];
 		let map_height = map_data[data_ptr++];
 		
-		for (let i = 0; i < map_width * map_height; i++)
-			map[i] = map_data[data_ptr++];
+		for (let y = 0; y < map_height; y++) {
+			for (let x = 0; x < map_width; x++) {
+				map[(x - 2) + y * MAP_SIZE] = map_data[x + y * map_width];
+				
+				data_ptr++;
+			}
+		}
 		
 		let entity_count = map_data[data_ptr++];
 		

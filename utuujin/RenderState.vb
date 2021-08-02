@@ -1,6 +1,6 @@
 ﻿Public Class RenderState
 	Private Const MAX_SPRITES As Integer = 128
-	Private Const MAX_RENDER_ENTITIES As Integer = 64
+	Private Const MAX_RENDER_ENTITIES As Integer = 128
 	
 	Public Class _RenderEntity
 		Public xPixel0 As Integer
@@ -17,6 +17,17 @@
 		Public leftNode As _RenderEntity
 		Public rightNode As _RenderEntity
 	End Class
+
+	Private m_endingRocket As _RenderEntity = New _RenderEntity With {
+		.xPixel0 = Settings.VIDEO_WIDTH / 2 - 24,
+		.xPixel1 = Settings.VIDEO_WIDTH / 2 + 24,
+		.yPixel0 = Settings.VIDEO_HEIGHT / 2 - 37,
+		.yPixel1 = Settings.VIDEO_HEIGHT / 2 + 37,
+		.xTex = 0,
+		.yTex = 0,
+		.leftNode = Nothing,
+		.rightNode = Nothing
+ 	}
 	
 	Private m_video As Video
 	
@@ -80,7 +91,15 @@
 		m_entitySprites.Insert(bmp, EntityState.ENTITY_HARDWARESTORE_FRONT,    New SpriteDef With {.xTexCoord = 12, .yTexCoord = 13, .texWidth = 4, .texHeight = 2}) 
 		m_entitySprites.Insert(bmp, EntityState.ENTITY_BOOK_GAME,              New SpriteDef With {.xTexCoord = 04, .yTexCoord = 11, .texWidth = 2, .texHeight = 1}) 
 		m_entitySprites.Insert(bmp, EntityState.ENTITY_BOOK_SHELF_0,           New SpriteDef With {.xTexCoord = 07, .yTexCoord = 11, .texWidth = 2, .texHeight = 2}) 
-		m_entitySprites.Insert(bmp, EntityState.ENTITY_BOOK_SHELF_1,           New SpriteDef With {.xTexCoord = 09, .yTexCoord = 11, .texWidth = 1, .texHeight = 2}) 
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_BOOK_SHELF_1,           New SpriteDef With {.xTexCoord = 09, .yTexCoord = 11, .texWidth = 1, .texHeight = 2})  
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_HARDWARE_GAME,          New SpriteDef With {.xTexCoord = 13, .yTexCoord = 07, .texWidth = 2, .texHeight = 4})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_ARTSTORE_FRONT,         New SpriteDef With {.xTexCoord = 08, .yTexCoord = 15, .texWidth = 4, .texHeight = 2}) 
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_ROOFTOP_ELEVATOR,       New SpriteDef With {.xTexCoord = 09, .yTexCoord = 19, .texWidth = 6, .texHeight = 5})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_SHIP,                   New SpriteDef With {.xTexCoord = 12, .yTexCoord = 15, .texWidth = 3, .texHeight = 4})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_TELESCOPE,              New SpriteDef With {.xTexCoord = 03, .yTexCoord = 18, .texWidth = 2, .texHeight = 2})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_CANVAS,                 New SpriteDef With {.xTexCoord = 15, .yTexCoord = 08, .texWidth = 1, .texHeight = 2})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_ART_SHELF,              New SpriteDef With {.xTexCoord = 15, .yTexCoord = 10, .texWidth = 4, .texHeight = 3})
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_DESK,                   New SpriteDef With {.xTexCoord = 19, .yTexCoord = 11, .texWidth = 2, .texHeight = 2})
 
 		m_backgroundSprites = New SpriteTable(MAX_SPRITES)
 		m_backgroundSprites.Insert(
@@ -91,6 +110,21 @@
 		m_backgroundSprites.Insert(
 			My.Resources.bg_book_store,
 			RenderStateBackground.BG_BOOK_STORE,
+			New SpriteDef With {.xTexCoord = 0, .yTexCoord = 0, .texWidth = 16, .texheight = 12})
+
+		m_backgroundSprites.Insert(
+			My.Resources.bg_hardware_store,
+			RenderStateBackground.BG_HARDWARE_STORE,
+			New SpriteDef With {.xTexCoord = 0, .yTexCoord = 0, .texWidth = 16, .texheight = 12})
+
+		m_backgroundSprites.Insert(
+			My.Resources.bg_rooftop,
+			RenderStateBackground.BG_ROOF,
+			New SpriteDef With {.xTexCoord = 0, .yTexCoord = 0, .texWidth = 16, .texheight = 12})
+
+		m_backgroundSprites.Insert(
+			My.Resources.bg_art_store,
+			RenderStateBackground.BG_ART_STORE,
 			New SpriteDef With {.xTexCoord = 0, .yTexCoord = 0, .texWidth = 16, .texheight = 12})
 
 		m_currentBackground = RenderStateBackground.BG_NONE
@@ -105,6 +139,20 @@
 		For i As Integer = 0 to MAX_RENDER_ENTITIES - 1
 			m_renderEntities(i) = New _RenderEntity()
 		Next
+	End Sub
+
+	Public Sub RenderEndingScene()
+		For y As Integer = 0 To Settings.VIDEO_HEIGHT - 1
+			For x As Integer = 0 To Settings.VIDEO_WIDTH - 1
+				If (GlobalRandom.NextInt() And 127) = 10 Then
+					m_video.PutPixel(&HFFFFFF, x, y)
+				Else
+					m_video.PutPixel(0, x, y)
+				End If
+			Next
+		Next
+
+		_RenderEntityDraw(m_entitySprites.GetSprite(EntityState.ENTITY_SHIP), m_endingRocket)
 	End Sub
 	
 	Public Sub SetBackground(bg As RenderStateBackground)
@@ -257,12 +305,13 @@
 
 				If color <> 0 Then
 					_PutPixelOpacity(color, xPixel, yPixel, m_renderOpacity)
-				Else
+				Else If m_currentBackground <> RenderStateBackground.BG_NONE
 					_PutPixelOpacity(m_backgroundSprites.GetSprite(m_currentBackground).GetPixel(xPixel, yPixel), xPixel, yPixel, m_renderOpacity)
 				End If
 			Next
 		Next
 	End Sub
+
 	Private Sub _RenderFloatingTile(sprite As Sprite, xPos As Integer, yPos As Integer, xClip0 As Integer, yClip0 As Integer, xClip1 As Integer, yClip1 As Integer)
 		For y As Integer = 0 To Settings.SPRITE_SIZE - 1 - yClip0 - yClip1
 			For x As Integer = 0 To Settings.SPRITE_SIZE - 1 - xClip0 - xClip1

@@ -37,4 +37,12 @@
 
 		_SwapBuffer()
 	End Sub
+
+	Public Sub RenderEndingScene()
+		m_renderState.RenderEndingScene()
+
+		m_video.Update()
+
+		_SwapBuffer()
+	End Sub
 End Class

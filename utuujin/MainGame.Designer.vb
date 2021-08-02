@@ -25,19 +25,58 @@ Partial Class MainGame
 		Me.components = New System.ComponentModel.Container()
 		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainGame))
 		Me.mainGameLoop = New System.Windows.Forms.Timer(Me.components)
+		Me.lblHelp = New System.Windows.Forms.Label()
+		Me.magicSquareScreen = New utuujin.MagicSquareScreen()
+		Me.cipherGameScreen = New utuujin.CipherGameScreen()
 		Me.wordGameScreen = New utuujin.WordGameScreen()
 		Me.cashRegisterScreen = New utuujin.CashRegisterScreen()
 		Me.climbingGameScreen = New utuujin.ClimbingGameScreen()
 		Me.colorGameScreen = New utuujin.ColorGameScreen()
 		Me.mainGameScreen = New utuujin.MainGameScreen()
-		Me.cipherGameScreen = New utuujin.CipherGameScreen()
-		Me.magicSquareScreen = New utuujin.MagicSquareScreen()
-		Me.SuspendLayout()
+		Me.boardHintScreen = New utuujin.BoardHintScren()
+		Me.SuspendLayout
 		'
 		'mainGameLoop
 		'
-		Me.mainGameLoop.Enabled = True
+		Me.mainGameLoop.Enabled = true
 		Me.mainGameLoop.Interval = 33
+		'
+		'lblHelp
+		'
+		Me.lblHelp.AutoSize = true
+		Me.lblHelp.BackColor = System.Drawing.Color.Black
+		Me.lblHelp.Font = New System.Drawing.Font("Consolas", 12!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.lblHelp.ForeColor = System.Drawing.Color.White
+		Me.lblHelp.Location = New System.Drawing.Point(190, 381)
+		Me.lblHelp.Name = "lblHelp"
+		Me.lblHelp.Size = New System.Drawing.Size(207, 19)
+		Me.lblHelp.TabIndex = 8
+		Me.lblHelp.Text = "Press 'z' to interact."
+		Me.lblHelp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		Me.lblHelp.Visible = false
+		'
+		'magicSquareScreen
+		'
+		Me.magicSquareScreen.BackColor = System.Drawing.Color.Transparent
+		Me.magicSquareScreen.BackgroundImage = CType(resources.GetObject("magicSquareScreen.BackgroundImage"),System.Drawing.Image)
+		Me.magicSquareScreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+		Me.magicSquareScreen.Dock = System.Windows.Forms.DockStyle.Fill
+		Me.magicSquareScreen.Location = New System.Drawing.Point(0, 0)
+		Me.magicSquareScreen.Name = "magicSquareScreen"
+		Me.magicSquareScreen.Size = New System.Drawing.Size(600, 400)
+		Me.magicSquareScreen.TabIndex = 6
+		Me.magicSquareScreen.Visible = false
+		'
+		'cipherGameScreen
+		'
+		Me.cipherGameScreen.BackgroundImage = CType(resources.GetObject("cipherGameScreen.BackgroundImage"),System.Drawing.Image)
+		Me.cipherGameScreen.Dock = System.Windows.Forms.DockStyle.Fill
+		Me.cipherGameScreen.ForeColor = System.Drawing.Color.SaddleBrown
+		Me.cipherGameScreen.Location = New System.Drawing.Point(0, 0)
+		Me.cipherGameScreen.Name = "cipherGameScreen"
+		Me.cipherGameScreen.Size = New System.Drawing.Size(600, 400)
+		Me.cipherGameScreen.TabIndex = 5
+		Me.cipherGameScreen.Visible = false
 		'
 		'wordGameScreen
 		'
@@ -46,7 +85,7 @@ Partial Class MainGame
 		Me.wordGameScreen.Name = "wordGameScreen"
 		Me.wordGameScreen.Size = New System.Drawing.Size(600, 400)
 		Me.wordGameScreen.TabIndex = 4
-		Me.wordGameScreen.Visible = False
+		Me.wordGameScreen.Visible = false
 		'
 		'cashRegisterScreen
 		'
@@ -55,7 +94,7 @@ Partial Class MainGame
 		Me.cashRegisterScreen.Name = "cashRegisterScreen"
 		Me.cashRegisterScreen.Size = New System.Drawing.Size(600, 400)
 		Me.cashRegisterScreen.TabIndex = 3
-		Me.cashRegisterScreen.Visible = False
+		Me.cashRegisterScreen.Visible = false
 		'
 		'climbingGameScreen
 		'
@@ -64,7 +103,7 @@ Partial Class MainGame
 		Me.climbingGameScreen.Name = "climbingGameScreen"
 		Me.climbingGameScreen.Size = New System.Drawing.Size(600, 400)
 		Me.climbingGameScreen.TabIndex = 2
-		Me.climbingGameScreen.Visible = False
+		Me.climbingGameScreen.Visible = false
 		'
 		'colorGameScreen
 		'
@@ -73,7 +112,7 @@ Partial Class MainGame
 		Me.colorGameScreen.Name = "colorGameScreen"
 		Me.colorGameScreen.Size = New System.Drawing.Size(600, 400)
 		Me.colorGameScreen.TabIndex = 1
-		Me.colorGameScreen.Visible = False
+		Me.colorGameScreen.Visible = false
 		'
 		'mainGameScreen
 		'
@@ -84,34 +123,23 @@ Partial Class MainGame
 		Me.mainGameScreen.Size = New System.Drawing.Size(600, 400)
 		Me.mainGameScreen.TabIndex = 0
 		'
-		'cipherGameScreen
+		'boardHintScreen
 		'
-		Me.cipherGameScreen.BackgroundImage = CType(resources.GetObject("cipherGameScreen.BackgroundImage"), System.Drawing.Image)
-		Me.cipherGameScreen.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.cipherGameScreen.ForeColor = System.Drawing.Color.SaddleBrown
-		Me.cipherGameScreen.Location = New System.Drawing.Point(0, 0)
-		Me.cipherGameScreen.Name = "cipherGameScreen"
-		Me.cipherGameScreen.Size = New System.Drawing.Size(600, 400)
-		Me.cipherGameScreen.TabIndex = 5
-		Me.cipherGameScreen.Visible = False
-		'
-		'magicSquareScreen
-		'
-		Me.magicSquareScreen.BackgroundImage = CType(resources.GetObject("magicSquareScreen.BackgroundImage"), System.Drawing.Image)
-		Me.magicSquareScreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-		Me.magicSquareScreen.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.magicSquareScreen.Location = New System.Drawing.Point(0, 0)
-		Me.magicSquareScreen.Name = "magicSquareScreen"
-		Me.magicSquareScreen.Size = New System.Drawing.Size(600, 400)
-		Me.magicSquareScreen.TabIndex = 6
-		Me.magicSquareScreen.Visible = False
+		Me.boardHintScreen.Dock = System.Windows.Forms.DockStyle.Fill
+		Me.boardHintScreen.Location = New System.Drawing.Point(0, 0)
+		Me.boardHintScreen.Name = "boardHintScreen"
+		Me.boardHintScreen.Size = New System.Drawing.Size(600, 400)
+		Me.boardHintScreen.TabIndex = 9
+		Me.boardHintScreen.Visible = false
 		'
 		'MainGame
 		'
-		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+		Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.AutoSize = True
+		Me.AutoSize = true
 		Me.ClientSize = New System.Drawing.Size(600, 400)
+		Me.Controls.Add(Me.lblHelp)
+		Me.Controls.Add(Me.boardHintScreen)
 		Me.Controls.Add(Me.magicSquareScreen)
 		Me.Controls.Add(Me.cipherGameScreen)
 		Me.Controls.Add(Me.wordGameScreen)
@@ -119,15 +147,16 @@ Partial Class MainGame
 		Me.Controls.Add(Me.climbingGameScreen)
 		Me.Controls.Add(Me.colorGameScreen)
 		Me.Controls.Add(Me.mainGameScreen)
-		Me.DoubleBuffered = True
+		Me.DoubleBuffered = true
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
-		Me.KeyPreview = True
+		Me.KeyPreview = true
 		Me.Name = "MainGame"
 		Me.Text = "Allan"
 		Me.TransparencyKey = System.Drawing.Color.BlueViolet
-		Me.ResumeLayout(False)
+		Me.ResumeLayout(false)
+		Me.PerformLayout
 
-	End Sub
+End Sub
 	Friend WithEvents mainGameLoop As Timer
 	Friend WithEvents mainGameScreen As MainGameScreen
 	Friend WithEvents colorGameScreen As ColorGameScreen
@@ -136,4 +165,6 @@ Partial Class MainGame
 	Friend WithEvents wordGameScreen As WordGameScreen
 	Friend WithEvents cipherGameScreen As CipherGameScreen
 	Friend WithEvents magicSquareScreen As MagicSquareScreen
+	Friend WithEvents lblHelp As Label
+	Friend WithEvents boardHintScreen As BoardHintScren
 End Class

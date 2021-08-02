@@ -76,6 +76,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnimationState.vb" />
     <Compile Include="CashRegisterScreen.Designer.vb">
       <DependentUpon>CashRegisterScreen.vb</DependentUpon>
     </Compile>
@@ -142,6 +143,12 @@
     <Compile Include="MainGameScreen.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="BoardHintScreen.Designer.vb">
+      <DependentUpon>BoardHintScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BoardHintScreen.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserInput.vb" />
     <Compile Include="GameState.vb" />
     <Compile Include="RenderState.vb" />
@@ -203,6 +210,9 @@
     <EmbeddedResource Include="SpriteBox.resx">
       <DependentUpon>SpriteBox.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BoardHintScreen.resx">
+      <DependentUpon>BoardHintScreen.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WordGameScreen.resx">
       <DependentUpon>WordGameScreen.vb</DependentUpon>
     </EmbeddedResource>
@@ -218,9 +228,14 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="Resources\map_artstore.level" />
     <None Include="Resources\map_climbing_top.level" />
+    <None Include="Resources\map_hardware_store.level" />
+    <None Include="Resources\map_mall4.level" />
+    <None Include="Resources\map_mall5.level" />
     <None Include="Resources\map_park1.level" />
     <None Include="Resources\map_park2.level" />
+    <None Include="Resources\map_rooftop.level" />
     <None Include="Resources\map_sewers1.level" />
     <None Include="Resources\map_streets1.level" />
     <None Include="Resources\park.level" />
@@ -367,6 +382,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bgm_reality.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg_hardware_store.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg_rooftop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg_art_store.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rocket_takeoff.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg_hint_screen.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

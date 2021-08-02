@@ -22,7 +22,13 @@ Public Class FloatingTileDatabase
 		New SpriteDef With { .xTexCoord = 04, .yTexCoord = 12, .texWidth = 01, .texHeight = 01 }, ' FLOATING_TILE_SEWER_WALL
 		New SpriteDef With { .xTexCoord = 04, .yTexCoord = 14, .texWidth = 01, .texHeight = 01 }, ' FLOATING_TILE_MALL_4
 		New SpriteDef With { .xTexCoord = 05, .yTexCoord = 14, .texWidth = 01, .texHeight = 01 }, ' FLOATING_TILE_MALL_5
-		New SpriteDef With { .xTexCoord = 06, .yTexCoord = 14, .texWidth = 01, .texHeight = 01 }  ' FLOATING_TILE_MALL_6
+		New SpriteDef With { .xTexCoord = 06, .yTexCoord = 14, .texWidth = 01, .texHeight = 01 }, ' FLOATING_TILE_MALL_6
+		New SpriteDef With { .xTexCoord = 06, .yTexCoord = 11, .texWidth = 01, .texHeight = 01 }, ' FLOATING_TILE_STORE_WALL
+		New SpriteDef With { .xTexCoord = 06, .yTexCoord = 18, .texWidth = 01, .texHeight = 01 }, ' FLOATING_TILE_FENCE_2  
+		New SpriteDef With { .xTexCoord = 07, .yTexCoord = 18, .texWidth = 01, .texHeight = 01 }, ' FLOATING_TILE_FENCE_3  
+		New SpriteDef With { .xTexCoord = 06, .yTexCoord = 19, .texWidth = 01, .texHeight = 01 }, ' FLOATING_TILE_FENCE_4  
+		New SpriteDef With { .xTexCoord = 05, .yTexCoord = 20, .texWidth = 01, .texHeight = 01 }, ' FLOATING_TILE_FENCE_5  
+		New SpriteDef With { .xTexCoord = 06, .yTexCoord = 20, .texWidth = 01, .texHeight = 01 }  ' FLOATING_TILE_FENCE_6  
 	}
 	
 	Public Shared ReadOnly Property Size

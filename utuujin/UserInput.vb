@@ -44,6 +44,13 @@
 			Return interactCache
 		End Get
 	End Property
+
+	Public Sub Puppet(xDir As Integer, yDir As Integer)
+		m_left = xDir
+		m_down = yDir
+		m_right = 0
+		m_up = 0
+	End Sub
 	
 	Public Sub KeyUp(keyCode As Keys)
 		Select Case keyCode

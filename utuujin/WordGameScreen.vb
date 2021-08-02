@@ -19,7 +19,6 @@
 	End Sub
 
 	Private Sub _WordGameInit()
-
 		m_labelOrder(0) = lblLetter1
 		m_labelOrder(1) = lblLetter2
 		m_labelOrder(2) = lblLetter3
@@ -81,7 +80,11 @@
 
 			m_letterPtr = m_letterPtr + 1
 
-			_UpdateProgressLabel()
+			If m_letterPtr = TARGET_STRING.Length Then
+				MainGame.PostEvent(GameEvent.EVENT_WORD_GAME_COMPLETE)
+			Else
+				_UpdateProgressLabel()
+			End If
 		Else
 			GameSoundPlayer.Play(GameSound.SOUND_ERROR)
 		End If

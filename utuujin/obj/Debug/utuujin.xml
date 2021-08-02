@@ -22,7 +22,7 @@ utuujin
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
-<member name="P:utuujin.My.Resources.Resources.bg_climbing_game_top">
+<member name="P:utuujin.My.Resources.Resources.bg_art_store">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -32,7 +32,22 @@ utuujin
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:utuujin.My.Resources.Resources.bg_climbing_game_top">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:utuujin.My.Resources.Resources.bg_color_game">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.bg_hardware_store">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.bg_hint_screen">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -47,6 +62,11 @@ utuujin
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:utuujin.My.Resources.Resources.bg_rooftop">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:utuujin.My.Resources.Resources.bg_space">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -57,27 +77,22 @@ utuujin
   Looks up a localized resource of type System.Byte[].
 </summary>
 </member>
+<member name="P:utuujin.My.Resources.Resources.map_artstore">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.map_book_store">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
 <member name="P:utuujin.My.Resources.Resources.map_climbing_top">
 <summary>
   Looks up a localized resource of type System.Byte[].
 </summary>
 </member>
-<member name="P:utuujin.My.Resources.Resources.map_park1">
-<summary>
-  Looks up a localized resource of type System.Byte[].
-</summary>
-</member>
-<member name="P:utuujin.My.Resources.Resources.map_park2">
-<summary>
-  Looks up a localized resource of type System.Byte[].
-</summary>
-</member>
-<member name="P:utuujin.My.Resources.Resources.map_sewers1">
-<summary>
-  Looks up a localized resource of type System.Byte[].
-</summary>
-</member>
-<member name="P:utuujin.My.Resources.Resources.map_streets1">
+<member name="P:utuujin.My.Resources.Resources.map_hardware_store">
 <summary>
   Looks up a localized resource of type System.Byte[].
 </summary>
@@ -97,7 +112,37 @@ utuujin
   Looks up a localized resource of type System.Byte[].
 </summary>
 </member>
-<member name="P:utuujin.My.Resources.Resources.map_book_store">
+<member name="P:utuujin.My.Resources.Resources.map_mall4">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.map_mall5">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.map_park1">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.map_park2">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.map_rooftop">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.map_sewers1">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.map_streets1">
 <summary>
   Looks up a localized resource of type System.Byte[].
 </summary>
@@ -228,6 +273,11 @@ utuujin
 </summary>
 </member>
 <member name="P:utuujin.My.Resources.Resources.snd_error">
+<summary>
+  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.snd_rocket_takeoff">
 <summary>
   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
 </summary>

@@ -3,4 +3,7 @@ Public Enum RenderStateBackground
 	BG_NONE	
 	BG_CLIMBING_GAME_TOP
 	BG_BOOK_STORE
+	BG_HARDWARE_STORE
+	BG_ART_STORE
+	BG_ROOF
 End Enum

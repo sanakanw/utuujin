@@ -4,6 +4,7 @@
 	Private m_baseEntity As Entity
 	Private m_baseState As EntityState
 	Private m_collisionState As ICollisionState
+	Private m_isShowHelpLabel As Boolean
 
 	Public Property baseEntity As Entity
 		Get
@@ -12,6 +13,12 @@
 		Set (value As Entity)
 			m_baseEntity = value
 		End Set
+	End Property
+
+	Public ReadOnly Property IsShowHelpLabel As Boolean
+		Get
+			Return m_isShowHelpLabel
+		End Get
 	End Property
 
 	Public Sub New(baseEntity As Entity, collisionState As ICollisionState)
@@ -33,19 +40,33 @@
 		If (moveX <> 0 Or moveY <> 0) Then
 			animFrame = 1 - ((currentTick Mod 30) > 15)
 		End If
+		
+		m_isShowHelpLabel = False
+		If m_collisionState.entityCollide IsNot Nothing Then
+			Select Case m_collisionState.entityCollide.state
+			    Case EntityState.ENTITY_SLIDE, EntityState.ENTITY_BOARD, EntityState.ENTITY_MAGIC_SQUARE, EntityState.ENTITY_BOOK_GAME, EntityState.ENTITY_HARDWARE_GAME, EntityState.ENTITY_TELESCOPE, EntityState.ENTITY_CANVAS
+						m_isShowHelpLabel = True
+			End Select
+		End If
 
 		If m_collisionState.entityCollide IsNot Nothing And userInput.Interact() Then
 			Select Case m_collisionState.entityCollide.state
 				Case EntityState.ENTITY_SLIDE
 					MainGame.PostEvent(GameEvent.LOAD_GAME_CLIMBING)
 				Case EntityState.ENTITY_BOARD
-					MainGame.PostEvent(GameEvent.LOAD_GAME_CIPHER)
+					MainGame.PostEvent(GameEvent.LOAD_BOARD_HINT)
 				Case EntityState.ENTITY_MAGIC_SQUARE
 					MainGame.PostEvent(GameEvent.LOAD_GAME_MAGIC_SQUARE)
 				Case EntityState.ENTITY_MANHOLE_OPEN
 					MainGame.PostEvent(GameEvent.LOAD_LEVEL_SEWERS_1)
 				Case EntityState.ENTITY_BOOK_GAME
 					MainGame.PostEvent(GameEvent.LOAD_GAME_CIPHER)
+				Case EntityState.ENTITY_HARDWARE_GAME
+					MainGame.PostEvent(GameEvent.LOAD_GAME_REGISTER)
+				Case EntityState.ENTITY_TELESCOPE
+					MainGame.PostEvent(GameEvent.LOAD_GAME_WORD_CONNECT)
+				Case EntityState.ENTITY_CANVAS
+					MainGame.PostEvent(GameEvent.LOAD_GAME_COLOR)
 			End Select
 		End If
 

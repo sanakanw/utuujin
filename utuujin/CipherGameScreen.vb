@@ -7,12 +7,12 @@
 	End Structure
 
 	Private m_questionTable() As _ShiftQuestion = {
-		New _ShiftQuestion With {.target = "HELLO"},
-		New _ShiftQuestion With {.target = "THERE"},
-		New _ShiftQuestion With {.target = "WHAT"},
-		New _ShiftQuestion With {.target = "IS"},
-		New _ShiftQuestion With {.target = "YOUR"},
-		New _ShiftQuestion With {.target = "NAME"}
+		New _ShiftQuestion With {.target = "LEFT"},
+		New _ShiftQuestion With {.target = "BEHIND"},
+		New _ShiftQuestion With {.target = "BY"},
+		New _ShiftQuestion With {.target = "BYGONE"},
+		New _ShiftQuestion With {.target = "ERA"},
+		New _ShiftQuestion With {.target = "GOODBYE"}
 	}
 
 	Private m_currentQuestion As Integer = 0
@@ -66,8 +66,8 @@
 	End Sub
 
 	Private Sub _CipherGameLoad()
-		For i As Integer = 0 To m_questionTable.Length - 2
-			m_questionTable(i).shift = GlobalRandom.NextInt() Mod 26
+		For i As Integer = 0 To m_questionTable.Length - 1
+			m_questionTable(i).shift = 5 + GlobalRandom.NextInt() Mod 20
 		Next
 
 		_LoadCurrentQuestion()
@@ -127,7 +127,12 @@
 		If m_currentShift = 0 Then
 			GameSoundPlayer.Play(GameSound.SOUND_CORRECT)
 			m_currentQuestion = m_currentQuestion + 1
-			_LoadCurrentQuestion()
+			
+			If m_currentQuestion = m_questionTable.Length Then
+				MainGame.PostEvent(GameEvent.EVENT_CIPHER_COMPLETE)
+			Else
+				_LoadCurrentQuestion()
+			End If
 		Else
 			GameSoundPlayer.Play(GameSound.SOUND_ERROR)
 		End If

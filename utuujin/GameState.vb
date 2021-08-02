@@ -8,7 +8,12 @@
 		My.Resources.map_mall1,
 		My.Resources.map_mall2,
 		My.Resources.map_mall3,
+		My.Resources.map_mall4,
 		My.Resources.map_book_store,
+		My.Resources.map_hardware_store,
+		My.Resources.map_artstore,
+		My.Resources.map_rooftop,
+		My.Resources.map_mall5,
 		My.Resources.lvl_shop
 	}
 
@@ -106,7 +111,7 @@
 				Case EntityState.ENTITY_TREE_BUNDLE
 					m_collision.AddStaticObject(entity, 2.0, 0.7)
 				Case EntityState.ENTITY_ROAD_BLOCK
-					m_collision.AddStaticObject(entity, 2.0, 3.0)
+					m_collision.AddStaticObject(entity, 2.0, 2.0)
 				Case EntityState.ENTITY_LAMP
 					m_collision.AddStaticObject(entity, 0.5, 0.5)
 				Case EntityState.ENTITY_BUS_STOP
@@ -121,6 +126,20 @@
 					m_collision.AddStaticObject(entity, 2, 0.8)
 				Case EntityState.ENTITY_BOOK_SHELF_1
 					m_collision.AddStaticObject(entity, 1, 0.8)
+				Case EntityState.ENTITY_HARDWARE_GAME
+					m_collision.AddStaticObject(entity, 2, 4)
+				Case EntityState.ENTITY_ROOFTOP_ELEVATOR
+					m_collision.AddStaticObject(entity, 6.0, 2.0)
+				Case EntityState.ENTITY_SHIP
+					m_collision.AddStaticObject(entity, 3, 0.5)
+				Case EntityState.ENTITY_TELESCOPE
+					m_collision.AddStaticObject(entity, 1, 0.5)
+				Case EntityState.ENTITY_CANVAS
+					m_collision.AddStaticObject(entity, 0.7, 2)
+				Case EntityState.ENTITY_DESK
+					m_collision.AddStaticObject(entity, 2, 0.9)
+				Case EntityState.ENTITY_ART_SHELF
+					m_collision.AddStaticObject(entity, 3.5, 0.7)
 			End Select
 			
 			m_entities.Add(entity)
@@ -147,7 +166,7 @@
 		Dim viewHeight As Single = Settings.FIELD_OF_VIEW * 3 / 8
 		
 		Select Case m_currentLevel 
-			Case GameLevel.LEVEL_CLIMBING_TOP, GameLevel.LEVEL_BOOK_STORE
+			Case GameLevel.LEVEL_CLIMBING_TOP, GameLevel.LEVEL_BOOK_STORE, GameLevel.LEVEL_HARDWARE_STORE, GameLevel.LEVEL_ART_STORE
 				xView = 0
 				yView = 0
 			Case Else

@@ -125,10 +125,14 @@ Public Class ColorGameScreen
 
 			m_currentQuestion = m_currentQuestion + 1
 
-			_LoadCurrentQuestion()
-
 			If m_currentQuestion = m_questionTable.Length Then
-				m_currentQuestion = 0
+				MainGame.PostEvent(GameEvent.EVENT_PAINT_COMPLETE)
+			Else
+				_LoadCurrentQuestion()
+
+				If m_currentQuestion = m_questionTable.Length Then
+					m_currentQuestion = 0
+				End If
 			End If
 		Else
 			_QuestionIncorrect()

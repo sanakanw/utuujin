@@ -92,8 +92,8 @@ Public Class TileDatabase
 		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 10, .yTexCoord = 02, .texWidth = 1, .texheight = 1}, .solid = True  }, ' TILE_SHOP_9
 		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 11, .yTexCoord = 02, .texWidth = 1, .texheight = 1}, .solid = False }, ' TILE_SHOP_10
 		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 10, .yTexCoord = 01, .texWidth = 1, .texheight = 1}, .solid = False }, ' TILE_SHOP_11
-		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 11, .yTexCoord = 01, .texWidth = 1, .texheight = 1}, .solid = True  },  ' TILE_SHOP_12  
-		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 08, .yTexCoord = 04, .texWidth = 1, .texheight = 1}, .solid = False },   ' TILE_SAND_PATH_0
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 11, .yTexCoord = 01, .texWidth = 1, .texheight = 1}, .solid = True  }, ' TILE_SHOP_12  
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 08, .yTexCoord = 04, .texWidth = 1, .texheight = 1}, .solid = False }, ' TILE_SAND_PATH_0
 		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 08, .yTexCoord = 05, .texWidth = 1, .texheight = 1}, .solid = False }, ' TILE_SAND_PATH_1
 		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 08, .yTexCoord = 06, .texWidth = 1, .texheight = 1}, .solid = False }, ' TILE_SAND_PATH_2
 		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 09, .yTexCoord = 06, .texWidth = 1, .texheight = 1}, .solid = False }, ' TILE_SAND_PATH_3
@@ -147,11 +147,37 @@ Public Class TileDatabase
 		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 07, .yTexCoord = 15, .texWidth = 1, .texHeight = 1}, .solid = True  },  ' TILE_MALL_12
 		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 00, .yTexCoord = 16, .texWidth = 1, .texHeight = 1}, .solid = True  },  ' TILE_MALL_13
 		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 01, .yTexCoord = 16, .texWidth = 1, .texHeight = 1}, .solid = True  },  ' TILE_MALL_14
-		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 02, .yTexCoord = 16, .texWidth = 1, .texHeight = 1}, .solid = True  },  ' TILE_MALL_15
-		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 03, .yTexCoord = 16, .texWidth = 1, .texHeight = 1}, .solid = True  },  ' TILE_MALL_16
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 02, .yTexCoord = 16, .texWidth = 1, .texHeight = 1}, .solid = False },  ' TILE_MALL_15
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 03, .yTexCoord = 16, .texWidth = 1, .texHeight = 1}, .solid = False },  ' TILE_MALL_16
 		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 04, .yTexCoord = 16, .texWidth = 1, .texHeight = 1}, .solid = True  },  ' TILE_MALL_17
 		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 04, .yTexCoord = 17, .texWidth = 1, .texHeight = 1}, .solid = False },  ' TILE_MALL_18
-		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 05, .yTexCoord = 16, .texWidth = 1, .texHeight = 1}, .solid = True  }  ' TILE_MALL_19
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 05, .yTexCoord = 16, .texWidth = 1, .texHeight = 1}, .solid = True  },  ' TILE_MALL_19
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 03, .yTexCoord = 17, .texWidth = 1, .texHeight = 1}, .solid = False },  ' TILE_MALL_20
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 00, .yTexCoord = 17, .texWidth = 1, .texHeight = 1}, .solid = False },  ' TILE_MALL_21
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 01, .yTexCoord = 17, .texWidth = 1, .texHeight = 1}, .solid = False },  ' TILE_MALL_22
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 00, .yTexCoord = 18, .texWidth = 1, .texHeight = 1}, .solid = False },  ' TILE_MALL_23
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 01, .yTexCoord = 18, .texWidth = 1, .texHeight = 1}, .solid = False },  ' TILE_MALL_24
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 01, .yTexCoord = 19, .texWidth = 1, .texHeight = 1}, .solid = False },  ' TILE_MALL_25
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 00, .yTexCoord = 20, .texWidth = 1, .texHeight = 1}, .solid = False },  ' TILE_MALL_26
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 01, .yTexCoord = 20, .texWidth = 1, .texHeight = 1}, .solid = False },  ' TILE_MALL_27
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 00, .yTexCoord = 21, .texWidth = 1, .texHeight = 1}, .solid = False },  ' TILE_MALL_28
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 01, .yTexCoord = 21, .texWidth = 1, .texHeight = 1}, .solid = False },  ' TILE_MALL_29
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 00, .yTexCoord = 22, .texWidth = 1, .texHeight = 1}, .solid = False },  ' TILE_MALL_29
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 07, .yTexCoord = 16, .texWidth = 1, .texHeight = 1}, .solid = True  },  ' TILE_MALL_30     
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 07, .yTexCoord = 17, .texWidth = 1, .texHeight = 1}, .solid = False },  ' TILE_MALL_31 
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 02, .yTexCoord = 17, .texWidth = 1, .texHeight = 1}, .solid = False },  ' TILE_MALL_32
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 09, .yTexCoord = 18, .texWidth = 1, .texHeight = 1}, .solid = True  },  ' TILE_FENCE_2  
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 10, .yTexCoord = 18, .texWidth = 1, .texHeight = 1}, .solid = True  },  ' TILE_FENCE_3  
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 09, .yTexCoord = 19, .texWidth = 1, .texHeight = 1}, .solid = True  },  ' TILE_FENCE_4  
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 08, .yTexCoord = 20, .texWidth = 1, .texHeight = 1}, .solid = True  },  ' TILE_FENCE_5  
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 09, .yTexCoord = 20, .texWidth = 1, .texHeight = 1}, .solid = True  },  ' TILE_FENCE_6 
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 11, .yTexCoord = 07, .texWIdth = 1, .texHeight = 1}, .solid = True  },  ' TILE_ELEVATOR_0 
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 12, .yTexCoord = 07, .texWIdth = 1, .texHeight = 1}, .solid = True  },  ' TILE_ELEVATOR_1 
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 11, .yTexCoord = 08, .texWIdth = 1, .texHeight = 1}, .solid = True  },  ' TILE_ELEVATOR_2 
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 12, .yTexCoord = 08, .texWIdth = 1, .texHeight = 1}, .solid = True  },  ' TILE_ELEVATOR_3 
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 14, .yTexCoord = 05, .texWIdth = 1, .texHeight = 1}, .solid = True  },  ' TILE_ELEVATOR_2 
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 14, .yTexCoord = 06, .texWIdth = 1, .texHeight = 1}, .solid = True  },  ' TILE_ELEVATOR_3 
+		New TileData With { .spriteDef = New SpriteDef With {.xTexCoord = 06, .yTexCoord = 01, .texWIdth = 1, .texHeight = 1}, .solid = True  }   ' TILE_CHECKER_SOLID
 	}
 
 	Public Shared ReadOnly Property Size
