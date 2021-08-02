@@ -26,7 +26,7 @@ Public Class MainGame
 
 		GameSoundPlayer.PlayBgm(GameBgm.BGM_REALITY)
 
-		PostEvent(GameEvent.LOAD_LEVEL_PARK_1)
+		PostEvent(GameEvent.LOAD_LEVEL_MALL_2)
 	End Sub
 
 	Public Sub PostEvent(gameEvent As GameEvent)
@@ -50,6 +50,7 @@ Public Class MainGame
 				m_gameState.LoadLevel(GameLevel.LEVEL_PARK1)
 			Case GameEvent.LOAD_LEVEL_PARK_2
 				mainGameScreen.renderState.SetOpacity(250)
+				mainGameScreen.renderState.SetBackground(RenderStateBackground.BG_CLIMBING_GAME_TOP)
 				m_gameState.LoadLevel(GameLevel.LEVEL_PARK2)
 			Case GameEvent.EVENT_CLIMBING_GAME_COMPLETE
 				_LoadGameMain()
@@ -58,6 +59,8 @@ Public Class MainGame
 				EventFlag(GameEvent.EVENT_SLIDE_COMPLETE) = True
 
 				GameSoundPlayer.Play(GameSound.SOUND_BUTTON_CLICK)
+				
+				mainGameScreen.renderState.SetBackground(RenderStateBackground.BG_CLIMBING_GAME_TOP)
 				m_gameState.LoadLevel(GameLevel.LEVEL_PARK2)
 				m_gameState.Player.baseEntity.xPos = 9
 				m_gameState.Player.baseEntity.yPos = 18
@@ -80,6 +83,17 @@ Public Class MainGame
 			Case GameEvent.LOAD_LEVEL_STREETS_1
 				mainGameScreen.renderState.SetOpacity(200)
 				m_gameState.LoadLevel(GameLevel.LEVEL_STREETS1)
+			Case GameEvent.LOAD_LEVEL_MALL_1
+				mainGameScreen.renderState.SetOpacity(150)
+				m_gameState.LoadLevel(GameLevel.LEVEL_MALL1)
+			Case GameEvent.LOAD_LEVEL_MALL_2
+				mainGameScreen.renderState.SetOpacity(100)
+				m_gameState.LoadLevel(GameLevel.LEVEL_MALL2)
+			Case GameEvent.LOAD_LEVEL_MALL_3
+				m_gameState.LoadLevel(GameLevel.LEVEL_MALL3)
+			CASE GameEvent.LOAD_LEVEL_BOOK_STORE
+				mainGameScreen.renderState.SetBackground(RenderStateBackground.BG_BOOK_STORE)
+				m_gameState.LoadLevel(GameLevel.LEVEL_BOOK_STORE)
 		End Select
 	End Sub
 

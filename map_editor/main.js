@@ -1,12 +1,12 @@
 
-const SCALE = 2;
+const SCALE = 1;
 
 const MAP_SIZE = 32;
 
 const SPRITE_SIZE			= 16;
 const SPRITE_MAP_SIZE	= 512;
 
-const TILE_SIZE				= 32;
+const TILE_SIZE				= 16;
 
 const KEY_LEFT				= 37;
 const KEY_UP					= 38;
@@ -89,9 +89,6 @@ const TILE_MALL_16                    = 69;
 const TILE_MALL_17                    = 70;
 const TILE_MALL_18                    = 71;
 const TILE_MALL_19                    = 72;
-const TILE_MALL_20                    = 73;
-const TILE_MALL_21                    = 74;
-const TILE_MALL_22                    = 75;
 
 const ENTITY_NONE											= 0;
 const ENTITY_PLAYER_FORWARD						= 1;
@@ -120,6 +117,10 @@ const ENTITY_LAMP                     = 23;
 const ENTITY_BENCH                    = 24;
 const ENTITY_BUS_STOP                 = 25;
 const ENTITY_BIN											= 26;
+const ENTITY_BOOKSTORE_FRONT					= 27;
+const ENTITY_BOOK_GAME                = 28;
+const ENTITY_BOOK_SHELF_0             = 29;
+const ENTITY_BOOK_SHELF_1             = 30;
 
 const FLOATING_TILE_NONE							= 0;
 const FLOATING_TILE_VOID							= 1;
@@ -209,24 +210,24 @@ const tile_dict = [
 	{ xt: 1, yt: 14 }, // TILE_MALL_1        
 	{ xt: 2, yt: 14 }, // TILE_MALL_2        
 	{ xt: 3, yt: 14 }, // TILE_MALL_3        
-	{ xt: 7, yt: 14 }, // TILE_MALL_7  
+	{ xt: 7, yt: 14 }, // TILE_MALL_4  
 	
-	{ xt: 0, yt: 15 }, // TILE_MALL_8        
-	{ xt: 1, yt: 15 }, // TILE_MALL_9        
-	{ xt: 2, yt: 15 }, // TILE_MALL_10       
-	{ xt: 3, yt: 15 }, // TILE_MALL_11       
-	{ xt: 4, yt: 15 }, // TILE_MALL_12       
-	{ xt: 5, yt: 15 }, // TILE_MALL_13       
-	{ xt: 6, yt: 15 }, // TILE_MALL_14       
-	{ xt: 7, yt: 15 }, // TILE_MALL_15   
+	{ xt: 0, yt: 15 }, // TILE_MALL_5        
+	{ xt: 1, yt: 15 }, // TILE_MALL_6        
+	{ xt: 2, yt: 15 }, // TILE_MALL_7       
+	{ xt: 3, yt: 15 }, // TILE_MALL_8       
+	{ xt: 4, yt: 15 }, // TILE_MALL_8       
+	{ xt: 5, yt: 15 }, // TILE_MALL_10       
+	{ xt: 6, yt: 15 }, // TILE_MALL_11       
+	{ xt: 7, yt: 15 }, // TILE_MALL_12   
 	
-	{ xt: 0, yt: 16 }, // TILE_MALL_16       
-	{ xt: 1, yt: 16 }, // TILE_MALL_17       
-	{ xt: 2, yt: 16 }, // TILE_MALL_18       
-	{ xt: 3, yt: 16 }, // TILE_MALL_19       
-	{ xt: 4, yt: 16 }, // TILE_MALL_20        
-	{ xt: 4, yt: 17 }, // TILE_MALL_21         
-	{ xt: 5, yt: 16 }, // TILE_MALL_22     
+	{ xt: 0, yt: 16 }, // TILE_MALL_13       
+	{ xt: 1, yt: 16 }, // TILE_MALL_14       
+	{ xt: 2, yt: 16 }, // TILE_MALL_15       
+	{ xt: 3, yt: 16 }, // TILE_MALL_16       
+	{ xt: 4, yt: 16 }, // TILE_MALL_17        
+	{ xt: 4, yt: 17 }, // TILE_MALL_18         
+	{ xt: 5, yt: 16 }, // TILE_MALL_19     
 ];                        
 
 const floating_tile_dict = [
@@ -252,9 +253,9 @@ const entity_dict = [
 	{ xt: 0, yt: 9, w: 1, h: 2 },		// ENTITY_PLAYER_BACKWARD					
 	{ xt: 1, yt: 9, w: 1, h: 2 },		// ENTITY_PLAYER_BACKWARD_WALK_0		
 	{ xt: 2, yt: 9, w: 1, h: 2 },		// ENTITY_PLAYER_BACKWARD_WALK_1		
-	{ xt: 5, yt: 11, w: 1, h: 2 },	// ENTITY_PLAYER_RIGHT							
-	{ xt: 6, yt: 11, w: 1, h: 2 },	// ENTITY_PLAYER_RIGHT_WALK_0			
-	{ xt: 7, yt: 11, w: 1, h: 2 },	// ENTITY_PLAYER_RIGHT_WALK_1			
+	{ xt: 0, yt: 11, w: 1, h: 2 },	// ENTITY_PLAYER_RIGHT							
+	{ xt: 1, yt: 11, w: 1, h: 2 },	// ENTITY_PLAYER_RIGHT_WALK_0			
+	{ xt: 2, yt: 11, w: 1, h: 2 },	// ENTITY_PLAYER_RIGHT_WALK_1			
 	{ xt: 3, yt: 4, w: 5, h: 4 },		// ENTITY_SLIDE										
 	{ xt: 0, yt: 2, w: 2, h: 2 },		// ENTITY_BOARD										
 	{ xt: 0, yt: 4, w: 2, h: 1 },  	// ENTITY_MAGIC_SQUARE          
@@ -268,7 +269,12 @@ const entity_dict = [
 	{ xt: 5, yt: 8, w: 1, h: 3 }, // ENTITY_LAMP                     
 	{ xt: 6, yt: 8, w: 2, h: 1 }, // ENTITY_BENCH                     
 	{ xt: 7, yt: 9, w: 1, h: 2 }, // ENTITY_BUS_STOP             
-	{ xt: 6, yt: 9, w: 1, h: 1 } // ENTITY_BIN  
+	{ xt: 6, yt: 9, w: 1, h: 1 }, // ENTITY_BIN  
+	{ xt: 8, yt: 13, w: 4, h: 2 }, // ENTITY_BOOKSTORE_FRONT  
+	{ xt: 12, yt: 13, w: 4, h: 2 }, // ENTITY_HARDWARESTORE_FRONT  
+	{ xt: 4, yt: 11, w: 2, h: 1 }, // ENTITY_BOOK_GAME
+	{ xt: 7, yt: 11, w: 2, h: 2 }, // ENTITY_BOOK_SHELF_0
+	{ xt: 9, yt: 11, w: 1, h: 2 } // ENTITY_BOOK_SHELF_1
 ];
 
 function get_tile_space(n)
@@ -646,7 +652,7 @@ function start(sprite_map)
 	document.getElementById("sprite_map").addEventListener("mousedown", function(e) {
 		xt = get_tile_space(e.offsetX);
 		yt = get_tile_space(e.offsetY);
-		
+		console.log(xt, yt);
 		tile = find_tile(xt, yt);
 		entity = find_entity(xt, yt);
 		floating_tile = find_floating_tile(xt, yt);

@@ -76,14 +76,24 @@
 		m_entitySprites.Insert(bmp, EntityState.ENTITY_BENCH,                  New SpriteDef With {.xTexCoord = 06, .yTexCoord = 08, .texWidth = 2, .texHeight = 1})
 		m_entitySprites.Insert(bmp, EntityState.ENTITY_BUS_STOP,               New SpriteDef With {.xTexCoord = 07, .yTexCoord = 09, .texWidth = 1, .texHeight = 2})
 		m_entitySprites.Insert(bmp, EntityState.ENTITY_BIN,                    New SpriteDef With {.xTexCoord = 06, .yTexCoord = 09, .texWidth = 1, .texHeight = 1}) 
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_BOOKSTORE_FRONT,        New SpriteDef With {.xTexCoord = 08, .yTexCoord = 13, .texWidth = 4, .texHeight = 2}) 
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_HARDWARESTORE_FRONT,    New SpriteDef With {.xTexCoord = 12, .yTexCoord = 13, .texWidth = 4, .texHeight = 2}) 
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_BOOK_GAME,              New SpriteDef With {.xTexCoord = 04, .yTexCoord = 11, .texWidth = 2, .texHeight = 1}) 
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_BOOK_SHELF_0,           New SpriteDef With {.xTexCoord = 07, .yTexCoord = 11, .texWidth = 2, .texHeight = 2}) 
+		m_entitySprites.Insert(bmp, EntityState.ENTITY_BOOK_SHELF_1,           New SpriteDef With {.xTexCoord = 09, .yTexCoord = 11, .texWidth = 1, .texHeight = 2}) 
 
 		m_backgroundSprites = New SpriteTable(MAX_SPRITES)
 		m_backgroundSprites.Insert(
 			My.Resources.bg_climbing_game_top,
 			RenderStateBackground.BG_CLIMBING_GAME_TOP,
 			New SpriteDef With {.xTexCoord = 0, .yTexCoord = 0, .texWidth = 16, .texheight = 12})
+		
+		m_backgroundSprites.Insert(
+			My.Resources.bg_book_store,
+			RenderStateBackground.BG_BOOK_STORE,
+			New SpriteDef With {.xTexCoord = 0, .yTexCoord = 0, .texWidth = 16, .texheight = 12})
 
-		m_currentBackground = RenderStateBackground.BG_CLIMBING_GAME_TOP
+		m_currentBackground = RenderStateBackground.BG_NONE
 	End Sub
 
 	Public Sub New(video As Video)
@@ -95,6 +105,10 @@
 		For i As Integer = 0 to MAX_RENDER_ENTITIES - 1
 			m_renderEntities(i) = New _RenderEntity()
 		Next
+	End Sub
+	
+	Public Sub SetBackground(bg As RenderStateBackground)
+		m_currentBackground = bg
 	End Sub
 	
 	Private Sub _PutPixelOpacity(color As Integer, x As Integer, y As Integer, opacity As Integer)
@@ -289,6 +303,11 @@
 			If xPixel + Settings.SPRITE_SIZE >= Settings.VIDEO_WIDTH Then
 				xClip1 = xPixel + Settings.SPRITE_SIZE - Settings.VIDEO_WIDTH
 				xPixel = xPixel - xClip1
+			End If
+
+			If yPixel + Settings.SPRITE_SIZE >= Settings.VIDEO_HEIGHT Then
+				yClip1 = yPixel + Settings.SPRITE_SIZE - Settings.VIDEO_HEIGHT
+				yPixel = yPixel - yClip1
 			End If
 
 			_RenderFloatingTile(

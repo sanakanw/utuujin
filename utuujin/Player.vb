@@ -44,6 +44,8 @@
 					MainGame.PostEvent(GameEvent.LOAD_GAME_MAGIC_SQUARE)
 				Case EntityState.ENTITY_MANHOLE_OPEN
 					MainGame.PostEvent(GameEvent.LOAD_LEVEL_SEWERS_1)
+				Case EntityState.ENTITY_BOOK_GAME
+					MainGame.PostEvent(GameEvent.LOAD_GAME_CIPHER)
 			End Select
 		End If
 

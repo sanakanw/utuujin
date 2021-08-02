@@ -5,6 +5,10 @@
 		My.Resources.map_climbing_top,
 		My.Resources.map_sewers1,
 		My.Resources.map_streets1,
+		My.Resources.map_mall1,
+		My.Resources.map_mall2,
+		My.Resources.map_mall3,
+		My.Resources.map_book_store,
 		My.Resources.lvl_shop
 	}
 
@@ -14,6 +18,8 @@
 
 	Private m_player As Player
 	Private m_manhole As Entity
+	
+	Private m_currentLevel As GameLevel
 
 	Private m_collision As Collision
 
@@ -53,6 +59,8 @@
 		m_floatingTiles = New List(Of FloatingTile)
 		
 		m_collision = New Collision(m_map)
+		
+		' LoadLevel(GameLevel.LEVEL_MALL2)
 	End Sub
 
 	Public Sub OpenManhole()
@@ -107,6 +115,12 @@
 					m_collision.AddStaticObject(entity, 2, 0.5)
 				Case EntityState.ENTITY_BIN
 					m_collision.AddStaticObject(entity, 0.8, 0.8)
+				Case EntityState.ENTITY_BOOK_GAME
+					m_collision.AddStaticObject(entity, 2, 0.4)
+				Case EntityState.ENTITY_BOOK_SHELF_0
+					m_collision.AddStaticObject(entity, 2, 0.8)
+				Case EntityState.ENTITY_BOOK_SHELF_1
+					m_collision.AddStaticObject(entity, 1, 0.8)
 			End Select
 			
 			m_entities.Add(entity)
@@ -121,6 +135,8 @@
 		For i As Integer = 0 To loadTriggerCount - 1
 			m_collision.AddLoadTrigger(levelLoader.ReadLoadTrigger())
 		Next
+		
+		m_currentLevel = level
 	End Sub
 
 	Public Sub Frame(currentTick As Integer, userInput As UserInput)
@@ -129,11 +145,18 @@
 
 		Dim viewWidth As Single = Settings.FIELD_OF_VIEW / 2
 		Dim viewHeight As Single = Settings.FIELD_OF_VIEW * 3 / 8
-
-		Dim xOffset As Single = Math.Max(m_player.baseEntity.xPos - viewWidth, 0)
-		Dim yOffset As Single = Math.Max(m_player.baseEntity.yPos - viewHeight - 2, 0)
-
-		xView = Math.Min(xOffset, m_map.Width - 2 * viewWidth - 1)
-		yView = Math.Min(yOffset, m_map.Height - 2 * viewHeight - 1)
+		
+		Select Case m_currentLevel 
+			Case GameLevel.LEVEL_CLIMBING_TOP, GameLevel.LEVEL_BOOK_STORE
+				xView = 0
+				yView = 0
+			Case Else
+				Dim xOffset As Single = Math.Max(m_player.baseEntity.xPos - viewWidth, 0)
+				Dim yOffset As Single = Math.Max(m_player.baseEntity.yPos - viewHeight - 2, 0)
+				
+				xView = Math.Min(xOffset, m_map.Width - 2 * viewWidth - 1)
+				yView = Math.Min(yOffset, m_map.Height - 2 * viewHeight - 1)
+		End Select
+		
 	End Sub
 End Class
