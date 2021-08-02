@@ -353,6 +353,26 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property png_btn_play() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("png_btn_play", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property png_btn_replay() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("png_btn_replay", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property png_btn_shape_backdrop() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("png_btn_shape_backdrop", resourceCulture)
@@ -536,6 +556,16 @@ Namespace My.Resources
         Friend ReadOnly Property png_star() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("png_star", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property png_title() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("png_title", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

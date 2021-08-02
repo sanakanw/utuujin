@@ -79,11 +79,11 @@ Partial Class CipherGameScreen
 		Me.sprBtnShiftRight = New utuujin.SpriteBox()
 		Me.sprBtnCheck = New utuujin.SpriteBox()
 		Me.sprBtnBack = New utuujin.SpriteBox()
-		Me.SuspendLayout()
+		Me.SuspendLayout
 		'
 		'lblLetterB
 		'
-		Me.lblLetterB.AutoSize = True
+		Me.lblLetterB.AutoSize = true
 		Me.lblLetterB.BackColor = System.Drawing.Color.Transparent
 		Me.lblLetterB.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.lblLetterB.Location = New System.Drawing.Point(68, 255)
@@ -95,7 +95,7 @@ Partial Class CipherGameScreen
 		'
 		'lblLetterA
 		'
-		Me.lblLetterA.AutoSize = True
+		Me.lblLetterA.AutoSize = true
 		Me.lblLetterA.BackColor = System.Drawing.Color.Transparent
 		Me.lblLetterA.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.lblLetterA.Location = New System.Drawing.Point(28, 255)
@@ -107,7 +107,7 @@ Partial Class CipherGameScreen
 		'
 		'lblLetterD
 		'
-		Me.lblLetterD.AutoSize = True
+		Me.lblLetterD.AutoSize = true
 		Me.lblLetterD.BackColor = System.Drawing.Color.Transparent
 		Me.lblLetterD.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.lblLetterD.Location = New System.Drawing.Point(153, 255)
@@ -119,7 +119,7 @@ Partial Class CipherGameScreen
 		'
 		'lblLetterC
 		'
-		Me.lblLetterC.AutoSize = True
+		Me.lblLetterC.AutoSize = true
 		Me.lblLetterC.BackColor = System.Drawing.Color.Transparent
 		Me.lblLetterC.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.lblLetterC.Location = New System.Drawing.Point(113, 255)
@@ -131,7 +131,7 @@ Partial Class CipherGameScreen
 		'
 		'lblLetterF
 		'
-		Me.lblLetterF.AutoSize = True
+		Me.lblLetterF.AutoSize = true
 		Me.lblLetterF.BackColor = System.Drawing.Color.Transparent
 		Me.lblLetterF.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.lblLetterF.Location = New System.Drawing.Point(241, 255)
@@ -143,7 +143,7 @@ Partial Class CipherGameScreen
 		'
 		'lblLetterE
 		'
-		Me.lblLetterE.AutoSize = True
+		Me.lblLetterE.AutoSize = true
 		Me.lblLetterE.BackColor = System.Drawing.Color.Transparent
 		Me.lblLetterE.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.lblLetterE.Location = New System.Drawing.Point(198, 255)
@@ -155,7 +155,7 @@ Partial Class CipherGameScreen
 		'
 		'lblLetterH
 		'
-		Me.lblLetterH.AutoSize = True
+		Me.lblLetterH.AutoSize = true
 		Me.lblLetterH.BackColor = System.Drawing.Color.Transparent
 		Me.lblLetterH.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.lblLetterH.Location = New System.Drawing.Point(328, 256)
@@ -167,7 +167,7 @@ Partial Class CipherGameScreen
 		'
 		'lblLetterG
 		'
-		Me.lblLetterG.AutoSize = True
+		Me.lblLetterG.AutoSize = true
 		Me.lblLetterG.BackColor = System.Drawing.Color.Transparent
 		Me.lblLetterG.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.lblLetterG.Location = New System.Drawing.Point(284, 255)
@@ -179,7 +179,7 @@ Partial Class CipherGameScreen
 		'
 		'lblLetterJ
 		'
-		Me.lblLetterJ.AutoSize = True
+		Me.lblLetterJ.AutoSize = true
 		Me.lblLetterJ.BackColor = System.Drawing.Color.Transparent
 		Me.lblLetterJ.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.lblLetterJ.Location = New System.Drawing.Point(411, 255)
@@ -191,7 +191,7 @@ Partial Class CipherGameScreen
 		'
 		'lblLetterI
 		'
-		Me.lblLetterI.AutoSize = True
+		Me.lblLetterI.AutoSize = true
 		Me.lblLetterI.BackColor = System.Drawing.Color.Transparent
 		Me.lblLetterI.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.lblLetterI.Location = New System.Drawing.Point(367, 256)
@@ -203,7 +203,7 @@ Partial Class CipherGameScreen
 		'
 		'lblLetterL
 		'
-		Me.lblLetterL.AutoSize = True
+		Me.lblLetterL.AutoSize = true
 		Me.lblLetterL.BackColor = System.Drawing.Color.Transparent
 		Me.lblLetterL.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.lblLetterL.Location = New System.Drawing.Point(497, 255)
@@ -215,7 +215,7 @@ Partial Class CipherGameScreen
 		'
 		'lblLetterK
 		'
-		Me.lblLetterK.AutoSize = True
+		Me.lblLetterK.AutoSize = true
 		Me.lblLetterK.BackColor = System.Drawing.Color.Transparent
 		Me.lblLetterK.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.lblLetterK.Location = New System.Drawing.Point(457, 255)
@@ -227,7 +227,7 @@ Partial Class CipherGameScreen
 		'
 		'lblLetterM
 		'
-		Me.lblLetterM.AutoSize = True
+		Me.lblLetterM.AutoSize = true
 		Me.lblLetterM.BackColor = System.Drawing.Color.Transparent
 		Me.lblLetterM.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.lblLetterM.Location = New System.Drawing.Point(538, 254)
@@ -239,7 +239,7 @@ Partial Class CipherGameScreen
 		'
 		'Label14
 		'
-		Me.Label14.AutoSize = True
+		Me.Label14.AutoSize = true
 		Me.Label14.BackColor = System.Drawing.Color.Transparent
 		Me.Label14.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.Label14.Location = New System.Drawing.Point(538, 215)
@@ -251,7 +251,7 @@ Partial Class CipherGameScreen
 		'
 		'Label15
 		'
-		Me.Label15.AutoSize = True
+		Me.Label15.AutoSize = true
 		Me.Label15.BackColor = System.Drawing.Color.Transparent
 		Me.Label15.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.Label15.Location = New System.Drawing.Point(497, 216)
@@ -263,7 +263,7 @@ Partial Class CipherGameScreen
 		'
 		'Label16
 		'
-		Me.Label16.AutoSize = True
+		Me.Label16.AutoSize = true
 		Me.Label16.BackColor = System.Drawing.Color.Transparent
 		Me.Label16.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.Label16.Location = New System.Drawing.Point(457, 216)
@@ -275,7 +275,7 @@ Partial Class CipherGameScreen
 		'
 		'Label17
 		'
-		Me.Label17.AutoSize = True
+		Me.Label17.AutoSize = true
 		Me.Label17.BackColor = System.Drawing.Color.Transparent
 		Me.Label17.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.Label17.Location = New System.Drawing.Point(411, 216)
@@ -287,7 +287,7 @@ Partial Class CipherGameScreen
 		'
 		'Label18
 		'
-		Me.Label18.AutoSize = True
+		Me.Label18.AutoSize = true
 		Me.Label18.BackColor = System.Drawing.Color.Transparent
 		Me.Label18.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.Label18.Location = New System.Drawing.Point(375, 215)
@@ -299,7 +299,7 @@ Partial Class CipherGameScreen
 		'
 		'Label19
 		'
-		Me.Label19.AutoSize = True
+		Me.Label19.AutoSize = true
 		Me.Label19.BackColor = System.Drawing.Color.Transparent
 		Me.Label19.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.Label19.Location = New System.Drawing.Point(328, 217)
@@ -311,7 +311,7 @@ Partial Class CipherGameScreen
 		'
 		'Label20
 		'
-		Me.Label20.AutoSize = True
+		Me.Label20.AutoSize = true
 		Me.Label20.BackColor = System.Drawing.Color.Transparent
 		Me.Label20.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.Label20.Location = New System.Drawing.Point(284, 216)
@@ -323,7 +323,7 @@ Partial Class CipherGameScreen
 		'
 		'Label21
 		'
-		Me.Label21.AutoSize = True
+		Me.Label21.AutoSize = true
 		Me.Label21.BackColor = System.Drawing.Color.Transparent
 		Me.Label21.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.Label21.Location = New System.Drawing.Point(241, 216)
@@ -335,7 +335,7 @@ Partial Class CipherGameScreen
 		'
 		'Label22
 		'
-		Me.Label22.AutoSize = True
+		Me.Label22.AutoSize = true
 		Me.Label22.BackColor = System.Drawing.Color.Transparent
 		Me.Label22.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.Label22.Location = New System.Drawing.Point(198, 216)
@@ -347,7 +347,7 @@ Partial Class CipherGameScreen
 		'
 		'Label23
 		'
-		Me.Label23.AutoSize = True
+		Me.Label23.AutoSize = true
 		Me.Label23.BackColor = System.Drawing.Color.Transparent
 		Me.Label23.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.Label23.Location = New System.Drawing.Point(153, 216)
@@ -359,7 +359,7 @@ Partial Class CipherGameScreen
 		'
 		'Label24
 		'
-		Me.Label24.AutoSize = True
+		Me.Label24.AutoSize = true
 		Me.Label24.BackColor = System.Drawing.Color.Transparent
 		Me.Label24.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.Label24.Location = New System.Drawing.Point(113, 216)
@@ -371,7 +371,7 @@ Partial Class CipherGameScreen
 		'
 		'Label25
 		'
-		Me.Label25.AutoSize = True
+		Me.Label25.AutoSize = true
 		Me.Label25.BackColor = System.Drawing.Color.Transparent
 		Me.Label25.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.Label25.Location = New System.Drawing.Point(68, 216)
@@ -383,7 +383,7 @@ Partial Class CipherGameScreen
 		'
 		'Label26
 		'
-		Me.Label26.AutoSize = True
+		Me.Label26.AutoSize = true
 		Me.Label26.BackColor = System.Drawing.Color.Transparent
 		Me.Label26.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.Label26.Location = New System.Drawing.Point(28, 216)
@@ -395,7 +395,7 @@ Partial Class CipherGameScreen
 		'
 		'lblLetterZ
 		'
-		Me.lblLetterZ.AutoSize = True
+		Me.lblLetterZ.AutoSize = true
 		Me.lblLetterZ.BackColor = System.Drawing.Color.Transparent
 		Me.lblLetterZ.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.lblLetterZ.Location = New System.Drawing.Point(537, 346)
@@ -407,7 +407,7 @@ Partial Class CipherGameScreen
 		'
 		'lblLetterY
 		'
-		Me.lblLetterY.AutoSize = True
+		Me.lblLetterY.AutoSize = true
 		Me.lblLetterY.BackColor = System.Drawing.Color.Transparent
 		Me.lblLetterY.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.lblLetterY.Location = New System.Drawing.Point(496, 347)
@@ -419,7 +419,7 @@ Partial Class CipherGameScreen
 		'
 		'lblLetterX
 		'
-		Me.lblLetterX.AutoSize = True
+		Me.lblLetterX.AutoSize = true
 		Me.lblLetterX.BackColor = System.Drawing.Color.Transparent
 		Me.lblLetterX.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.lblLetterX.Location = New System.Drawing.Point(456, 347)
@@ -431,7 +431,7 @@ Partial Class CipherGameScreen
 		'
 		'lblLetterW
 		'
-		Me.lblLetterW.AutoSize = True
+		Me.lblLetterW.AutoSize = true
 		Me.lblLetterW.BackColor = System.Drawing.Color.Transparent
 		Me.lblLetterW.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.lblLetterW.Location = New System.Drawing.Point(410, 347)
@@ -443,7 +443,7 @@ Partial Class CipherGameScreen
 		'
 		'lblLetterV
 		'
-		Me.lblLetterV.AutoSize = True
+		Me.lblLetterV.AutoSize = true
 		Me.lblLetterV.BackColor = System.Drawing.Color.Transparent
 		Me.lblLetterV.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.lblLetterV.Location = New System.Drawing.Point(366, 348)
@@ -455,7 +455,7 @@ Partial Class CipherGameScreen
 		'
 		'lblLetterU
 		'
-		Me.lblLetterU.AutoSize = True
+		Me.lblLetterU.AutoSize = true
 		Me.lblLetterU.BackColor = System.Drawing.Color.Transparent
 		Me.lblLetterU.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.lblLetterU.Location = New System.Drawing.Point(327, 348)
@@ -467,7 +467,7 @@ Partial Class CipherGameScreen
 		'
 		'lblLetterT
 		'
-		Me.lblLetterT.AutoSize = True
+		Me.lblLetterT.AutoSize = true
 		Me.lblLetterT.BackColor = System.Drawing.Color.Transparent
 		Me.lblLetterT.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.lblLetterT.Location = New System.Drawing.Point(283, 347)
@@ -479,7 +479,7 @@ Partial Class CipherGameScreen
 		'
 		'lblLetterS
 		'
-		Me.lblLetterS.AutoSize = True
+		Me.lblLetterS.AutoSize = true
 		Me.lblLetterS.BackColor = System.Drawing.Color.Transparent
 		Me.lblLetterS.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.lblLetterS.Location = New System.Drawing.Point(240, 347)
@@ -491,7 +491,7 @@ Partial Class CipherGameScreen
 		'
 		'lblLetterR
 		'
-		Me.lblLetterR.AutoSize = True
+		Me.lblLetterR.AutoSize = true
 		Me.lblLetterR.BackColor = System.Drawing.Color.Transparent
 		Me.lblLetterR.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.lblLetterR.Location = New System.Drawing.Point(197, 347)
@@ -503,7 +503,7 @@ Partial Class CipherGameScreen
 		'
 		'lblLetterQ
 		'
-		Me.lblLetterQ.AutoSize = True
+		Me.lblLetterQ.AutoSize = true
 		Me.lblLetterQ.BackColor = System.Drawing.Color.Transparent
 		Me.lblLetterQ.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.lblLetterQ.Location = New System.Drawing.Point(152, 347)
@@ -515,7 +515,7 @@ Partial Class CipherGameScreen
 		'
 		'lblLetterP
 		'
-		Me.lblLetterP.AutoSize = True
+		Me.lblLetterP.AutoSize = true
 		Me.lblLetterP.BackColor = System.Drawing.Color.Transparent
 		Me.lblLetterP.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.lblLetterP.Location = New System.Drawing.Point(112, 347)
@@ -527,7 +527,7 @@ Partial Class CipherGameScreen
 		'
 		'lblLetterO
 		'
-		Me.lblLetterO.AutoSize = True
+		Me.lblLetterO.AutoSize = true
 		Me.lblLetterO.BackColor = System.Drawing.Color.Transparent
 		Me.lblLetterO.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.lblLetterO.Location = New System.Drawing.Point(67, 347)
@@ -539,7 +539,7 @@ Partial Class CipherGameScreen
 		'
 		'lblLetterN
 		'
-		Me.lblLetterN.AutoSize = True
+		Me.lblLetterN.AutoSize = true
 		Me.lblLetterN.BackColor = System.Drawing.Color.Transparent
 		Me.lblLetterN.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.lblLetterN.Location = New System.Drawing.Point(27, 347)
@@ -551,7 +551,7 @@ Partial Class CipherGameScreen
 		'
 		'Label40
 		'
-		Me.Label40.AutoSize = True
+		Me.Label40.AutoSize = true
 		Me.Label40.BackColor = System.Drawing.Color.Transparent
 		Me.Label40.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.Label40.Location = New System.Drawing.Point(539, 306)
@@ -563,7 +563,7 @@ Partial Class CipherGameScreen
 		'
 		'Label41
 		'
-		Me.Label41.AutoSize = True
+		Me.Label41.AutoSize = true
 		Me.Label41.BackColor = System.Drawing.Color.Transparent
 		Me.Label41.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.Label41.Location = New System.Drawing.Point(498, 307)
@@ -575,7 +575,7 @@ Partial Class CipherGameScreen
 		'
 		'Label42
 		'
-		Me.Label42.AutoSize = True
+		Me.Label42.AutoSize = true
 		Me.Label42.BackColor = System.Drawing.Color.Transparent
 		Me.Label42.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.Label42.Location = New System.Drawing.Point(454, 308)
@@ -587,7 +587,7 @@ Partial Class CipherGameScreen
 		'
 		'Label43
 		'
-		Me.Label43.AutoSize = True
+		Me.Label43.AutoSize = true
 		Me.Label43.BackColor = System.Drawing.Color.Transparent
 		Me.Label43.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.Label43.Location = New System.Drawing.Point(407, 307)
@@ -599,7 +599,7 @@ Partial Class CipherGameScreen
 		'
 		'Label44
 		'
-		Me.Label44.AutoSize = True
+		Me.Label44.AutoSize = true
 		Me.Label44.BackColor = System.Drawing.Color.Transparent
 		Me.Label44.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.Label44.Location = New System.Drawing.Point(368, 308)
@@ -611,7 +611,7 @@ Partial Class CipherGameScreen
 		'
 		'Label45
 		'
-		Me.Label45.AutoSize = True
+		Me.Label45.AutoSize = true
 		Me.Label45.BackColor = System.Drawing.Color.Transparent
 		Me.Label45.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.Label45.Location = New System.Drawing.Point(329, 308)
@@ -623,7 +623,7 @@ Partial Class CipherGameScreen
 		'
 		'Label46
 		'
-		Me.Label46.AutoSize = True
+		Me.Label46.AutoSize = true
 		Me.Label46.BackColor = System.Drawing.Color.Transparent
 		Me.Label46.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.Label46.Location = New System.Drawing.Point(285, 307)
@@ -635,7 +635,7 @@ Partial Class CipherGameScreen
 		'
 		'Label47
 		'
-		Me.Label47.AutoSize = True
+		Me.Label47.AutoSize = true
 		Me.Label47.BackColor = System.Drawing.Color.Transparent
 		Me.Label47.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.Label47.Location = New System.Drawing.Point(242, 307)
@@ -647,7 +647,7 @@ Partial Class CipherGameScreen
 		'
 		'Label48
 		'
-		Me.Label48.AutoSize = True
+		Me.Label48.AutoSize = true
 		Me.Label48.BackColor = System.Drawing.Color.Transparent
 		Me.Label48.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.Label48.Location = New System.Drawing.Point(199, 307)
@@ -659,7 +659,7 @@ Partial Class CipherGameScreen
 		'
 		'Label49
 		'
-		Me.Label49.AutoSize = True
+		Me.Label49.AutoSize = true
 		Me.Label49.BackColor = System.Drawing.Color.Transparent
 		Me.Label49.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.Label49.Location = New System.Drawing.Point(154, 307)
@@ -671,7 +671,7 @@ Partial Class CipherGameScreen
 		'
 		'Label50
 		'
-		Me.Label50.AutoSize = True
+		Me.Label50.AutoSize = true
 		Me.Label50.BackColor = System.Drawing.Color.Transparent
 		Me.Label50.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.Label50.Location = New System.Drawing.Point(114, 307)
@@ -683,7 +683,7 @@ Partial Class CipherGameScreen
 		'
 		'Label51
 		'
-		Me.Label51.AutoSize = True
+		Me.Label51.AutoSize = true
 		Me.Label51.BackColor = System.Drawing.Color.Transparent
 		Me.Label51.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.Label51.Location = New System.Drawing.Point(69, 307)
@@ -695,7 +695,7 @@ Partial Class CipherGameScreen
 		'
 		'Label52
 		'
-		Me.Label52.AutoSize = True
+		Me.Label52.AutoSize = true
 		Me.Label52.BackColor = System.Drawing.Color.Transparent
 		Me.Label52.Font = New System.Drawing.Font("Segoe Script", 21.25!)
 		Me.Label52.Location = New System.Drawing.Point(29, 307)
@@ -755,7 +755,7 @@ Partial Class CipherGameScreen
 		'
 		'CipherGameScreen
 		'
-		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+		Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.BackgroundImage = Global.utuujin.My.Resources.Resources.bg_parchment
 		Me.Controls.Add(Me.sprBtnBack)
@@ -815,13 +815,13 @@ Partial Class CipherGameScreen
 		Me.Controls.Add(Me.lblLetterC)
 		Me.Controls.Add(Me.lblLetterB)
 		Me.Controls.Add(Me.lblLetterA)
-		Me.ForeColor = System.Drawing.Color.SaddleBrown
+		Me.ForeColor = System.Drawing.Color.Sienna
 		Me.Name = "CipherGameScreen"
 		Me.Size = New System.Drawing.Size(600, 400)
-		Me.ResumeLayout(False)
-		Me.PerformLayout()
+		Me.ResumeLayout(false)
+		Me.PerformLayout
 
-	End Sub
+End Sub
 
 	Friend WithEvents lblLetterB As Label
 	Friend WithEvents lblLetterA As Label

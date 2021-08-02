@@ -24,7 +24,7 @@
 
 	Private m_itemControlTable(7) As _ItemControl
 
-	Private m_digitPtr As Integer = -1
+	Private m_digitPtr As Integer = 4
 	Private m_answerDigit(4) As Integer
 
 	Private Sub CashRegisterScreen_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -91,7 +91,7 @@
 	End Sub
 
 	Private Sub _Digit_Click(digit As Integer)
-		m_digitPtr = Math.Min(m_digitPtr + 1, 3)
+		m_digitPtr = Math.Max(m_digitPtr - 1, 0)
 		m_answerDigit(m_digitPtr) = digit
 
 		GameSoundPlayer.Play(GameSound.SOUND_BUTTON_CLICK)
@@ -118,7 +118,7 @@
 		If m_currentQuestion = m_questionTable.Length Then 
 			MainGame.PostEvent(GameEvent.EVENT_HARDWARE_COMPLETE)
 		Else
-			m_digitPtr = -1
+			m_digitPtr = 4
 			m_answerDigit(0) = "0"
 			m_answerDigit(1) = "0"
 			m_answerDigit(2) = "0"
@@ -131,9 +131,9 @@
 	End Sub
 
 	Private Sub lblBtnClear_Click(sender As Object, e As EventArgs) Handles lblBtnClear.Click
-		If m_digitPtr > -1 Then
+		If m_digitPtr < 4 Then
 			m_answerDigit(m_digitPtr) = 0
-			m_digitPtr = Math.Max(m_digitPtr - 1, -1)
+			m_digitPtr = Math.Min(m_digitPtr + 1, 4)
 
 			_UpdateAnswer()
 		End If

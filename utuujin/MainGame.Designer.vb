@@ -26,6 +26,8 @@ Partial Class MainGame
 		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainGame))
 		Me.mainGameLoop = New System.Windows.Forms.Timer(Me.components)
 		Me.lblHelp = New System.Windows.Forms.Label()
+		Me.mainMenuScreen = New utuujin.MainMenuScreen()
+		Me.boardHintScreen = New utuujin.BoardHintScren()
 		Me.magicSquareScreen = New utuujin.MagicSquareScreen()
 		Me.cipherGameScreen = New utuujin.CipherGameScreen()
 		Me.wordGameScreen = New utuujin.WordGameScreen()
@@ -33,7 +35,7 @@ Partial Class MainGame
 		Me.climbingGameScreen = New utuujin.ClimbingGameScreen()
 		Me.colorGameScreen = New utuujin.ColorGameScreen()
 		Me.mainGameScreen = New utuujin.MainGameScreen()
-		Me.boardHintScreen = New utuujin.BoardHintScren()
+		Me.sprBtnReplay = New utuujin.SpriteBox()
 		Me.SuspendLayout
 		'
 		'mainGameLoop
@@ -54,6 +56,26 @@ Partial Class MainGame
 		Me.lblHelp.Text = "Press 'z' to interact."
 		Me.lblHelp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
 		Me.lblHelp.Visible = false
+		'
+		'mainMenuScreen
+		'
+		Me.mainMenuScreen.BackColor = System.Drawing.Color.Black
+		Me.mainMenuScreen.Dock = System.Windows.Forms.DockStyle.Fill
+		Me.mainMenuScreen.Location = New System.Drawing.Point(0, 0)
+		Me.mainMenuScreen.Name = "mainMenuScreen"
+		Me.mainMenuScreen.Size = New System.Drawing.Size(600, 400)
+		Me.mainMenuScreen.TabIndex = 10
+		Me.mainMenuScreen.Visible = false
+		'
+		'boardHintScreen
+		'
+		Me.boardHintScreen.BackgroundImage = CType(resources.GetObject("boardHintScreen.BackgroundImage"),System.Drawing.Image)
+		Me.boardHintScreen.Dock = System.Windows.Forms.DockStyle.Fill
+		Me.boardHintScreen.Location = New System.Drawing.Point(0, 0)
+		Me.boardHintScreen.Name = "boardHintScreen"
+		Me.boardHintScreen.Size = New System.Drawing.Size(600, 400)
+		Me.boardHintScreen.TabIndex = 9
+		Me.boardHintScreen.Visible = false
 		'
 		'magicSquareScreen
 		'
@@ -123,14 +145,15 @@ Partial Class MainGame
 		Me.mainGameScreen.Size = New System.Drawing.Size(600, 400)
 		Me.mainGameScreen.TabIndex = 0
 		'
-		'boardHintScreen
+		'sprBtnReplay
 		'
-		Me.boardHintScreen.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.boardHintScreen.Location = New System.Drawing.Point(0, 0)
-		Me.boardHintScreen.Name = "boardHintScreen"
-		Me.boardHintScreen.Size = New System.Drawing.Size(600, 400)
-		Me.boardHintScreen.TabIndex = 9
-		Me.boardHintScreen.Visible = false
+		Me.sprBtnReplay.BackColor = System.Drawing.Color.Black
+		Me.sprBtnReplay.ForeColor = System.Drawing.SystemColors.ControlText
+		Me.sprBtnReplay.Location = New System.Drawing.Point(194, 299)
+		Me.sprBtnReplay.Name = "sprBtnReplay"
+		Me.sprBtnReplay.Size = New System.Drawing.Size(203, 55)
+		Me.sprBtnReplay.TabIndex = 11
+		Me.sprBtnReplay.Visible = false
 		'
 		'MainGame
 		'
@@ -138,6 +161,8 @@ Partial Class MainGame
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.AutoSize = true
 		Me.ClientSize = New System.Drawing.Size(600, 400)
+		Me.Controls.Add(Me.sprBtnReplay)
+		Me.Controls.Add(Me.mainMenuScreen)
 		Me.Controls.Add(Me.lblHelp)
 		Me.Controls.Add(Me.boardHintScreen)
 		Me.Controls.Add(Me.magicSquareScreen)
@@ -167,4 +192,6 @@ End Sub
 	Friend WithEvents magicSquareScreen As MagicSquareScreen
 	Friend WithEvents lblHelp As Label
 	Friend WithEvents boardHintScreen As BoardHintScren
+	Friend WithEvents mainMenuScreen As MainMenuScreen
+	Friend WithEvents sprBtnReplay As SpriteBox
 End Class

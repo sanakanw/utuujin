@@ -89,6 +89,12 @@
 		lblEncryptedString.Text = ""
 
 		For i As Integer = 0 To CHARSET.Length - 1
+			Dim letterShift As Integer = (i + m_currentShift) Mod CHARSET.Length
+			If letterShift = 0 Then 
+				m_letterShift(i).ForeColor = Color.Black
+			Else
+				m_letterShift(i).ForeColor = Color.Sienna
+			End If
 			m_letterShift(i).Text = CHARSET((i + m_currentShift) Mod CHARSET.Length)
 		Next
 

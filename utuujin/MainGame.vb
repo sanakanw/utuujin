@@ -27,7 +27,9 @@ Public Class MainGame
 
 		m_previousTime = m_stopwatch.ElapsedMilliseconds
 
-		PostEvent(GameEvent.LOAD_LEVEL_PARK_1)
+		sprBtnReplay.SetBitmap(My.Resources.png_btn_replay)
+
+		PostEvent(GameEvent.LOAD_SCREEN_MAIN_MENU)
 	End Sub
 
 	Private Sub _LoadLevel(level As GameLevel, transitionTime As Integer)
@@ -47,7 +49,7 @@ Public Class MainGame
 			Case GameEvent.LOAD_LEVEL_PARK_2
 				_LoadLevel(GameLevel.LEVEL_PARK2, 250)
 			Case GameEvent.LOAD_LEVEL_SEWERS_1
-				_LoadLevel(GameLevel.LEVEL_SEWERS1, 100)
+				_LoadLevel(GameLevel.LEVEL_SEWERS1, 120)
 			Case GameEvent.LOAD_LEVEL_STREETS_1
 				_LoadLevel(GameLevel.LEVEL_STREETS1, 200)
 			Case GameEvent.LOAD_LEVEL_MALL_1
@@ -92,9 +94,15 @@ Public Class MainGame
 				_SwitchScreen(magicSquareScreen)
 			Case GameEvent.LOAD_BOARD_HINT
 				_SwitchScreen(boardHintScreen)
+			Case GameEvent.LOAD_SCREEN_MAIN_MENU
+				GameSoundPlayer.PlayBgm(GameBgm.BGM_SUNDAY_AFTERNOON)
+				_SwitchScreen(mainMenuScreen)
 			Case GameEvent.LOAD_GAME_MAIN
 				_LoadGameMain()
 
+			Case GameEvent.EVENT_GAME_START
+				_LoadGameMain()
+				PostEvent(gameEvent.LOAD_LEVEL_PARK_1)
 			Case GameEvent.EVENT_CIPHER_COMPLETE
 				_LoadGameMain()
 				PostEvent(GameEvent.LOAD_LEVEL_MALL_3)
@@ -173,6 +181,7 @@ Public Class MainGame
 				If Not m_animState.Playing And EventFlag(GameEvent.EVENT_WORD_GAME_COMPLETE) And Not EventFlag(GameEvent.EVENT_LOAD_ENDING_SCENE)
 					GameSoundPlayer.Play(GameSound.SOUND_TAKE_OFF)
 					GameSoundPlayer.PlayBgm(GameBgm.BGM_SHELTER)
+					sprBtnReplay.Show()
 					PostEvent(GameEvent.EVENT_LOAD_ENDING_SCENE)
 				End If
 				
@@ -217,4 +226,8 @@ Public Class MainGame
 
 		Return MyBase.ProcessCmdKey(msg, keyData)
 	End Function
+
+	Private Sub sprBtnReplay_Click(sender As Object, e As EventArgs) Handles sprBtnReplay.Click
+		Me.Close()
+	End Sub
 End Class

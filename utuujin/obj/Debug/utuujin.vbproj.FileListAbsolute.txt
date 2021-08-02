@@ -52,3 +52,4 @@ C:\Users\sanakan\Downloads\utuujin\utuujin\obj\Debug\utuujin.xml
 C:\Users\sanakan\Downloads\utuujin\utuujin\obj\Debug\utuujin.pdb
 C:\Users\sanakan\Downloads\utuujin\utuujin\obj\Debug\utuujin.vbproj.AssemblyReference.cache
 C:\Users\sanakan\Downloads\utuujin\utuujin\obj\Debug\utuujin.BoardHintScren.resources
+C:\Users\sanakan\Downloads\utuujin\utuujin\obj\Debug\utuujin.MainMenuScreen.resources

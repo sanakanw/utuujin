@@ -167,6 +167,16 @@ utuujin
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:utuujin.My.Resources.Resources.png_btn_play">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.png_btn_replay">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:utuujin.My.Resources.Resources.png_btn_shape_backdrop">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -258,6 +268,11 @@ utuujin
 </summary>
 </member>
 <member name="P:utuujin.My.Resources.Resources.png_star">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:utuujin.My.Resources.Resources.png_title">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
